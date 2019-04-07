@@ -1,0 +1,6 @@
+framework module Pods_IG_Direct {
+  umbrella header "Pods-IG Direct-umbrella.h"
+
+  export *
+  module * { export * }
+}
