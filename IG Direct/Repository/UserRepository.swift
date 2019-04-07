@@ -10,6 +10,13 @@ import RxSwift
 
 class UserRepository {
     
+    private let apiClient: IGApiClient
+    
+    init(_ apiClient: IGApiClient) {
+        self.apiClient = apiClient
+    }
+    
+    
     func signIn(with credentials: Credentials) -> Observable<User> {
         return Observable.just(User.ANNONYMOUS)
     }

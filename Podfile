@@ -14,6 +14,8 @@ target 'IG Direct' do
   pod 'RxSwift'
   pod 'RxCocoa'
 
+  pod 'Swinject'
+
 
   target 'IG DirectTests' do
     inherit! :search_paths
