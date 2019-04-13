@@ -24,6 +24,7 @@ class NodeTask: NSObject {
         
         super.init()
         
+        
         readPipe.fileHandleForReading.readabilityHandler = { [unowned self] (handler: FileHandle!) in
             self.queue.async {
                 if self.running {
@@ -32,6 +33,7 @@ class NodeTask: NSObject {
                 }
             }
         }
+        readPipe.fileHandleForReading.readInBackgroundAndNotify()
         
         errorPipe.fileHandleForReading.readabilityHandler = { [unowned self] (handler: FileHandle!) in
             self.queue.async {
@@ -83,19 +85,17 @@ class NodeTask: NSObject {
     private func onRead(_ data: Data) {
         
         let text = stringFromData(data)
-        if text != "" {
             print("Node: \(text)")
-        }
+        
     }
     
     private func onError(_ data: Data) {
         
         let text = stringFromData(data)
-        if text != "" {
             print("------------------------------ Node fatal error ------------------------------")
             print(text)
             self.terminate()
-        }
+        
     }
     
 }
