@@ -18,7 +18,13 @@
 		7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EDE2258E24800B0A234 /* Assets.xcassets */; };
 		7E874EE22258E24800B0A234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EE02258E24800B0A234 /* Main.storyboard */; };
 		7E874EEE2258E24800B0A234 /* IG_DirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EED2258E24800B0A234 /* IG_DirectTests.swift */; };
+		7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4BF22617317003EB627 /* NodeCore.swift */; };
+		7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C12261750A003EB627 /* AppLogic.swift */; };
+		7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C322617557003EB627 /* NodeAppLogic.swift */; };
+		7EBBF4C822617C31003EB627 /* node in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C722617C31003EB627 /* node */; };
 		7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED03CA72258E6F800C05565 /* LoginViewController.swift */; };
+		7EE983382260DC0500063B59 /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 7EE983372260DC0400063B59 /* app.bundle.js */; };
+		7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9833A2260DC6300063B59 /* NodeTask.swift */; };
 		973B70CC45F44A5C7D7C9986 /* Pods_IG_DirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00542445F9158F840E21596D /* Pods_IG_DirectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +57,13 @@
 		7E874EE92258E24800B0A234 /* IG DirectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IG DirectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E874EED2258E24800B0A234 /* IG_DirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IG_DirectTests.swift; sourceTree = "<group>"; };
 		7E874EEF2258E24800B0A234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EBBF4BF22617317003EB627 /* NodeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeCore.swift; sourceTree = "<group>"; };
+		7EBBF4C12261750A003EB627 /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
+		7EBBF4C322617557003EB627 /* NodeAppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAppLogic.swift; sourceTree = "<group>"; };
+		7EBBF4C722617C31003EB627 /* node */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = node; path = "IG Direct/Server/node"; sourceTree = SOURCE_ROOT; };
 		7ED03CA72258E6F800C05565 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7EE983372260DC0400063B59 /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.bundle.js; sourceTree = "<group>"; };
+		7EE9833A2260DC6300063B59 /* NodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTask.swift; sourceTree = "<group>"; };
 		8A42A238852A6DECE4927E72 /* Pods-IG DirectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG DirectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IG DirectTests/Pods-IG DirectTests.release.xcconfig"; sourceTree = "<group>"; };
 		E66CD8FE13DB03E464E2A59C /* Pods-IG DirectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG DirectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IG DirectTests/Pods-IG DirectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE8095CDA689A9600F897348 /* Pods-IG Direct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG Direct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IG Direct/Pods-IG Direct.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +126,7 @@
 		7E093A8D2258F4B600ED2830 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				7EBBF4C12261750A003EB627 /* AppLogic.swift */,
 				7E093A8E2258F4CC00ED2830 /* BaseViewModel.swift */,
 			);
 			path = Base;
@@ -142,6 +155,8 @@
 		7E874ED92258E24700B0A234 /* IG Direct */ = {
 			isa = PBXGroup;
 			children = (
+				7EE983392260DC4B00063B59 /* Core */,
+				7EE983362260D7A300063B59 /* Server */,
 				7E093A8D2258F4B600ED2830 /* Base */,
 				7E093A882258F14300ED2830 /* Network */,
 				7E093A872258F13700ED2830 /* Repository */,
@@ -180,6 +195,25 @@
 				7E093A902258F58400ED2830 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7EE983362260D7A300063B59 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				7EBBF4C722617C31003EB627 /* node */,
+				7EE983372260DC0400063B59 /* app.bundle.js */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		7EE983392260DC4B00063B59 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7EE9833A2260DC6300063B59 /* NodeTask.swift */,
+				7EBBF4BF22617317003EB627 /* NodeCore.swift */,
+				7EBBF4C322617557003EB627 /* NodeAppLogic.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		9A36865925EB85C1F247EA2E /* Pods */ = {
@@ -277,8 +311,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EBBF4C822617C31003EB627 /* node in Resources */,
 				7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */,
 				7E874EE22258E24800B0A234 /* Main.storyboard in Resources */,
+				7EE983382260DC0500063B59 /* app.bundle.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +402,12 @@
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
+				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
+				7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
+				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
+				7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,6 @@ class LoginViewController: NSViewController {
 
   
     override func viewDidLoad() {
-        print("view did load")
         super.viewDidLoad()
         setupBinding()
     }

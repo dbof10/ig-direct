@@ -29,7 +29,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
+    private let nodeCore = NodeCore()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        nodeCore.lunchServer()
+        
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: Bundle.main)
         let window = storyboard.instantiateController(withIdentifier: "MainWindowController") as! NSWindowController
         let loginViewController = storyboard.instantiateController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -43,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        nodeCore.shutdown()
     }
     
     

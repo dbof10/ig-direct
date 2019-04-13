@@ -1,0 +1,30 @@
+{
+  "name": "igdirect",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "ig": "./bin/app.bundle.js"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/babel-node app.js",
+    "build": "rm -rf bin && webpack --mode production --config webpack.config.js --progress --colors"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "instagram-private-api": "^0.6.8",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
