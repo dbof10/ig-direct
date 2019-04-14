@@ -18,7 +18,7 @@ interval(POLLING_INTERVAL).pipe(
         }
     },
     function (err) {
-        console.log('Error: ' + err);
+        console.error('Error: ' + err);
         shutdown();
     }
 );

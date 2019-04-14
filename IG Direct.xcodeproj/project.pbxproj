@@ -14,6 +14,8 @@
 		7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A902258F58400ED2830 /* LoginViewModel.swift */; };
 		7E093A932258F65300ED2830 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A922258F65300ED2830 /* Credentials.swift */; };
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
+		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
+		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
 		7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EDA2258E24700B0A234 /* AppDelegate.swift */; };
 		7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EDE2258E24800B0A234 /* Assets.xcassets */; };
 		7E874EE22258E24800B0A234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EE02258E24800B0A234 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		7E093A902258F58400ED2830 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7E093A922258F65300ED2830 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
+		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
+		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
 		7E874ED72258E24700B0A234 /* IG Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IG Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E874EDA2258E24700B0A234 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E874EDE2258E24800B0A234 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +136,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		7E3913A72262E8F7003B68A0 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		7E874ECE2258E24700B0A234 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +167,7 @@
 		7E874ED92258E24700B0A234 /* IG Direct */ = {
 			isa = PBXGroup;
 			children = (
+				7E3913A72262E8F7003B68A0 /* Rx */,
 				7EE983392260DC4B00063B59 /* Core */,
 				7EE983362260D7A300063B59 /* Server */,
 				7E093A8D2258F4B600ED2830 /* Base */,
@@ -212,6 +225,7 @@
 				7EE9833A2260DC6300063B59 /* NodeTask.swift */,
 				7EBBF4BF22617317003EB627 /* NodeCore.swift */,
 				7EBBF4C322617557003EB627 /* NodeAppLogic.swift */,
+				7E3913A52262CAF1003B68A0 /* NodeError.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -401,10 +415,12 @@
 				7E093A932258F65300ED2830 /* Credentials.swift in Sources */,
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
+				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
 				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
 				7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */,
+				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
 				7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */,

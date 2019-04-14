@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import RxSwift
 
 class NodeTask: NSObject {
     
@@ -19,21 +20,22 @@ class NodeTask: NSObject {
     private let queue = DispatchQueue(label: "NodeTask.output.queue")
     
     private var running = false
+    private let outputSubject = PublishSubject<Result<String, Error>>()
     
     init(nodeJSPath: String, appPath: String, currentDirectoryPath: String) {
-        
         super.init()
         
+    
+        nodeTask.currentDirectoryPath = currentDirectoryPath
+        nodeTask.launchPath = nodeJSPath
+        nodeTask.arguments = [appPath, "\(processIdentifier)"]
+        nodeTask.qualityOfService = .userInitiated
+        nodeTask.standardOutput = readPipe
+        nodeTask.standardError = errorPipe
         
-        readPipe.fileHandleForReading.readabilityHandler = { [unowned self] (handler: FileHandle!) in
-            self.queue.async {
-                if self.running {
-                    let data = handler.readDataToEndOfFile()
-                    self.onRead(data)
-                }
-            }
-        }
-        readPipe.fileHandleForReading.readInBackgroundAndNotify()
+        readPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        
+      
         
         errorPipe.fileHandleForReading.readabilityHandler = { [unowned self] (handler: FileHandle!) in
             self.queue.async {
@@ -44,16 +46,10 @@ class NodeTask: NSObject {
             }
         }
         
-        nodeTask.currentDirectoryPath = currentDirectoryPath
-        nodeTask.launchPath = nodeJSPath
-        nodeTask.arguments = [appPath, "\(processIdentifier)"]
-        nodeTask.qualityOfService = .userInitiated
-        nodeTask.standardOutput = readPipe
-        nodeTask.standardError = errorPipe
     }
     
-    deinit {
-        self.terminate()
+    func observeTaskStatus() -> Observable<Result<String, Error>> {
+        return outputSubject.asObservable()
     }
     
     func launch() {
@@ -61,18 +57,39 @@ class NodeTask: NSObject {
         if !running {
             print("------------------------------ Node launch ------------------------------")
             running = true
+            registerObserveTaskOutput()
             nodeTask.launch()
         }
     }
     
+    private func registerObserveTaskOutput() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: readPipe.fileHandleForReading , queue: nil) {
+            notification in
+            
+            let output = self.readPipe.fileHandleForReading.availableData
+            let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
+            
+            if !outputString.isEmpty {
+            self.outputSubject.onNext(.success(outputString))
+            }
+            self.readPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        }
+    }
     
-     func terminate() {
+    private func unregisterObserveTaskOutput() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSFileHandleDataAvailable,
+                                                  object: readPipe.fileHandleForReading)
+    }
+    
+    
+    func terminate() {
         
         if running {
             print("------------------------------ Node quit ------------------------------")
             running = false
             readPipe.fileHandleForReading.closeFile()
             errorPipe.fileHandleForReading.closeFile()
+            unregisterObserveTaskOutput()
             nodeTask.terminate()
         }
         
@@ -82,19 +99,13 @@ class NodeTask: NSObject {
         return NSString(data: data, encoding: String.Encoding.utf8.rawValue)!.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) as String
     }
     
-    private func onRead(_ data: Data) {
-        
-        let text = stringFromData(data)
-            print("Node: \(text)")
-        
-    }
-    
+
     private func onError(_ data: Data) {
         
         let text = stringFromData(data)
-            print("------------------------------ Node fatal error ------------------------------")
-            print(text)
-            self.terminate()
+        print("------------------------------ Node fatal error ------------------------------")
+        outputSubject.onNext(.failure(NodeError(message: text)))
+        self.terminate()
         
     }
     

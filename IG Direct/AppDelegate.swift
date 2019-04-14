@@ -12,8 +12,21 @@ import Swinject
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let container = Container() { container in
-        container.register(IGApiClient.self) { _ in IGApiClient() }
+    private let container = Container() { container in
+        container.register(ThreadScheduler.self) {
+            _ in WorkerThreadScheduler()
+            }
+            .inObjectScope(.container)
+        
+        container.register(NodeCore.self) { r in
+            let threadScheduler = r.resolve(ThreadScheduler.self)!
+            return NodeCore(context: NSApplication.shared, threadScheduler)
+            }
+            .inObjectScope(.container)
+        
+        container.register(IGApiClient.self) {
+            _ in IGApiClient()
+            }
             .inObjectScope(.container)
         
         //repository
@@ -29,22 +42,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
-    private let nodeCore = NodeCore()
+    private var nodeCore: NodeCore!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        nodeCore = container.resolve(NodeCore.self)!
         nodeCore.lunchServer()
         
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: Bundle.main)
-        let window = storyboard.instantiateController(withIdentifier: "MainWindowController") as! NSWindowController
+        let windowController = storyboard.instantiateController(withIdentifier: "MainWindowController") as! NSWindowController
         let loginViewController = storyboard.instantiateController(withIdentifier: "LoginViewController") as! LoginViewController
         
         loginViewController.viewModel = container.resolve(LoginViewModel.self)
-        window.contentViewController = loginViewController
+        windowController.contentViewController = loginViewController
         
-        window.showWindow(self)
+        windowController.showWindow(self)
+        
+       
     }
-    
-    
     
     func applicationWillTerminate(_ aNotification: Notification) {
         nodeCore.shutdown()
