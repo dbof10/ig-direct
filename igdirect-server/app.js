@@ -1,8 +1,9 @@
 import express from 'express';
-import {interval, Observable, throwError, defer} from 'rxjs';
+import {interval, throwError, defer, of} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
+import {getDevice, getCookieStorage,clearCookieFiles, encodeBase64} from "./utils";
 
-var Client = require('instagram-private-api').V1;
+const Client = require('instagram-private-api').V1;
 
 const PORT = 5000;
 const POLLING_INTERVAL = 1000;
@@ -11,8 +12,6 @@ interval(POLLING_INTERVAL).pipe(
     switchMap(() => isParentRunning())
 ).subscribe(
     function (isRunning) {
-        console.log("server status isRunning " + isRunning);
-
         if (isRunning !== true) {
             shutdown();
         }
@@ -26,12 +25,56 @@ interval(POLLING_INTERVAL).pipe(
 
 // Set up the express app
 const app = express();
+app.use(express.json());
+
 // get all todos
-app.get('/api/v1/todos', (req, res) => {
-    res.status(200).send({
-        success: 'true',
-        message: 'todos retrieved successfully',
+app.post('/api/v1/login', (req, res) => {
+
+    let userName = req.body.userName;
+    let password = req.body.password;
+    let encodedUserName = encodeBase64(userName);
+    defer(async function login() {
+        const device = getDevice(encodedUserName);
+        const storage = getCookieStorage(`${encodedUserName}.json`);
+        return  Client.Session.create(device, storage, userName, password)
     })
+        .subscribe(
+            function () {
+                res.status(200).send({
+                    success: 'true'
+                })
+            },
+            function (err) {
+                res.status(401).send({
+                    error: err
+                })
+            }
+        );
+
+
+});
+
+app.post('/api/v1/logout', (req, res) => {
+
+    let userName = req.body.userName;
+    let encodedUserName = encodeBase64(userName);
+    defer(async function logout() {
+        return clearCookieFiles(`${encodedUserName}.json`);
+    })
+        .subscribe(
+            function (value) {
+                res.status(200).send({
+                    success: value
+                })
+            },
+            function (err) {
+                res.status(404).send({
+                    error: err
+                })
+            }
+        );
+
+
 });
 
 const server = app.listen(PORT, () => {
@@ -40,13 +83,17 @@ const server = app.listen(PORT, () => {
 
 function isParentRunning() {
 
-    if (process.argv.length < 3) {
-        return throwError("Node is run without parentId argument")
+    if (process.env.NODE_ENV !== 'production') {
+        return of(true)
     } else {
-        return defer( async function() {
-            let parentProcessId = process.argv[2];
-            return require('is-running')(parentProcessId)
-        })
+        if (process.argv.length < 3) {
+            return throwError("Node is run without parentId argument")
+        } else {
+            return defer(async function () {
+                let parentProcessId = process.argv[2];
+                return require('is-running')(parentProcessId)
+            })
+        }
     }
 
 }
