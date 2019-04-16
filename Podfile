@@ -15,6 +15,7 @@ target 'IG Direct' do
   pod 'RxCocoa'
 
   pod 'Swinject'
+  pod 'KeychainAccess'
 
 
   target 'IG DirectTests' do
