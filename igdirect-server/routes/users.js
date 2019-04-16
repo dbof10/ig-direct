@@ -1,5 +1,7 @@
 import {clearCookieFiles, encodeBase64, getCookieStorage, getDevice} from "../utils";
 import {defer} from "rxjs";
+import {switchMap} from "rxjs/operators";
+import {sign} from "../jwt";
 
 const express = require('express');
 const router = express.Router();
@@ -10,15 +12,24 @@ router.post('/login', (req, res) => {
   let userName = req.body.userName;
   let password = req.body.password;
   let encodedUserName = encodeBase64(userName);
+  let sessionPath = `${encodedUserName}.json`;
   defer(async function login() {
+
     const device = getDevice(encodedUserName);
-    const storage = getCookieStorage(`${encodedUserName}.json`);
+    const storage = getCookieStorage(sessionPath);
     return Client.Session.create(device, storage, userName, password)
-  })
+  }).pipe(switchMap(() => {
+      return defer(async function getSession() {
+          return sign({
+              userName,
+              password
+          })
+        })
+  }))
       .subscribe(
-          function () {
+          function (session) {
             res.status(200).send({
-              success: 'true'
+              session
             })
           },
           function (err) {

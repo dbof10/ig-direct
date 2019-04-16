@@ -1,7 +1,10 @@
 import express from 'express';
 import {interval, throwError, defer, of} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
-var usersRouter = require('./routes/users');
+import {authenticate} from './middleware/authenticate';
+
+const usersRouter = require('./routes/users');
+const chatRouter = require('./routes/chat');
 
 const PORT = 5000;
 const POLLING_INTERVAL = 1000;
@@ -24,7 +27,9 @@ interval(POLLING_INTERVAL).pipe(
 // Set up the express app
 const app = express();
 app.use(express.json());
+app.use(authenticate);
 app.use('/users', usersRouter);
+app.use('/chat', chatRouter);
 
 const server = app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)

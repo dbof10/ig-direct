@@ -20,6 +20,7 @@
     "http-errors": "~1.6.2",
     "instagram-private-api": "^0.6.8",
     "is-running": "^2.1.0",
+    "jsonwebtoken": "^8.5.1",
     "rxjs": "^6.4.0"
   },
   "devDependencies": {

@@ -5,7 +5,7 @@ export const getDevice = (username) => {
     return new Client.Device(username);
 };
 
-const buildAndGetStoragePath = () => {
+const getStoragePath = () => {
     const storagePath = __dirname + '/session-cookie';
     if (!fs.existsSync(storagePath)) {
         fs.mkdirSync(storagePath)
@@ -15,7 +15,7 @@ const buildAndGetStoragePath = () => {
 
 export const getCookieStorage = (filePath) => {
     let storage;
-    storage = new Client.CookieFileStorage(`${buildAndGetStoragePath()}/${filePath}`);
+    storage = new Client.CookieFileStorage(`${getStoragePath()}/${filePath}`);
     return storage;
 };
 
@@ -24,10 +24,10 @@ export const encodeBase64 = (string) => {
 };
 
 export const clearCookieFiles = (filePath) => {
-    if (fs.existsSync(buildAndGetStoragePath())) {
-        fs.readdirSync(`${buildAndGetStoragePath()}`).forEach((filename) => {
+    if (fs.existsSync(getStoragePath())) {
+        fs.readdirSync(`${getStoragePath()}`).forEach((filename) => {
             if (filePath === filename) {
-                fs.unlinkSync(`${buildAndGetStoragePath()}/${filename}`);
+                fs.unlinkSync(`${getStoragePath()}/${filename}`);
             }
         });
         return true
