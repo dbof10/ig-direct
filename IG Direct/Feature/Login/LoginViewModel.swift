@@ -49,19 +49,19 @@ class LoginViewModel: BaseViewModel {
                         errorsObservable: errorsSubject.asObservable())
         
         signInDidTapSubject
+            .do(onNext: { () in
+                print("User successfully signed in ")
+
+            })
             .withLatestFrom(credentialsObservable)
             .flatMapLatest { credentials in
-                return repo.signIn(with: credentials).materialize()
+                return repo.signIn(with: credentials)
             }
-            .subscribe(onNext: { [weak self] event in
-                switch event {
-                case .next(let user):
-                    self?.loginResultSubject.onNext(user)
-                case .error(let error):
-                    self?.errorsSubject.onNext(error)
-                default:
-                    break
-                }
+            .subscribe(onNext: { (user: User) in
+                self.loginResultSubject.onNext(user)
+            }, onError: {(error: Error) in
+                self.errorsSubject.onNext(error)
+
             })
             .disposed(by: disposeBag)
     }

@@ -24,6 +24,8 @@
 		7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C12261750A003EB627 /* AppLogic.swift */; };
 		7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C322617557003EB627 /* NodeAppLogic.swift */; };
 		7EBBF4C822617C31003EB627 /* node in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C722617C31003EB627 /* node */; };
+		7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC922F3226622F9007E5008 /* UserSecretManager.swift */; };
+		7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC922F7226627D1007E5008 /* LoginResponse.swift */; };
 		7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED03CA72258E6F800C05565 /* LoginViewController.swift */; };
 		7EE983382260DC0500063B59 /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 7EE983372260DC0400063B59 /* app.bundle.js */; };
 		7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9833A2260DC6300063B59 /* NodeTask.swift */; };
@@ -65,6 +67,8 @@
 		7EBBF4C12261750A003EB627 /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
 		7EBBF4C322617557003EB627 /* NodeAppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAppLogic.swift; sourceTree = "<group>"; };
 		7EBBF4C722617C31003EB627 /* node */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = node; path = "IG Direct/Server/node"; sourceTree = SOURCE_ROOT; };
+		7EC922F3226622F9007E5008 /* UserSecretManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSecretManager.swift; sourceTree = "<group>"; };
+		7EC922F7226627D1007E5008 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		7ED03CA72258E6F800C05565 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7EE983372260DC0400063B59 /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.bundle.js; sourceTree = "<group>"; };
 		7EE9833A2260DC6300063B59 /* NodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTask.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				7E093A8B2258F17E00ED2830 /* UserRepository.swift */,
+				7EC922F3226622F9007E5008 /* UserSecretManager.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -122,6 +127,8 @@
 		7E093A882258F14300ED2830 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7EC922F6226627C2007E5008 /* Response */,
+				7EC922F5226627BB007E5008 /* Request */,
 				7E23BDC3225A397700A3DE07 /* IGApiClient.swift */,
 			);
 			path = Network;
@@ -191,6 +198,21 @@
 				7E874EEF2258E24800B0A234 /* Info.plist */,
 			);
 			path = "IG DirectTests";
+			sourceTree = "<group>";
+		};
+		7EC922F5226627BB007E5008 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		7EC922F6226627C2007E5008 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7EC922F7226627D1007E5008 /* LoginResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		7ED03CA92258E76400C05565 /* Feature */ = {
@@ -416,8 +438,10 @@
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
+				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
 				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
+				7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
 				7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */,
 				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,

@@ -40,8 +40,8 @@ function isParentRunning() {
     if (process.env.NODE_ENV !== 'production') {
         return of(true)
     } else {
-        if (process.argv.length < 3) {
-            return throwError("Node is run without parentId argument")
+        if (process.argv.length < 4) {
+            return throwError("Missing required argument")
         } else {
             return defer(async function () {
                 let parentProcessId = process.argv[2];

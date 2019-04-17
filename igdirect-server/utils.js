@@ -1,3 +1,5 @@
+import {of} from "rxjs";
+
 const Client = require('instagram-private-api').V1;
 const fs = require('fs');
 
@@ -6,7 +8,14 @@ export const getDevice = (username) => {
 };
 
 const getStoragePath = () => {
-    const storagePath = __dirname + '/session-cookie';
+    let currentPath;
+    if (process.env.NODE_ENV !== 'production') {
+        currentPath = __dirname
+    } else  {
+        currentPath = process.argv[3]
+    }
+
+    const storagePath = currentPath + '/session-cookie';
     if (!fs.existsSync(storagePath)) {
         fs.mkdirSync(storagePath)
     }

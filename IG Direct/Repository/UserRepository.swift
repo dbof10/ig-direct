@@ -11,13 +11,21 @@ import RxSwift
 class UserRepository {
     
     private let apiClient: IGApiClient
-    
-    init(_ apiClient: IGApiClient) {
+    private let userSecret: UserSecretManager
+    init(_ apiClient: IGApiClient, _ userSecret: UserSecretManager) {
         self.apiClient = apiClient
+        self.userSecret = userSecret
     }
     
     
-    func signIn(with credentials: Credentials) -> Observable<User> {
-        return Observable.just(User.ANNONYMOUS)
+    func signIn(with credentials: Credentials) -> Single<User> {
+        return apiClient.login(credentials: credentials)
+            .do(onSuccess: { (respose: LoginResponse) in
+                self.userSecret.setUserToken(token: respose.session)
+            })
+            .map {_ in 
+                User(name: "Name")
+            }
+        
     }
 }

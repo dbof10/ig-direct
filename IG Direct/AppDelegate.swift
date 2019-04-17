@@ -8,6 +8,7 @@
 
 import Cocoa
 import Swinject
+import KeychainAccess
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -29,11 +30,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             .inObjectScope(.container)
         
-        //repository
-        container.register(UserRepository.self) { r in
-            UserRepository(r.resolve(IGApiClient.self)!)
+        container.register(UserSecretManager.self) { _ in
+            let keychain = Keychain(service: "com.ctech.igdirect")
+            return UserSecretManager(keychain)
             }.inObjectScope(.container)
         
+        //repository
+        container.register(UserRepository.self) { r in
+            UserRepository(r.resolve(IGApiClient.self)!, r.resolve(UserSecretManager.self)!)
+            }.inObjectScope(.container)
+        
+     
         
         //viewmodel
         container.register(LoginViewModel.self) { r in

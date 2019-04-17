@@ -25,10 +25,16 @@ class NodeTask: NSObject {
     init(nodeJSPath: String, appPath: String, currentDirectoryPath: String) {
         super.init()
         
-    
+        let documents = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as NSString
+        let writePath = documents.appendingPathComponent(Bundle.main.bundleIdentifier!)
+
+        guard (createFolder(folderName: writePath) != nil) else {
+            return
+        }
+        
         nodeTask.currentDirectoryPath = currentDirectoryPath
         nodeTask.launchPath = nodeJSPath
-        nodeTask.arguments = [appPath, "\(processIdentifier)"]
+        nodeTask.arguments = [appPath, "\(processIdentifier)", "\(writePath)"]
         nodeTask.qualityOfService = .userInitiated
         nodeTask.standardOutput = readPipe
         nodeTask.standardError = errorPipe
@@ -108,5 +114,26 @@ class NodeTask: NSObject {
         self.terminate()
         
     }
+    
+    private func createFolder(folderName: String) -> URL? {
+        let fileManager = FileManager.default
+        if let documentDirectory = fileManager.urls(for: .documentDirectory,
+                                                    in: .userDomainMask).first {
+            let folderURL = documentDirectory.appendingPathComponent(folderName)
+            if !fileManager.fileExists(atPath: folderURL.path) {
+                do {
+                    try fileManager.createDirectory(atPath: folderURL.path,
+                                                    withIntermediateDirectories: true,
+                                                    attributes: nil)
+                } catch {
+                    print(error.localizedDescription)
+                    return nil
+                }
+            }
+            return folderURL
+        }
+        return nil
+    }
+    
     
 }
