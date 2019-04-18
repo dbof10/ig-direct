@@ -14,6 +14,11 @@ import KeychainAccess
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     private let container = Container() { container in
+        container.register(UserSecretManager.self) { _ in
+            let keychain = Keychain(service: "com.ctech.igdirect")
+            return UserSecretManager(keychain)
+            }.inObjectScope(.container)
+        
         container.register(ThreadScheduler.self) {
             _ in WorkerThreadScheduler()
             }
@@ -25,15 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             .inObjectScope(.container)
         
-        container.register(IGApiClient.self) {
-            _ in IGApiClient()
+        container.register(IGApiClient.self) { r in
+            IGApiClient(r.resolve(UserSecretManager.self)!)
             }
             .inObjectScope(.container)
-        
-        container.register(UserSecretManager.self) { _ in
-            let keychain = Keychain(service: "com.ctech.igdirect")
-            return UserSecretManager(keychain)
-            }.inObjectScope(.container)
         
         //repository
         container.register(UserRepository.self) { r in

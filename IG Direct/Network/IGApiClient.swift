@@ -24,13 +24,15 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
 class IGApiClient {
     
     private let client: MoyaProvider<IgDirect>
+    private let userSecret: UserSecretManager
     
-    
-    init() {
+    init(_ userSecret: UserSecretManager) {
+        self.userSecret = userSecret
         let endpointClosure = { (target: IgDirect) -> Endpoint in
             let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
+            let token = userSecret.getUserToken()
             return defaultEndpoint
-            // .adding(newHTTPHeaderFields:["Authorization":"Client-ID \(Unsplash.CLIENT_ID)"])
+            .adding(newHTTPHeaderFields:["x-session": token])
         }
         client = MoyaProvider<IgDirect>( endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true,
                                                                                                          cURL: false,

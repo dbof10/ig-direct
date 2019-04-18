@@ -24,7 +24,7 @@ class UserSecretManager {
     }
     
     func getUserToken() -> String {
-        return keychain[KEY_TOKEN]!
+        return keychain[KEY_TOKEN] ?? ""
     }
     
 }
