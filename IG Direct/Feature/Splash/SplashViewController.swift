@@ -1,46 +1,29 @@
 //
-//  LoginViewController.swift
+//  SplashViewController.swift
 //  IG Direct
 //
-//  Created by Daniel Lee on 4/6/19.
+//  Created by Daniel Lee on 4/18/19.
 //  Copyright © 2019 Ctech. All rights reserved.
 //
 
 import Cocoa
 import RxSwift
-import RxCocoa
 import SwinjectStoryboard
 
-class LoginViewController: NSViewController {
+class SplashViewController: NSViewController {
     
-    @IBOutlet weak var etEmail: NSTextField!
+    var viewModel: SplashViewModel!
     
-    @IBOutlet weak var etPassword: NSSecureTextField!
-    
-    @IBOutlet weak var btLogin: NSButton!
-    
-    var viewModel: LoginViewModel!
-
     private let disposeBag = DisposeBag()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
+        viewModel.viewDidLoad()
     }
     
     private func setupBinding() {
-        
-        etEmail.rx.text.orEmpty
-            .subscribe(viewModel.input.email)
-            .disposed(by: disposeBag)
-        
-        etPassword.rx.text.orEmpty
-            .subscribe(viewModel.input.password)
-            .disposed(by: disposeBag)
-        
-        btLogin.rx.tap.asObservable()
-            .subscribe(viewModel.input.signInDidTap)
-            .disposed(by: disposeBag)
+
         
         viewModel.output.errorsObservable
             .subscribe(onNext: { [unowned self] (error) in
@@ -50,10 +33,25 @@ class LoginViewController: NSViewController {
         
         viewModel.output.loginResultObservable
             .subscribe(onNext: { [unowned self] (user) in
-                self.showChat()
+                if(user == User.ANONYMOUS) {
+                    self.showLogin()
+                } else {
+                    self.showChat()
+                }
             })
             .disposed(by: disposeBag)
     }
+    
+    private func showLogin() {
+        let appDelegate = (NSApplication.shared.delegate as! AppDelegate)
+        let container = appDelegate.container
+        let bundle = Bundle(for: LoginViewController.self)
+        let storyboard = SwinjectStoryboard.create(name: "Main", bundle: bundle, container: container)
+        let loginViewController = storyboard.instantiateController(withIdentifier: "LoginViewController") as! LoginViewController
+        appDelegate.windowController.contentViewController = loginViewController
+        appDelegate.windowController.showWindow(appDelegate)
+    }
+    
     
     private func showChat() {
         let appDelegate = (NSApplication.shared.delegate as! AppDelegate)
@@ -65,4 +63,3 @@ class LoginViewController: NSViewController {
         appDelegate.windowController.showWindow(appDelegate)
     }
 }
-

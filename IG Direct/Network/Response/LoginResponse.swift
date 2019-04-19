@@ -10,15 +10,19 @@ import Foundation
 import ObjectMapper
 
 // MARK: Initializer and Properties
-struct LoginResponse: Mappable {
+struct LoginResponse: ImmutableMappable {
     
-    var session: String!
+    let token: String
+    let user: User
+    // MARK: JSO
+    init(map: Map) throws {
+        token = try map.value("token")
+        user = try map.value("user")
+    }
     
-    // MARK: JSON
-    init?(map: Map) { }
-    
-    mutating func mapping(map: Map) {
-        session <- map["session"]
+    func mapping(map: Map) {
+        token >>> map["token"]
+        user >>> map["user"]
     }
     
 }

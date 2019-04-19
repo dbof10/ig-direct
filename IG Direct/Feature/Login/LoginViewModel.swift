@@ -32,7 +32,7 @@ class LoginViewModel: BaseViewModel {
     private let loginResultSubject = PublishSubject<User>()
     private let errorsSubject = PublishSubject<Error>()
     private let disposeBag = DisposeBag()
-    
+
     private var credentialsObservable: Observable<Credentials> {
         return Observable.combineLatest(emailSubject.asObservable(), passwordSubject.asObservable()) { (email, password) in
             return Credentials(email: email, password: password)
@@ -49,10 +49,6 @@ class LoginViewModel: BaseViewModel {
                         errorsObservable: errorsSubject.asObservable())
         
         signInDidTapSubject
-            .do(onNext: { () in
-                print("User successfully signed in ")
-
-            })
             .withLatestFrom(credentialsObservable)
             .flatMapLatest { credentials in
                 return repo.signIn(with: credentials)

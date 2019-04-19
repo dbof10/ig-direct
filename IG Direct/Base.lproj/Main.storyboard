@@ -698,16 +698,80 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="PSx-nP-xbV">
+            <objects>
+                <splitViewController identifier="ChatViewController" storyboardIdentifier="ChatViewController" id="95c-8j-dGi" customClass="ChatViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="fyr-jg-noQ"/>
+                        <splitViewItem id="fsd-Yb-6aA"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="r3D-vR-DJx">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="95c-8j-dGi" id="Gs3-KM-URF"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="r3D-vR-DJx" id="a9e-kI-Vcy"/>
+                        <segue destination="O6a-9f-MH7" kind="relationship" relationship="splitItems" id="gib-sT-IOD"/>
+                        <segue destination="ENt-kC-k4Y" kind="relationship" relationship="splitItems" id="Vod-Lz-K1U"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="xCL-m0-Nr4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-477" y="991"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MIc-WI-BdH">
+            <objects>
+                <viewController id="O6a-9f-MH7" sceneMemberID="viewController">
+                    <view key="view" id="OzC-Sh-Fe9">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="w5G-6B-dgq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-765" y="1431"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GPp-pg-8gj">
+            <objects>
+                <viewController id="ENt-kC-k4Y" sceneMemberID="viewController">
+                    <view key="view" id="YJG-h3-dne">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="S7t-Bc-UFz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258" y="1431"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="Nho-1m-pfn">
+            <objects>
+                <viewController identifier="SplashViewController" storyboardIdentifier="SplashViewController" id="0P8-cf-FFg" customClass="SplashViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="oZT-FP-xOY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="LRu-19-Hzk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="633"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController identifier="LoginViewController" storyboardIdentifier="LoginViewController" id="XfG-lQ-9wD" customClass="LoginViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-Jq-QgW">
-                                <rect key="frame" x="74" y="203" width="330" height="22"/>
+                                <rect key="frame" x="74" y="233" width="450" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="8sc-67-3cE">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -715,14 +779,14 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-Ih-kuF">
-                                <rect key="frame" x="203" y="81" width="74" height="32"/>
+                                <rect key="frame" x="263" y="111" width="74" height="32"/>
                                 <buttonCell key="cell" type="push" title="Login" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bJn-HM-fuw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psg-3g-IEj">
-                                <rect key="frame" x="74" y="147" width="330" height="22"/>
+                                <rect key="frame" x="74" y="177" width="450" height="22"/>
                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="9XK-wn-J4J">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -752,7 +816,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="221" y="1000"/>
         </scene>
     </scenes>
 </document>

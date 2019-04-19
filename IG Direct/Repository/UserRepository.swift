@@ -21,10 +21,11 @@ class UserRepository {
     func signIn(with credentials: Credentials) -> Single<User> {
         return apiClient.login(credentials: credentials)
             .do(onSuccess: { (respose: LoginResponse) in
-                self.userSecret.setUserToken(token: respose.session)
+                self.userSecret.setUserToken(token: respose.token)
+                self.userSecret.setUser(user: respose.user)
             })
-            .map {_ in 
-                User(name: "Name")
+            .map { (response: LoginResponse) in
+                response.user
             }
         
     }

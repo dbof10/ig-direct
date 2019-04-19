@@ -42,6 +42,7 @@ class IGApiClient {
     
     func login(credentials: Credentials) -> Single<LoginResponse> {
         return client.rx.request(.login(credentials.email, credentials.password))
+            .filterSuccessfulStatusCodes()
             .mapObject(LoginResponse.self)
     }
 }

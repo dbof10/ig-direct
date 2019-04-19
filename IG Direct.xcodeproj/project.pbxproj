@@ -16,6 +16,10 @@
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
+		7E4F80202268B9A000AFE94F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4F801F2268B9A000AFE94F /* SplashViewController.swift */; };
+		7E4F80222268B9B600AFE94F /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4F80212268B9B600AFE94F /* SplashViewModel.swift */; };
+		7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E482269625800843A26 /* NSViewController+Rx.swift */; };
+		7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E4A226962EA00843A26 /* ChatViewController.swift */; };
 		7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EDA2258E24700B0A234 /* AppDelegate.swift */; };
 		7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EDE2258E24800B0A234 /* Assets.xcassets */; };
 		7E874EE22258E24800B0A234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EE02258E24800B0A234 /* Main.storyboard */; };
@@ -54,6 +58,10 @@
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
+		7E4F801F2268B9A000AFE94F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7E4F80212268B9B600AFE94F /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		7E823E482269625800843A26 /* NSViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Rx.swift"; sourceTree = "<group>"; };
+		7E823E4A226962EA00843A26 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7E874ED72258E24700B0A234 /* IG Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IG Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E874EDA2258E24700B0A234 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E874EDE2258E24800B0A234 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,8 +155,26 @@
 			isa = PBXGroup;
 			children = (
 				7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */,
+				7E823E482269625800843A26 /* NSViewController+Rx.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		7E4F801D2268B94300AFE94F /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				7E4F801F2268B9A000AFE94F /* SplashViewController.swift */,
+				7E4F80212268B9B600AFE94F /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		7E4F801E2268B95200AFE94F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7E823E4A226962EA00843A26 /* ChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		7E874ECE2258E24700B0A234 = {
@@ -218,6 +244,8 @@
 		7ED03CA92258E76400C05565 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				7E4F801E2268B95200AFE94F /* Chat */,
+				7E4F801D2268B94300AFE94F /* Splash */,
 				7ED03CAA2258E76D00C05565 /* Login */,
 			);
 			path = Feature;
@@ -435,11 +463,14 @@
 				7E093A8A2258F15500ED2830 /* User.swift in Sources */,
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
 				7E093A932258F65300ED2830 /* Credentials.swift in Sources */,
+				7E4F80222268B9B600AFE94F /* SplashViewModel.swift in Sources */,
+				7E4F80202268B9A000AFE94F /* SplashViewController.swift in Sources */,
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
 				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
+				7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */,
 				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
 				7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
@@ -447,6 +478,7 @@
 				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
+				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
 				7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
