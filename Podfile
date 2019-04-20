@@ -16,8 +16,7 @@ target 'IG Direct' do
 
   pod 'Swinject'
   pod 'SwinjectStoryboard'
-  pod 'KeychainAccess'
-
+  pod  'SDWebImage'
 
   target 'IG DirectTests' do
     inherit! :search_paths

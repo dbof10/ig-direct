@@ -8,16 +8,16 @@
 
 import Cocoa
 import Swinject
-import KeychainAccess
 import SwinjectStoryboard
-
+import RxSwift
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    private let SERVER_STATUS_OK = "100"
+    
     let container = Container() { container in
         container.register(UserSecretManager.self) { _ in
-            let keychain = Keychain(service: "com.ctech.igdirect")
-            return UserSecretManager(keychain, UserDefaults.standard)
+            return UserSecretManager(UserDefaults.standard)
             }.inObjectScope(.container)
         
         container.register(ThreadScheduler.self) {
@@ -41,14 +41,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             UserRepository(r.resolve(IGApiClient.self)!, r.resolve(UserSecretManager.self)!)
             }.inObjectScope(.container)
         
-     
-
+        container.register(ChatRepository.self) { r in
+            ChatRepository(r.resolve(IGApiClient.self)!)
+            }.inObjectScope(.container)
+        
+        
         //viewmodel
         container.register(LoginViewModel.self) { r in
             LoginViewModel(r.resolve(UserRepository.self)!)
         }
-        container.register(SplashViewModel.self) { r in
-            SplashViewModel(r.resolve(UserSecretManager.self)!, r.resolve(ThreadScheduler.self)!)
+        container.register(ChatListViewModel.self) { r in
+            ChatListViewModel(r.resolve(ChatRepository.self)!, r.resolve(ThreadScheduler.self)!)
         }
         
         
@@ -57,13 +60,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             c.viewModel = r.resolve(LoginViewModel.self)!
         }
         
-        container.storyboardInitCompleted(SplashViewController.self) { r, c in
-            c.viewModel = r.resolve(SplashViewModel.self)!
-        }
-        
-        
         container.storyboardInitCompleted(ChatViewController.self) { r, c in
             
+        }
+        
+        container.storyboardInitCompleted(ChatListViewController.self) { r, c in
+            c.viewModel = r.resolve(ChatListViewModel.self)!
         }
     }
     
@@ -73,16 +75,58 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         nodeCore = container.resolve(NodeCore.self)
         nodeCore.lunchServer()
+        nodeCore.taskStatus()
+            .filter {
+               $0.isSuccess
+            }
+            .map {
+               $0.value!
+            }
+            .map {
+                $0.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe({ result in
+                switch(result) {
+                case .next(let status):
+                    if self.SERVER_STATUS_OK.elementsEqual(status) {
+                        let userSecretManager = self.container.resolve(UserSecretManager.self)!
+                        let bundle = Bundle(for: LoginViewController.self)
+                        let storyboard = SwinjectStoryboard.create(name: "Main", bundle: bundle, container: self.container)
+                        self.windowController = (storyboard.instantiateController(withIdentifier: "MainWindowController") as! NSWindowController)
+
+                        let viewController : NSViewController
+                        if userSecretManager.getUserToken().isEmpty {
+                            viewController = self.getLoginViewController()
+                        } else {
+                            viewController = self.getChatViewController()
+                        }
+                        self.windowController.contentViewController = viewController
+
+                        self.windowController.showWindow(self)
+                    }
+
+                default: ()
+                }
+                
+            })
         
+    }
+    
+    private func getLoginViewController() -> NSViewController {
         let bundle = Bundle(for: LoginViewController.self)
         let storyboard = SwinjectStoryboard.create(name: "Main", bundle: bundle, container: container)
-        windowController = storyboard.instantiateController(withIdentifier: "MainWindowController") as! NSWindowController
-        let splashViewController = storyboard.instantiateController(withIdentifier: "SplashViewController") as! SplashViewController
-        windowController.contentViewController = splashViewController
-        
-        windowController.showWindow(self)
-        
-       
+        let loginViewController = storyboard.instantiateController(withIdentifier: "LoginViewController") as! LoginViewController
+        return loginViewController
+    }
+    
+    
+    private func getChatViewController()  -> NSViewController {
+        let bundle = Bundle(for: ChatViewController.self)
+        let storyboard = SwinjectStoryboard.create(name: "Main", bundle: bundle, container: container)
+        let chatViewController = storyboard.instantiateController(withIdentifier: "ChatViewController") as! ChatViewController
+        return chatViewController
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

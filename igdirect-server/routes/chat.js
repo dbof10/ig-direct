@@ -42,6 +42,7 @@ function renderChatList(list) {
             thumbnail = item.accounts[0]._params.picture;
         }
         return {
+            id: item.id,
             msgPreview,
             userName,
             thumbnail

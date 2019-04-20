@@ -10,6 +10,7 @@ import Foundation
 import Moya
 import RxSwift
 import Moya_ObjectMapper
+
 private func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {
         let dataAsJSON = try JSONSerialization.jsonObject(with: data)
@@ -45,12 +46,18 @@ class IGApiClient {
             .filterSuccessfulStatusCodes()
             .mapObject(LoginResponse.self)
     }
+    
+    func chatList() -> Single<[Chat]> {
+        return client.rx.request(.list)
+         .filterSuccessfulStatusCodes()
+        .mapArray(Chat.self)
+    }
 }
 
 
 public enum IgDirect {
     case login(String, String)
-    
+    case list
 }
 
 extension IgDirect: TargetType {
@@ -66,6 +73,8 @@ extension IgDirect: TargetType {
         switch self {
         case .login:
             return "/users/login"
+        case .list:
+            return "/chat/list"
             //        case .photo(let id):
             //            return "photos/\(id)"
         }
@@ -75,6 +84,7 @@ extension IgDirect: TargetType {
         switch self {
         case .login:
             return .post
+        case .list:
             return .get
         }
     }
@@ -84,9 +94,8 @@ extension IgDirect: TargetType {
             
         case .login(let email,let password):
             return .requestParameters(parameters: ["userName": email, "password": password], encoding: JSONEncoding.default)
-            //  case let .photos(page, limit, order):
-            //      return .requestParameters(parameters: ["page": page, "per_page": limit, "order_by": order], encoding: URLEncoding.queryString)
-            
+        case .list:
+            return .requestPlain
         }
     }
     
@@ -100,8 +109,6 @@ extension IgDirect: TargetType {
     
     public var validate: Bool {
         switch self {
-            //        case .photos:
-        //            return true
         default:
             return false
         }

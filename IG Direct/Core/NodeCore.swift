@@ -15,10 +15,12 @@ class NodeCore {
     private let disposeBag = DisposeBag()
     private let context: NSApplication
     private let threadScheduler: ThreadScheduler
+    
     init(context: NSApplication,_ threadScheduler: ThreadScheduler) {
         self.context = context
         self.threadScheduler = threadScheduler
     }
+    
     func lunchServer() {
         let mainBundle = Bundle.main
         
@@ -36,11 +38,14 @@ class NodeCore {
         task.terminate()
     }
     
+    func taskStatus() -> Observable<Result<String,Error>> {
+        return task.observeTaskStatus()
+    }
+    
     private func observeTaskStatus () {
         task.observeTaskStatus()
             .observeOn(threadScheduler.asyncUi)
             .subscribe(onNext: { result in
-
                 switch(result){
                 case .success(let value):
                     print("Node: \(value)")

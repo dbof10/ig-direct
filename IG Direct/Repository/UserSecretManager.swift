@@ -15,21 +15,19 @@ class UserSecretManager {
     private let KEY_TOKEN : String = "KEY_TOKEN"
     private let KEY_USER : String = "KEY_USER"
     
-    private let keychain: Keychain
     private let storage : UserDefaults
     
-    init(_ keychain: Keychain, _ storage : UserDefaults) {
-        self.keychain = keychain
+    init(_ storage : UserDefaults) {
         self.storage = storage
     }
     
     
     func setUserToken(token: String) {
-        keychain[KEY_TOKEN] = token
+        storage.set(token, forKey: KEY_TOKEN)
     }
     
     func getUserToken() -> String {
-        return keychain[KEY_TOKEN] ?? ""
+        return self.storage.string(forKey: self.KEY_TOKEN) ?? ""
     }
     
     func setUser(user: User) {

@@ -13,6 +13,5 @@ class ChatViewController: NSSplitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("chat view controller")
     }
 }

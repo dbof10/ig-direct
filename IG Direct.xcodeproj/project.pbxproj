@@ -13,11 +13,17 @@
 		7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A8E2258F4CC00ED2830 /* BaseViewModel.swift */; };
 		7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A902258F58400ED2830 /* LoginViewModel.swift */; };
 		7E093A932258F65300ED2830 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A922258F65300ED2830 /* Credentials.swift */; };
+		7E19DD7F226A06080016E452 /* ChatListviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD7E226A06080016E452 /* ChatListviewController.swift */; };
+		7E19DD81226A063C0016E452 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD80226A063C0016E452 /* ChatListViewModel.swift */; };
+		7E19DD83226A06650016E452 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD82226A06650016E452 /* ChatRepository.swift */; };
+		7E19DD85226A06F20016E452 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD84226A06F20016E452 /* Chat.swift */; };
+		7E19DD89226A10DC0016E452 /* ChatItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD88226A10DC0016E452 /* ChatItemViewModel.swift */; };
+		7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD8A226A18490016E452 /* ChatItemCellView.swift */; };
+		7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD8C226A1D9E0016E452 /* ChatListAdapter.swift */; };
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
-		7E4F80202268B9A000AFE94F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4F801F2268B9A000AFE94F /* SplashViewController.swift */; };
-		7E4F80222268B9B600AFE94F /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4F80212268B9B600AFE94F /* SplashViewModel.swift */; };
+		7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CBA27226AD152004DB229 /* Result+Extension.swift */; };
 		7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E482269625800843A26 /* NSViewController+Rx.swift */; };
 		7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E4A226962EA00843A26 /* ChatViewController.swift */; };
 		7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EDA2258E24700B0A234 /* AppDelegate.swift */; };
@@ -55,11 +61,17 @@
 		7E093A8E2258F4CC00ED2830 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		7E093A902258F58400ED2830 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7E093A922258F65300ED2830 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		7E19DD7E226A06080016E452 /* ChatListviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListviewController.swift; sourceTree = "<group>"; };
+		7E19DD80226A063C0016E452 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		7E19DD82226A06650016E452 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		7E19DD84226A06F20016E452 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		7E19DD88226A10DC0016E452 /* ChatItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemViewModel.swift; sourceTree = "<group>"; };
+		7E19DD8A226A18490016E452 /* ChatItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemCellView.swift; sourceTree = "<group>"; };
+		7E19DD8C226A1D9E0016E452 /* ChatListAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListAdapter.swift; sourceTree = "<group>"; };
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
-		7E4F801F2268B9A000AFE94F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		7E4F80212268B9B600AFE94F /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		7E5CBA27226AD152004DB229 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		7E823E482269625800843A26 /* NSViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Rx.swift"; sourceTree = "<group>"; };
 		7E823E4A226962EA00843A26 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7E874ED72258E24700B0A234 /* IG Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IG Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +131,7 @@
 			children = (
 				7E093A892258F15500ED2830 /* User.swift */,
 				7E093A922258F65300ED2830 /* Credentials.swift */,
+				7E19DD84226A06F20016E452 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +141,7 @@
 			children = (
 				7E093A8B2258F17E00ED2830 /* UserRepository.swift */,
 				7EC922F3226622F9007E5008 /* UserSecretManager.swift */,
+				7E19DD82226A06650016E452 /* ChatRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -151,6 +165,18 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		7E19DD7D226A05CA0016E452 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				7E19DD7E226A06080016E452 /* ChatListviewController.swift */,
+				7E19DD80226A063C0016E452 /* ChatListViewModel.swift */,
+				7E19DD88226A10DC0016E452 /* ChatItemViewModel.swift */,
+				7E19DD8A226A18490016E452 /* ChatItemCellView.swift */,
+				7E19DD8C226A1D9E0016E452 /* ChatListAdapter.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		7E3913A72262E8F7003B68A0 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,21 +186,21 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
-		7E4F801D2268B94300AFE94F /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				7E4F801F2268B9A000AFE94F /* SplashViewController.swift */,
-				7E4F80212268B9B600AFE94F /* SplashViewModel.swift */,
-			);
-			path = Splash;
-			sourceTree = "<group>";
-		};
 		7E4F801E2268B95200AFE94F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				7E19DD7D226A05CA0016E452 /* List */,
 				7E823E4A226962EA00843A26 /* ChatViewController.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		7E5CBA26226AD13F004DB229 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7E5CBA27226AD152004DB229 /* Result+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7E874ECE2258E24700B0A234 = {
@@ -200,6 +226,7 @@
 		7E874ED92258E24700B0A234 /* IG Direct */ = {
 			isa = PBXGroup;
 			children = (
+				7E5CBA26226AD13F004DB229 /* Utils */,
 				7E3913A72262E8F7003B68A0 /* Rx */,
 				7EE983392260DC4B00063B59 /* Core */,
 				7EE983362260D7A300063B59 /* Server */,
@@ -245,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				7E4F801E2268B95200AFE94F /* Chat */,
-				7E4F801D2268B94300AFE94F /* Splash */,
 				7ED03CAA2258E76D00C05565 /* Login */,
 			);
 			path = Feature;
@@ -463,20 +489,26 @@
 				7E093A8A2258F15500ED2830 /* User.swift in Sources */,
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
 				7E093A932258F65300ED2830 /* Credentials.swift in Sources */,
-				7E4F80222268B9B600AFE94F /* SplashViewModel.swift in Sources */,
-				7E4F80202268B9A000AFE94F /* SplashViewController.swift in Sources */,
+				7E19DD81226A063C0016E452 /* ChatListViewModel.swift in Sources */,
+				7E19DD89226A10DC0016E452 /* ChatItemViewModel.swift in Sources */,
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
+				7E19DD7F226A06080016E452 /* ChatListviewController.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
+				7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */,
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
+				7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */,
 				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
 				7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */,
+				7E19DD85226A06F20016E452 /* Chat.swift in Sources */,
 				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
 				7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
 				7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */,
 				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,
+				7E19DD83226A06650016E452 /* ChatRepository.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
+				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
 				7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */,

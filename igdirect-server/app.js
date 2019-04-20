@@ -8,6 +8,7 @@ const chatRouter = require('./routes/chat');
 
 const PORT = 5000;
 const POLLING_INTERVAL = 1000;
+const SERVER_STATUS = 100;
 
 interval(POLLING_INTERVAL).pipe(
     switchMap(() => isParentRunning())
@@ -32,6 +33,7 @@ app.use('/users', usersRouter);
 app.use('/chat', chatRouter);
 
 const server = app.listen(PORT, () => {
+    console.log(SERVER_STATUS);
     console.log(`server running on port ${PORT}`)
 });
 
