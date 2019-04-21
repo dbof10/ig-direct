@@ -58,6 +58,7 @@ class IGApiClient {
 public enum IgDirect {
     case login(String, String)
     case list
+    case detail(String)
 }
 
 extension IgDirect: TargetType {
@@ -65,6 +66,7 @@ extension IgDirect: TargetType {
         return nil
     }
     
+
     public var baseURL: URL {
         return URL(string: "http://127.0.0.1:5000")!
     }
@@ -74,9 +76,9 @@ extension IgDirect: TargetType {
         case .login:
             return "/users/login"
         case .list:
-            return "/chat/list"
-            //        case .photo(let id):
-            //            return "photos/\(id)"
+            return "/chats/all"
+        case .detail:
+            return "/chats"
         }
     }
     
@@ -86,16 +88,28 @@ extension IgDirect: TargetType {
             return .post
         case .list:
             return .get
+        case .detail:
+            return .get
         }
     }
     
     public var task: Task {
         switch self {
-            
         case .login(let email,let password):
             return .requestParameters(parameters: ["userName": email, "password": password], encoding: JSONEncoding.default)
         case .list:
             return .requestPlain
+        case .detail:
+            return .requestPlain
+        }
+    }
+    
+    var parameters: [String: Any]? {
+        switch self {
+        case .detail(let id):
+            return ["id": id]
+        default :
+            return nil
         }
     }
     

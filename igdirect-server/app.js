@@ -30,7 +30,7 @@ const app = express();
 app.use(express.json());
 app.use(authenticate);
 app.use('/users', usersRouter);
-app.use('/chat', chatRouter);
+app.use('/chats', chatRouter);
 
 const server = app.listen(PORT, () => {
     console.log(SERVER_STATUS);

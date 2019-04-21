@@ -8,6 +8,8 @@
 
 import Foundation
 import Cocoa
+
+
 class ChatViewController: NSSplitViewController {
     
     

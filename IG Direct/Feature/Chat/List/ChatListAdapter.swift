@@ -12,8 +12,11 @@ import Cocoa
 class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
     private var items: [ChatItemViewModel] = []
+    private let tableView: NSTableView
+    var clickDelegate: ChatItemClickDelegate? = nil
     
     init(tableView: NSTableView) {
+        self.tableView = tableView
         super.init()
         tableView.dataSource = self
         tableView.delegate = self
@@ -32,4 +35,14 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     func submitList(dataSource: [ChatItemViewModel]){
         self.items = dataSource
     }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        guard tableView.selectedRow != -1 else { return }
+        clickDelegate?.onItemClicked(position: tableView.selectedRow)
+
+    }
+}
+
+protocol ChatItemClickDelegate : class {
+    func onItemClicked(position: Int)
 }

@@ -53,6 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         container.register(ChatListViewModel.self) { r in
             ChatListViewModel(r.resolve(ChatRepository.self)!, r.resolve(ThreadScheduler.self)!)
         }
+        container.register(ChatDetailViewModel.self) { r in
+            ChatDetailViewModel(r.resolve(ChatRepository.self)!, r.resolve(ThreadScheduler.self)!)
+        }
         
         
         // Views
@@ -66,6 +69,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         container.storyboardInitCompleted(ChatListViewController.self) { r, c in
             c.viewModel = r.resolve(ChatListViewModel.self)!
+        }
+        
+        container.storyboardInitCompleted(ChatDetailViewController.self) { r, c in
+            c.viewModel = r.resolve(ChatDetailViewModel.self)!
         }
     }
     

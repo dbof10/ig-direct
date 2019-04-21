@@ -771,7 +771,7 @@
                                                                 </imageView>
                                                                 <textField horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Isk-Mf-Pft">
                                                                     <rect key="frame" x="94" y="63" width="143" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="JTY-VA-yhY">
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="User name" id="JTY-VA-yhY">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -779,7 +779,7 @@
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rwg-NV-lgl">
                                                                     <rect key="frame" x="94" y="30" width="143" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Buv-Le-sfs">
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Message preview" id="Buv-Le-sfs">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -834,10 +834,10 @@
             </objects>
             <point key="canvasLocation" x="-778" y="1563"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat Detail View Controller-->
         <scene sceneID="GPp-pg-8gj">
             <objects>
-                <viewController id="ENt-kC-k4Y" sceneMemberID="viewController">
+                <viewController id="ENt-kC-k4Y" customClass="ChatDetailViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YJG-h3-dne">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
