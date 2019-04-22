@@ -36,15 +36,20 @@ class UserSecretManager {
         storage.synchronize()
     }
     
+    
+    func getUserBlocking() -> User {
+        let userAsString = self.storage.string(forKey: self.KEY_USER) ?? ""
+        let user: User
+        if userAsString.isEmpty {
+            user = User.ANONYMOUS
+        } else {
+            user = Mapper<User>().map(JSONString: userAsString)!
+        }
+        return user
+    }
     func getUser() -> Observable<User> {
         return Observable<User>.create{ emitter -> Disposable in
-            let userAsString = self.storage.string(forKey: self.KEY_USER) ?? ""
-            let user: User
-            if userAsString.isEmpty {
-                user = User.ANONYMOUS
-            }else {
-                user = Mapper<User>().map(JSONString: userAsString)!
-            }
+            let user = self.getUserBlocking()
             emitter.onNext(user)
             emitter.onCompleted()
             return Disposables.create { }

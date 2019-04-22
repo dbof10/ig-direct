@@ -20,4 +20,8 @@ class ChatRepository {
     func getChatList() -> Single<[Chat]> {
         return apiClient.chatList()
     }
+    
+    func getChatDetail(id: String) ->Single<[BaseMessage]>{
+        return apiClient.chatDetail(id: id)
+    }
 }

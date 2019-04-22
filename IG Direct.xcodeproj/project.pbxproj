@@ -22,6 +22,7 @@
 		7E1B5B10226C011B00CC156C /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B5B0F226C011B00CC156C /* ChatListViewController.swift */; };
 		7E1B5B13226C07B500CC156C /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B5B12226C07B500CC156C /* ChatDetailViewController.swift */; };
 		7E1B5B15226C08C100CC156C /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B5B14226C08C100CC156C /* ChatDetailViewModel.swift */; };
+		7E1B5B53226C20FF00CC156C /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B5B52226C20FF00CC156C /* BaseMessage.swift */; };
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
@@ -32,6 +33,15 @@
 		7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EDE2258E24800B0A234 /* Assets.xcassets */; };
 		7E874EE22258E24800B0A234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EE02258E24800B0A234 /* Main.storyboard */; };
 		7E874EEE2258E24800B0A234 /* IG_DirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EED2258E24800B0A234 /* IG_DirectTests.swift */; };
+		7E9D2356226CA7C20064425C /* IncomingTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */; };
+		7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2358226CA84E0064425C /* BaseMessageViewModel.swift */; };
+		7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D235A226CA8E50064425C /* TextMessageViewModel.swift */; };
+		7E9D235D226CAAE60064425C /* ImageMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D235C226CAAE60064425C /* ImageMessageViewModel.swift */; };
+		7E9D235F226CAC400064425C /* IncomingTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9D235E226CAC400064425C /* IncomingTextCell.xib */; };
+		7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2360226CAE100064425C /* MessageAdapter.swift */; };
+		7E9D2364226CB6890064425C /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2363226CB6890064425C /* RuntimeError.swift */; };
+		7E9D2366226CB9C70064425C /* MessageViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2365226CB9C70064425C /* MessageViewModelMapper.swift */; };
+		7E9D2368226CBCE30064425C /* UnsupportMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2367226CBCE30064425C /* UnsupportMessageViewModel.swift */; };
 		7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4BF22617317003EB627 /* NodeCore.swift */; };
 		7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C12261750A003EB627 /* AppLogic.swift */; };
 		7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C322617557003EB627 /* NodeAppLogic.swift */; };
@@ -72,6 +82,7 @@
 		7E1B5B0F226C011B00CC156C /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		7E1B5B12226C07B500CC156C /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
 		7E1B5B14226C08C100CC156C /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
+		7E1B5B52226C20FF00CC156C /* BaseMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
@@ -87,6 +98,15 @@
 		7E874EE92258E24800B0A234 /* IG DirectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IG DirectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E874EED2258E24800B0A234 /* IG_DirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IG_DirectTests.swift; sourceTree = "<group>"; };
 		7E874EEF2258E24800B0A234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingTextCellView.swift; sourceTree = "<group>"; };
+		7E9D2358226CA84E0064425C /* BaseMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageViewModel.swift; sourceTree = "<group>"; };
+		7E9D235A226CA8E50064425C /* TextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageViewModel.swift; sourceTree = "<group>"; };
+		7E9D235C226CAAE60064425C /* ImageMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMessageViewModel.swift; sourceTree = "<group>"; };
+		7E9D235E226CAC400064425C /* IncomingTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingTextCell.xib; sourceTree = "<group>"; };
+		7E9D2360226CAE100064425C /* MessageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAdapter.swift; sourceTree = "<group>"; };
+		7E9D2363226CB6890064425C /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
+		7E9D2365226CB9C70064425C /* MessageViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModelMapper.swift; sourceTree = "<group>"; };
+		7E9D2367226CBCE30064425C /* UnsupportMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportMessageViewModel.swift; sourceTree = "<group>"; };
 		7EBBF4BF22617317003EB627 /* NodeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeCore.swift; sourceTree = "<group>"; };
 		7EBBF4C12261750A003EB627 /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
 		7EBBF4C322617557003EB627 /* NodeAppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAppLogic.swift; sourceTree = "<group>"; };
@@ -136,6 +156,7 @@
 				7E093A892258F15500ED2830 /* User.swift */,
 				7E093A922258F65300ED2830 /* Credentials.swift */,
 				7E19DD84226A06F20016E452 /* Chat.swift */,
+				7E1B5B52226C20FF00CC156C /* BaseMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,8 +205,12 @@
 		7E1B5B11226C079900CC156C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				7E9D2357226CA7F20064425C /* ViewModel */,
 				7E1B5B12226C07B500CC156C /* ChatDetailViewController.swift */,
 				7E1B5B14226C08C100CC156C /* ChatDetailViewModel.swift */,
+				7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */,
+				7E9D235E226CAC400064425C /* IncomingTextCell.xib */,
+				7E9D2360226CAE100064425C /* MessageAdapter.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -240,6 +265,7 @@
 		7E874ED92258E24700B0A234 /* IG Direct */ = {
 			isa = PBXGroup;
 			children = (
+				7E9D2362226CB67E0064425C /* Error */,
 				7E5CBA26226AD13F004DB229 /* Utils */,
 				7E3913A72262E8F7003B68A0 /* Rx */,
 				7EE983392260DC4B00063B59 /* Core */,
@@ -265,6 +291,26 @@
 				7E874EEF2258E24800B0A234 /* Info.plist */,
 			);
 			path = "IG DirectTests";
+			sourceTree = "<group>";
+		};
+		7E9D2357226CA7F20064425C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D2358226CA84E0064425C /* BaseMessageViewModel.swift */,
+				7E9D235A226CA8E50064425C /* TextMessageViewModel.swift */,
+				7E9D235C226CAAE60064425C /* ImageMessageViewModel.swift */,
+				7E9D2365226CB9C70064425C /* MessageViewModelMapper.swift */,
+				7E9D2367226CBCE30064425C /* UnsupportMessageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7E9D2362226CB67E0064425C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D2363226CB6890064425C /* RuntimeError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		7EC922F5226627BB007E5008 /* Request */ = {
@@ -417,6 +463,7 @@
 			files = (
 				7EBBF4C822617C31003EB627 /* node in Resources */,
 				7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */,
+				7E9D235F226CAC400064425C /* IncomingTextCell.xib in Resources */,
 				7E874EE22258E24800B0A234 /* Main.storyboard in Resources */,
 				7EE983382260DC0500063B59 /* app.bundle.js in Resources */,
 			);
@@ -502,20 +549,26 @@
 			files = (
 				7E093A8A2258F15500ED2830 /* User.swift in Sources */,
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
+				7E1B5B53226C20FF00CC156C /* BaseMessage.swift in Sources */,
 				7E093A932258F65300ED2830 /* Credentials.swift in Sources */,
 				7E1B5B15226C08C100CC156C /* ChatDetailViewModel.swift in Sources */,
 				7E19DD81226A063C0016E452 /* ChatListViewModel.swift in Sources */,
 				7E19DD89226A10DC0016E452 /* ChatItemViewModel.swift in Sources */,
+				7E9D235D226CAAE60064425C /* ImageMessageViewModel.swift in Sources */,
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
+				7E9D2364226CB6890064425C /* RuntimeError.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */,
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
+				7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */,
+				7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */,
 				7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */,
 				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
 				7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */,
 				7E19DD85226A06F20016E452 /* Chat.swift in Sources */,
 				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
+				7E9D2366226CB9C70064425C /* MessageViewModelMapper.swift in Sources */,
 				7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
 				7E1B5B13226C07B500CC156C /* ChatDetailViewController.swift in Sources */,
@@ -525,8 +578,11 @@
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
+				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
+				7E9D2368226CBCE30064425C /* UnsupportMessageViewModel.swift in Sources */,
 				7E1B5B10226C011B00CC156C /* ChatListViewController.swift in Sources */,
+				7E9D2356226CA7C20064425C /* IncomingTextCellView.swift in Sources */,
 				7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

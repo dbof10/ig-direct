@@ -32,9 +32,9 @@ router.get('/all', (req, res) => {
 
 });
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
 
-    let chatId = req.query.id;
+    let chatId = req.params.id;
 
     defer(function getChat() {
         return new Promise((resolve, reject) => {

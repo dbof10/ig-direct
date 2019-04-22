@@ -7,7 +7,7 @@
 //
 import ObjectMapper
 
-struct User : ImmutableMappable, Equatable {
+struct User : ImmutableMappable {
   
     let id: Int64
     let username: String
@@ -37,11 +37,4 @@ struct User : ImmutableMappable, Equatable {
         profilePicUrl >>> map["profilePicUrl"]
     }
     
-    
-    static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.id == rhs.id &&
-         lhs.username == rhs.username &&
-        lhs.fullName == rhs.fullName &&
-        lhs.profilePicUrl == rhs.profilePicUrl
-    }
 }

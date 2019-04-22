@@ -52,6 +52,12 @@ class IGApiClient {
          .filterSuccessfulStatusCodes()
         .mapArray(Chat.self)
     }
+    
+    func chatDetail(id:String) -> Single<[BaseMessage]> {
+        return client.rx.request(.detail(id))
+            .filterSuccessfulStatusCodes()
+            .mapArray(BaseMessage.self)
+    }
 }
 
 
@@ -77,8 +83,8 @@ extension IgDirect: TargetType {
             return "/users/login"
         case .list:
             return "/chats/all"
-        case .detail:
-            return "/chats"
+        case .detail(let id):
+            return "/chats/\(id)"
         }
     }
     
@@ -102,19 +108,6 @@ extension IgDirect: TargetType {
         case .detail:
             return .requestPlain
         }
-    }
-    
-    var parameters: [String: Any]? {
-        switch self {
-        case .detail(let id):
-            return ["id": id]
-        default :
-            return nil
-        }
-    }
-    
-    var parameterEncoding: ParameterEncoding {
-        return JSONEncoding.default
     }
     
     public var sampleData: Data {

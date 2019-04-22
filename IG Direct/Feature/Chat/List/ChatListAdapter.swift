@@ -27,7 +27,7 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let chatView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "defaultRow"), owner: self) as! ChatItemCellView
+        let chatView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ChatItemCellView"), owner: self) as! ChatItemCellView
         chatView.bind(viewModel: items[row])
         return chatView
     }

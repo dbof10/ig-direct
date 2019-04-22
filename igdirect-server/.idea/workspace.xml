@@ -2,20 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d701976f-c0e5-4d10-8d17-d90d8deb7d45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Error/RuntimeError.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/IncomingTextCell.xib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/IncomingTextCellView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/MessageAdapter.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/BaseMessageViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/ImageMessageViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/MessageViewModelMapper.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/TextMessageViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/UnsupportMessageViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Model/BaseMessage.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/AppDelegate.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/ChatViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/ChatViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListAdapter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListAdapter.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListviewController.swift" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/UserSecretManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/UserSecretManager.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/app.bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chat.js" afterDir="false" />
     </list>
@@ -66,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+            <state relative-caret-position="193">
+              <caret line="32" column="3" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -154,13 +161,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="igdirect-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="igdirect-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="igdirect-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="igdirect-server" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="igdirect-server" type="b2602c69:ProjectViewProjectNode" />
@@ -176,6 +187,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,15 +244,17 @@
       <workItem from="1555680298693" duration="1517000" />
       <workItem from="1555727806314" duration="663000" />
       <workItem from="1555767500725" duration="4255000" />
-      <workItem from="1555809862689" duration="548000" />
+      <workItem from="1555809862689" duration="2228000" />
+      <workItem from="1555852569419" duration="727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36238000" />
+    <option name="totallyTimeSpent" value="38645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1744" y="23" width="1689" height="965" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.206235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -434,8 +448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+        <state relative-caret-position="193">
+          <caret line="32" column="3" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>

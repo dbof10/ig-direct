@@ -53,8 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         container.register(ChatListViewModel.self) { r in
             ChatListViewModel(r.resolve(ChatRepository.self)!, r.resolve(ThreadScheduler.self)!)
         }
+        container.register(MessageViewModelMapper.self) { r in
+            MessageViewModelMapper(r.resolve(UserSecretManager.self)!)
+        }
         container.register(ChatDetailViewModel.self) { r in
-            ChatDetailViewModel(r.resolve(ChatRepository.self)!, r.resolve(ThreadScheduler.self)!)
+            ChatDetailViewModel(r.resolve(ChatRepository.self)!,
+                                r.resolve(MessageViewModelMapper.self)!,
+                                r.resolve(ThreadScheduler.self)!)
         }
         
         
