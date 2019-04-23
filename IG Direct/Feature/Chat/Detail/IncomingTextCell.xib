@@ -9,27 +9,40 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView identifier="IncomingTextCell" id="c22-O7-iKe" customClass="IncomingTextCellView" customModule="IG_Direct" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="49"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="36"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hRQ-Ty-ZKx">
+                    <rect key="frame" x="0.0" y="0.0" width="96" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="6dd-eU-q8t"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="message_gray" id="CVq-zn-Fxx"/>
+                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tJe-na-GwQ">
-                    <rect key="frame" x="14" y="16" width="452" height="17"/>
+                    <rect key="frame" x="14" y="10" width="68" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZdS-el-JlX">
                         <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="tJe-na-GwQ" secondAttribute="bottom" constant="16" id="2Ye-my-Wkt"/>
-                <constraint firstAttribute="trailing" secondItem="tJe-na-GwQ" secondAttribute="trailing" constant="16" id="ImL-EO-Rji"/>
-                <constraint firstItem="tJe-na-GwQ" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="16" id="d2N-2c-LbR"/>
-                <constraint firstItem="tJe-na-GwQ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="jN4-41-X2N"/>
+                <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="EnA-1x-Pw2"/>
+                <constraint firstItem="tJe-na-GwQ" firstAttribute="leading" secondItem="hRQ-Ty-ZKx" secondAttribute="leading" constant="16" id="Hhk-hs-woI"/>
+                <constraint firstItem="tJe-na-GwQ" firstAttribute="centerY" secondItem="hRQ-Ty-ZKx" secondAttribute="centerY" id="UJ9-uu-igJ"/>
+                <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="f9y-Nv-hDD"/>
+                <constraint firstItem="tJe-na-GwQ" firstAttribute="width" secondItem="hRQ-Ty-ZKx" secondAttribute="width" constant="-32" id="nXF-EH-mxd"/>
+                <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="w7c-9O-jNy"/>
+                <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="width" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="width" multiplier="0.2" id="x3Q-FB-QFG"/>
             </constraints>
             <connections>
                 <outlet property="tvText" destination="tJe-na-GwQ" id="g3t-GU-iPD"/>
             </connections>
         </customView>
     </objects>
+    <resources>
+        <image name="message_gray" width="14" height="12"/>
+    </resources>
 </document>

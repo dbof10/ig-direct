@@ -27,6 +27,8 @@
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
 		7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CBA27226AD152004DB229 /* Result+Extension.swift */; };
+		7E6FEF97226E0BDE00DE3CA3 /* OutgoingTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */; };
+		7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */; };
 		7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E482269625800843A26 /* NSViewController+Rx.swift */; };
 		7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E4A226962EA00843A26 /* ChatViewController.swift */; };
 		7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EDA2258E24700B0A234 /* AppDelegate.swift */; };
@@ -87,6 +89,8 @@
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
 		7E5CBA27226AD152004DB229 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
+		7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingTextCell.xib; sourceTree = "<group>"; };
+		7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextCellView.swift; sourceTree = "<group>"; };
 		7E823E482269625800843A26 /* NSViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Rx.swift"; sourceTree = "<group>"; };
 		7E823E4A226962EA00843A26 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7E874ED72258E24700B0A234 /* IG Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IG Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +215,8 @@
 				7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */,
 				7E9D235E226CAC400064425C /* IncomingTextCell.xib */,
 				7E9D2360226CAE100064425C /* MessageAdapter.swift */,
+				7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */,
+				7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6FEF97226E0BDE00DE3CA3 /* OutgoingTextCell.xib in Resources */,
 				7EBBF4C822617C31003EB627 /* node in Resources */,
 				7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */,
 				7E9D235F226CAC400064425C /* IncomingTextCell.xib in Resources */,
@@ -578,6 +585,7 @@
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
+				7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */,
 				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
 				7E9D2368226CBCE30064425C /* UnsupportMessageViewModel.swift in Sources */,

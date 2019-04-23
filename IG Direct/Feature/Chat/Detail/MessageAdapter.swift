@@ -12,14 +12,17 @@ import Cocoa
 class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
 
     private var items: [BaseMessageViewModel] = []
-    private let TYPE_UNKNOWN = 1
+    private let TYPE_UNKNOWN = -1
     private let TYPE_INCOMING_TEXT = 1
+    private let TYPE_OUTGOING_TEXT = 2
 
     init(_ tableView: NSTableView) {
         super.init()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(NSNib.init(nibNamed: "IncomingTextCell", bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingTextCell"))
+        tableView.register(NSNib.init(nibNamed: "OutgoingTextCell", bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingTextCell"))
+
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -38,8 +41,12 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private func getViewType(_ row: Int) -> Int {
         let message = items[row]
         switch message {
-        case is TextMessageViewModel:
-            return self.TYPE_INCOMING_TEXT
+        case let vm as TextMessageViewModel:
+            if vm.direction == .incoming {
+                return self.TYPE_INCOMING_TEXT
+            } else {
+                return self.TYPE_OUTGOING_TEXT
+            }
         default:
             return self.TYPE_UNKNOWN
         }
@@ -49,6 +56,8 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
         switch type {
         case self.TYPE_INCOMING_TEXT:
           return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingTextCell"), owner: self) as! IncomingTextCellView
+        case self.TYPE_OUTGOING_TEXT:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingTextCell"), owner: self) as! OutgoingTextCellView
         default:
             fatalError("Unsupport view type \(type)")
         }
@@ -57,6 +66,9 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private func bindView(_ view: NSView, _ row: Int) {
         switch view {
         case let v as IncomingTextCellView:
+            v.bind(viewModel: items[row] as! TextMessageViewModel)
+            break
+        case let v as OutgoingTextCellView:
             v.bind(viewModel: items[row] as! TextMessageViewModel)
             break
         default: ()
