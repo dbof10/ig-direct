@@ -41,6 +41,7 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         clickDelegate?.onItemClicked(position: tableView.selectedRow)
 
     }
+    
 }
 
 protocol ChatItemClickDelegate : class {

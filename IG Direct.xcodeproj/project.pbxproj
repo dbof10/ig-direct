@@ -51,6 +51,11 @@
 		7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC922F3226622F9007E5008 /* UserSecretManager.swift */; };
 		7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC922F7226627D1007E5008 /* LoginResponse.swift */; };
 		7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED03CA72258E6F800C05565 /* LoginViewController.swift */; };
+		7ED631422270A12E006E0E5A /* OutgoingImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED631412270A12E006E0E5A /* OutgoingImageCell.xib */; };
+		7ED631442270A149006E0E5A /* IncomingImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED631432270A149006E0E5A /* IncomingImageCell.xib */; };
+		7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */; };
+		7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */; };
+		7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314E2270AF39006E0E5A /* ConstantColor.swift */; };
 		7EE983382260DC0500063B59 /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 7EE983372260DC0400063B59 /* app.bundle.js */; };
 		7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9833A2260DC6300063B59 /* NodeTask.swift */; };
 		973B70CC45F44A5C7D7C9986 /* Pods_IG_DirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00542445F9158F840E21596D /* Pods_IG_DirectTests.framework */; };
@@ -118,6 +123,11 @@
 		7EC922F3226622F9007E5008 /* UserSecretManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSecretManager.swift; sourceTree = "<group>"; };
 		7EC922F7226627D1007E5008 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		7ED03CA72258E6F800C05565 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7ED631412270A12E006E0E5A /* OutgoingImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingImageCell.xib; sourceTree = "<group>"; };
+		7ED631432270A149006E0E5A /* IncomingImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingImageCell.xib; sourceTree = "<group>"; };
+		7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingImageCellView.swift; sourceTree = "<group>"; };
+		7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingImageCellView.swift; sourceTree = "<group>"; };
+		7ED6314E2270AF39006E0E5A /* ConstantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantColor.swift; sourceTree = "<group>"; };
 		7EE983372260DC0400063B59 /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.bundle.js; sourceTree = "<group>"; };
 		7EE9833A2260DC6300063B59 /* NodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTask.swift; sourceTree = "<group>"; };
 		8A42A238852A6DECE4927E72 /* Pods-IG DirectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG DirectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IG DirectTests/Pods-IG DirectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,14 +219,12 @@
 		7E1B5B11226C079900CC156C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				7ED631452270A19A006E0E5A /* ViewCell */,
+				7ED6314022709FFD006E0E5A /* View */,
 				7E9D2357226CA7F20064425C /* ViewModel */,
 				7E1B5B12226C07B500CC156C /* ChatDetailViewController.swift */,
 				7E1B5B14226C08C100CC156C /* ChatDetailViewModel.swift */,
-				7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */,
-				7E9D235E226CAC400064425C /* IncomingTextCell.xib */,
 				7E9D2360226CAE100064425C /* MessageAdapter.swift */,
-				7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */,
-				7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				7E5CBA27226AD152004DB229 /* Result+Extension.swift */,
+				7ED6314E2270AF39006E0E5A /* ConstantColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -350,6 +359,28 @@
 				7E093A902258F58400ED2830 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7ED6314022709FFD006E0E5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D235E226CAC400064425C /* IncomingTextCell.xib */,
+				7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */,
+				7ED631412270A12E006E0E5A /* OutgoingImageCell.xib */,
+				7ED631432270A149006E0E5A /* IncomingImageCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7ED631452270A19A006E0E5A /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */,
+				7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */,
+				7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */,
+				7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */,
+			);
+			path = ViewCell;
 			sourceTree = "<group>";
 		};
 		7EE983362260D7A300063B59 /* Server */ = {
@@ -471,6 +502,8 @@
 				7EBBF4C822617C31003EB627 /* node in Resources */,
 				7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */,
 				7E9D235F226CAC400064425C /* IncomingTextCell.xib in Resources */,
+				7ED631422270A12E006E0E5A /* OutgoingImageCell.xib in Resources */,
+				7ED631442270A149006E0E5A /* IncomingImageCell.xib in Resources */,
 				7E874EE22258E24800B0A234 /* Main.storyboard in Resources */,
 				7EE983382260DC0500063B59 /* app.bundle.js in Resources */,
 			);
@@ -569,6 +602,8 @@
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
 				7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */,
 				7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */,
+				7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */,
+				7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */,
 				7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */,
 				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
@@ -586,6 +621,7 @@
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
 				7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */,
+				7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */,
 				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
 				7E9D2368226CBCE30064425C /* UnsupportMessageViewModel.swift in Sources */,

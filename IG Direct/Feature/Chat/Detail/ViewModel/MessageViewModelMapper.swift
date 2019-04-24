@@ -31,8 +31,8 @@ class MessageViewModelMapper {
                                             type: $0.type, isSeen: $0.isSeen , direction: direction, text: $0.text!)
                 
             case .media:
-                return TextMessageViewModel(id: $0.id, senderId: $0.senderId, createdAt: $0.createdAt,
-                                            type: $0.type, isSeen: $0.isSeen , direction: direction, text: $0.text!)
+                return ImageMessageViewModel(id: $0.id, senderId: $0.senderId, createdAt: $0.createdAt,
+                                            type: $0.type, isSeen: $0.isSeen , direction: direction, mediaUrl: $0.mediaUrl!)
                 
             default:
             return UnsupportMessageViewModel(id: $0.id, senderId: $0.senderId,

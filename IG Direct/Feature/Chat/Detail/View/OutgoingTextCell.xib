@@ -15,6 +15,7 @@
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arD-tc-nE1">
                     <rect key="frame" x="384" y="0.0" width="96" height="36"/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="9hR-EI-z8x"/>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="URN-xC-jJ4"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="message_blue" id="Esp-B3-RTH"/>

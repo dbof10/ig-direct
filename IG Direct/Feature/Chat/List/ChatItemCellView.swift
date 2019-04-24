@@ -26,9 +26,8 @@ class ChatItemCellView: NSTableCellView {
         ivAvatar.layer!.cornerRadius = ivAvatar.bounds.height / 2;
 
     }
+    
     func bind(viewModel : ChatItemViewModel) {
-       // ivAvatar.layer!.masksToBounds = true
-       // ivAvatar.layer!.cornerRadius = 25;
         ivAvatar.sd_setImage(with: URL(string: viewModel.thumbnail))
         tvUserName.stringValue = viewModel.userName
         tvMsgPreview.stringValue = viewModel.msgPreview

@@ -16,6 +16,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="96" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="6dd-eU-q8t"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="aiR-Yg-wTa"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="message_gray" id="CVq-zn-Fxx"/>
                 </imageView>

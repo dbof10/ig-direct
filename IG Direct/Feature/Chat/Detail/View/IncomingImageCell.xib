@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="IncomingImageCellView" customModule="IG_Direct" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="256"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mJb-7H-xtF">
+                    <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="256" id="eTW-bu-e6i"/>
+                        <constraint firstAttribute="height" constant="256" id="xtC-a0-fNe"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FTr-5m-LZ0"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="mJb-7H-xtF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="030-Ar-TUi"/>
+                <constraint firstItem="mJb-7H-xtF" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="XsI-za-r9g"/>
+                <constraint firstItem="mJb-7H-xtF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="hU7-IP-V7a"/>
+            </constraints>
+            <connections>
+                <outlet property="ivImage" destination="mJb-7H-xtF" id="HgM-Iy-RLo"/>
+            </connections>
+        </customView>
+    </objects>
+</document>
