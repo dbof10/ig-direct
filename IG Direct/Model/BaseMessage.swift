@@ -29,15 +29,15 @@ struct BaseMessage : ImmutableMappable {
     }
 }
 
-enum MessageType : RawRepresentable{
+enum MessageType : RawRepresentable {
   
-    
     typealias RawValue = String
     
     init(rawValue: RawValue) {
         switch rawValue {
         case "text": self = .text
         case "media": self = .media
+        case "like": self = .like
         default:
            self = .unknown
         }
@@ -47,6 +47,7 @@ enum MessageType : RawRepresentable{
         switch self {
         case .text: return "text"
         case .media: return "media"
+        case .like: return "like"
         default:
             return ""
         }
@@ -54,5 +55,6 @@ enum MessageType : RawRepresentable{
     
     case text
     case media
+    case like
     case unknown
 }

@@ -35,6 +35,11 @@
 		7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EDE2258E24800B0A234 /* Assets.xcassets */; };
 		7E874EE22258E24800B0A234 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E874EE02258E24800B0A234 /* Main.storyboard */; };
 		7E874EEE2258E24800B0A234 /* IG_DirectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EED2258E24800B0A234 /* IG_DirectTests.swift */; };
+		7E9161332271EC09001E2B96 /* IncomingLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9161322271EC09001E2B96 /* IncomingLikeCell.xib */; };
+		7E9161352271EC18001E2B96 /* OutgoingLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9161342271EC18001E2B96 /* OutgoingLikeCell.xib */; };
+		7E9161372271EC28001E2B96 /* IncomingLikeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9161362271EC28001E2B96 /* IncomingLikeCellView.swift */; };
+		7E9161392271EC39001E2B96 /* OutgoingLikeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9161382271EC39001E2B96 /* OutgoingLikeCellView.swift */; };
+		7E91613B2271F141001E2B96 /* LikeMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91613A2271F141001E2B96 /* LikeMessageViewModel.swift */; };
 		7E9D2356226CA7C20064425C /* IncomingTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */; };
 		7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2358226CA84E0064425C /* BaseMessageViewModel.swift */; };
 		7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D235A226CA8E50064425C /* TextMessageViewModel.swift */; };
@@ -107,6 +112,11 @@
 		7E874EE92258E24800B0A234 /* IG DirectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IG DirectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E874EED2258E24800B0A234 /* IG_DirectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IG_DirectTests.swift; sourceTree = "<group>"; };
 		7E874EEF2258E24800B0A234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E9161322271EC09001E2B96 /* IncomingLikeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingLikeCell.xib; sourceTree = "<group>"; };
+		7E9161342271EC18001E2B96 /* OutgoingLikeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingLikeCell.xib; sourceTree = "<group>"; };
+		7E9161362271EC28001E2B96 /* IncomingLikeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingLikeCellView.swift; sourceTree = "<group>"; };
+		7E9161382271EC39001E2B96 /* OutgoingLikeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingLikeCellView.swift; sourceTree = "<group>"; };
+		7E91613A2271F141001E2B96 /* LikeMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMessageViewModel.swift; sourceTree = "<group>"; };
 		7E9D2355226CA7C20064425C /* IncomingTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingTextCellView.swift; sourceTree = "<group>"; };
 		7E9D2358226CA84E0064425C /* BaseMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageViewModel.swift; sourceTree = "<group>"; };
 		7E9D235A226CA8E50064425C /* TextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageViewModel.swift; sourceTree = "<group>"; };
@@ -316,6 +326,7 @@
 				7E9D235C226CAAE60064425C /* ImageMessageViewModel.swift */,
 				7E9D2365226CB9C70064425C /* MessageViewModelMapper.swift */,
 				7E9D2367226CBCE30064425C /* UnsupportMessageViewModel.swift */,
+				7E91613A2271F141001E2B96 /* LikeMessageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -368,6 +379,8 @@
 				7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */,
 				7ED631412270A12E006E0E5A /* OutgoingImageCell.xib */,
 				7ED631432270A149006E0E5A /* IncomingImageCell.xib */,
+				7E9161322271EC09001E2B96 /* IncomingLikeCell.xib */,
+				7E9161342271EC18001E2B96 /* OutgoingLikeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -379,6 +392,8 @@
 				7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */,
 				7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */,
 				7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */,
+				7E9161362271EC28001E2B96 /* IncomingLikeCellView.swift */,
+				7E9161382271EC39001E2B96 /* OutgoingLikeCellView.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -500,8 +515,10 @@
 			files = (
 				7E6FEF97226E0BDE00DE3CA3 /* OutgoingTextCell.xib in Resources */,
 				7EBBF4C822617C31003EB627 /* node in Resources */,
+				7E9161352271EC18001E2B96 /* OutgoingLikeCell.xib in Resources */,
 				7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */,
 				7E9D235F226CAC400064425C /* IncomingTextCell.xib in Resources */,
+				7E9161332271EC09001E2B96 /* IncomingLikeCell.xib in Resources */,
 				7ED631422270A12E006E0E5A /* OutgoingImageCell.xib in Resources */,
 				7ED631442270A149006E0E5A /* IncomingImageCell.xib in Resources */,
 				7E874EE22258E24800B0A234 /* Main.storyboard in Resources */,
@@ -599,6 +616,7 @@
 				7E9D2364226CB6890064425C /* RuntimeError.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */,
+				7E9161392271EC39001E2B96 /* OutgoingLikeCellView.swift in Sources */,
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
 				7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */,
 				7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */,
@@ -617,6 +635,7 @@
 				7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */,
 				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,
 				7E19DD83226A06650016E452 /* ChatRepository.swift in Sources */,
+				7E91613B2271F141001E2B96 /* LikeMessageViewModel.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
@@ -624,6 +643,7 @@
 				7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */,
 				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
+				7E9161372271EC28001E2B96 /* IncomingLikeCellView.swift in Sources */,
 				7E9D2368226CBCE30064425C /* UnsupportMessageViewModel.swift in Sources */,
 				7E1B5B10226C011B00CC156C /* ChatListViewController.swift in Sources */,
 				7E9D2356226CA7C20064425C /* IncomingTextCellView.swift in Sources */,

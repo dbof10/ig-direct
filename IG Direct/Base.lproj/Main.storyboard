@@ -808,6 +808,9 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="ebq-fu-fmJ"/>
+                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="t1R-MU-WHl">
                                     <rect key="frame" x="1" y="496" width="294" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -839,23 +842,23 @@
             <objects>
                 <viewController id="ENt-kC-k4Y" customClass="ChatDetailViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YJG-h3-dne">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wv-Vp-dJP">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
                                 <clipView key="contentView" id="rkm-mf-bem">
-                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="lQ9-jz-bSK">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="298"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="445" minWidth="40" maxWidth="1000" id="8Jp-ca-Vyo">
+                                                <tableColumn width="475" minWidth="40" maxWidth="1000" id="8Jp-ca-Vyo">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -883,10 +886,10 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="1Wv-Vp-dJP" secondAttribute="bottom" id="NEK-Gs-BRQ"/>
-                            <constraint firstAttribute="trailing" secondItem="1Wv-Vp-dJP" secondAttribute="trailing" id="eSH-iO-VJx"/>
-                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="top" secondItem="YJG-h3-dne" secondAttribute="top" id="gog-rc-z2D"/>
-                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" id="rmO-Iw-Xvu"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" id="0xe-ik-K7N"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="top" secondItem="YJG-h3-dne" secondAttribute="top" id="Jtv-oJ-Hfe"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="bottom" secondItem="YJG-h3-dne" secondAttribute="bottom" id="Myw-hO-6QM"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" id="bfV-vc-0EC"/>
                         </constraints>
                     </view>
                     <connections>

@@ -17,7 +17,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private let TYPE_OUTGOING_TEXT = 2
     private let TYPE_INCOMING_IMAGE = 3
     private let TYPE_OUTGOING_IMAGE = 4
-
+    private let TYPE_INCOMING_LIKE = 5
+    private let TYPE_OUTGOING_LIKE = 6
+    
+    
     init(_ tableView: NSTableView) {
         super.init()
         tableView.dataSource = self
@@ -28,6 +31,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             NSUserInterfaceItemIdentifier(rawValue: "OutgoingTextCell"))
         tableView.register(NSNib.init(nibNamed: "IncomingImageCell", bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingImageCell"))
         tableView.register(NSNib.init(nibNamed: "OutgoingImageCell", bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingImageCell"))
+        tableView.register(NSNib.init(nibNamed: "IncomingLikeCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "IncomingLikeCell"))
+        tableView.register(NSNib.init(nibNamed: "OutgoingLikeCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "OutgoingLikeCell"))
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -58,6 +65,12 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             } else {
                 return self.TYPE_OUTGOING_IMAGE
             }
+        case let vm as LikeMessageViewModel:
+            if vm.direction == .incoming {
+                return self.TYPE_INCOMING_LIKE
+            } else {
+                return self.TYPE_OUTGOING_LIKE
+            }
         default:
             return self.TYPE_UNKNOWN
         }
@@ -73,6 +86,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
              return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingImageCell"), owner: self) as! IncomingImageCellView
         case self.TYPE_OUTGOING_IMAGE:
              return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingImageCell"), owner: self) as! OutgoingImageCellView
+        case self.TYPE_INCOMING_LIKE:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingLikeCell"), owner: self) as! IncomingLikeCellView
+        case self.TYPE_OUTGOING_LIKE:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingLikeCell"), owner: self) as! OutgoingLikeCellView
         default:
             fatalError("Unsupport view type \(type)")
         }

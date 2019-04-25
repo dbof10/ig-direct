@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="IncomingLikeCellView" customModule="IG_Direct" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UxJ-Se-0LX">
+                    <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="8Ig-xk-S5a"/>
+                        <constraint firstAttribute="width" constant="36" id="wKK-FN-P65"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="message_like" id="kAt-D0-CXb"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="UxJ-Se-0LX" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="Gja-kh-67c"/>
+                <constraint firstItem="UxJ-Se-0LX" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="QF4-ca-vS7"/>
+                <constraint firstItem="UxJ-Se-0LX" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="vtw-nc-CdT"/>
+            </constraints>
+            <connections>
+                <outlet property="ivLike" destination="UxJ-Se-0LX" id="NzA-d8-5uR"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="message_like" width="42" height="42"/>
+    </resources>
+</document>

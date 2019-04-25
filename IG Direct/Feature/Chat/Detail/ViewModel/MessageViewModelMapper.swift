@@ -32,12 +32,15 @@ class MessageViewModelMapper {
                 
             case .media:
                 return ImageMessageViewModel(id: $0.id, senderId: $0.senderId, createdAt: $0.createdAt,
-                                            type: $0.type, isSeen: $0.isSeen , direction: direction, mediaUrl: $0.mediaUrl!)
+                                             type: $0.type, isSeen: $0.isSeen , direction: direction, mediaUrl: $0.mediaUrl!)
+            case .like:
+                return LikeMessageViewModel(id: $0.id , senderId: $0.senderId, createdAt: $0.createdAt
+                    , type: $0.type, isSeen: $0.isSeen , direction: direction)
                 
             default:
-            return UnsupportMessageViewModel(id: $0.id, senderId: $0.senderId,
-                                             createdAt: $0.createdAt,
-                                             type: $0.type, isSeen: $0.isSeen , direction: direction)
+                return UnsupportMessageViewModel(id: $0.id, senderId: $0.senderId,
+                                                 createdAt: $0.createdAt,
+                                                 type: $0.type, isSeen: $0.isSeen , direction: direction)
             }
         }
     }
