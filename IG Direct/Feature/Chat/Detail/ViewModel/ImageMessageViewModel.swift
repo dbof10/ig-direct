@@ -22,6 +22,6 @@ struct ImageMessageViewModel: BaseMessageViewModel {
     
     var direction: MessageDirection
     
-    let mediaUrl: String
+    let payload: ImagePayload
     
 }

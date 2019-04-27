@@ -10,7 +10,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="IncomingImageCellView" customModule="IG_Direct" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mJb-7H-xtF">
                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -25,6 +25,7 @@
                 <constraint firstItem="mJb-7H-xtF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="030-Ar-TUi"/>
                 <constraint firstItem="mJb-7H-xtF" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="XsI-za-r9g"/>
                 <constraint firstItem="mJb-7H-xtF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="hU7-IP-V7a"/>
+                <constraint firstItem="mJb-7H-xtF" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="pjO-EK-Gdl"/>
             </constraints>
             <connections>
                 <outlet property="ivImage" destination="mJb-7H-xtF" id="HgM-Iy-RLo"/>

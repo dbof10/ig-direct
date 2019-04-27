@@ -10,7 +10,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView identifier="OutgoingTextCell" id="c22-O7-iKe" customClass="OutgoingTextCellView" customModule="IG_Direct" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="480" height="36"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arD-tc-nE1">
                     <rect key="frame" x="384" y="0.0" width="96" height="36"/>

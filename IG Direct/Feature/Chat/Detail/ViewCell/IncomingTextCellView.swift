@@ -15,6 +15,6 @@ class IncomingTextCellView: NSTableCellView {
     @IBOutlet weak var tvText: NSTextField!
     
     func bind(viewModel : TextMessageViewModel) {
-        tvText.stringValue = viewModel.text
+        tvText.stringValue = viewModel.payload.text
     }
 }

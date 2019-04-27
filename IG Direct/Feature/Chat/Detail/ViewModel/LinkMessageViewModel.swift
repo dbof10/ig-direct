@@ -1,16 +1,14 @@
 //
-//  TextMessageViewModel.swift
+//  LinkMessageViewModel.swift
 //  IG Direct
 //
-//  Created by Daniel Lee on 4/21/19.
+//  Created by Daniel Lee on 4/26/19.
 //  Copyright © 2019 Ctech. All rights reserved.
 //
 
 import Foundation
 
-
-struct TextMessageViewModel: BaseMessageViewModel {
-    
+struct LinkMessageViewModel : BaseMessageViewModel {
     var id: String
     
     var senderId: Int64
@@ -22,6 +20,7 @@ struct TextMessageViewModel: BaseMessageViewModel {
     var isSeen: String
     
     var direction: MessageDirection
-
-    let payload: TextPayload
+    
+    let payload: LinkPayload
+    
 }

@@ -65,14 +65,30 @@ function renderChat(detail) {
     messages = messages.map((message) => {
 
         let type = message._params.type;
-        let text = null;
-        let mediaUrl = null;
+        let payload;
         switch (type) {
             case "text":
-                text = message._params.text;
+                payload = {
+                    text: message._params.text
+                };
                 break;
             case "media":
-                mediaUrl = message._params.media[0].url;
+                payload = {
+                    mediaUrl: message._params.media[0].url
+                };
+                break;
+            case "link":
+                const {link} = message.link._params;
+                let mediaUrl = null;
+                if (link.image && link.image.url) {
+                    mediaUrl = link.image.url
+                }
+                payload = {
+                    mediaUrl,
+                    text: message.link._params.text,
+                    title: link.title,
+                    summary: link.summary
+                };
                 break;
             case "placeholder":
                 break;
@@ -82,8 +98,7 @@ function renderChat(detail) {
             senderId: message._params.accountId,
             createdAt: message._params.created,
             type: message._params.type,
-            text,
-            mediaUrl,
+            payload,
             isSeen: getIsSeenText(detail)
         }
     });
@@ -92,7 +107,7 @@ function renderChat(detail) {
 
 }
 
-function getIsSeenText (chat) {
+function getIsSeenText(chat) {
     let text = '';
     if (!chat.items || !chat.items.length) {
         return '';
@@ -104,7 +119,7 @@ function getIsSeenText (chat) {
             chat._params.itemsSeenAt[account.id].itemId === chat.items[0].id
         )
     });
-    
+
     if (seenBy.length === chat.accounts.length) {
         text = 'seen'
     } else if (seenBy.length) {
@@ -113,7 +128,7 @@ function getIsSeenText (chat) {
     return text;
 }
 
-function getUsernames (chat_) {
+function getUsernames(chat_) {
     return chat_.accounts.map((acc) => acc._params.username).join(', ');
 }
 

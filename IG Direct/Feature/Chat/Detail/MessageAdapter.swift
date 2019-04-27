@@ -19,7 +19,9 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private let TYPE_OUTGOING_IMAGE = 4
     private let TYPE_INCOMING_LIKE = 5
     private let TYPE_OUTGOING_LIKE = 6
-    
+    private let TYPE_INCOMING_LINK = 7
+    private let TYPE_OUTGOING_LINK = 8
+
     
     init(_ tableView: NSTableView) {
         super.init()
@@ -35,6 +37,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             NSUserInterfaceItemIdentifier(rawValue: "IncomingLikeCell"))
         tableView.register(NSNib.init(nibNamed: "OutgoingLikeCell", bundle: nil), forIdentifier:
             NSUserInterfaceItemIdentifier(rawValue: "OutgoingLikeCell"))
+        tableView.register(NSNib.init(nibNamed: "IncomingLinkCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "IncomingLinkCell"))
+        tableView.register(NSNib.init(nibNamed: "OutgoingLinkCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "OutgoingLinkCell"))
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -71,6 +77,12 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             } else {
                 return self.TYPE_OUTGOING_LIKE
             }
+        case let vm as LinkMessageViewModel:
+            if vm.direction == .incoming {
+                return self.TYPE_INCOMING_LINK
+            } else {
+                return self.TYPE_OUTGOING_LINK
+            }
         default:
             return self.TYPE_UNKNOWN
         }
@@ -90,6 +102,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingLikeCell"), owner: self) as! IncomingLikeCellView
         case self.TYPE_OUTGOING_LIKE:
             return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingLikeCell"), owner: self) as! OutgoingLikeCellView
+        case self.TYPE_INCOMING_LINK:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingLinkCell"), owner: self) as! IncomingLinkCellView
+        case self.TYPE_OUTGOING_LINK:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingLinkCell"), owner: self) as! OutgoingLinkCellView
         default:
             fatalError("Unsupport view type \(type)")
         }
@@ -105,8 +121,16 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             break
         case let v as IncomingImageCellView:
             v.bind(viewModel: items[row] as! ImageMessageViewModel)
+            break
         case let v as OutgoingImageCellView:
             v.bind(viewModel: items[row] as! ImageMessageViewModel)
+            break
+        case let v as IncomingLinkCellView:
+            v.bind(viewModel: items[row] as! LinkMessageViewModel)
+            break
+        case let v as OutgoingLinkCellView:
+            v.bind(viewModel: items[row] as! LinkMessageViewModel)
+            break
         default: ()
         }
     }

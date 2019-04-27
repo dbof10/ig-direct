@@ -15,8 +15,7 @@ struct BaseMessage : ImmutableMappable {
     let createdAt: Int64
     let type: MessageType
     let isSeen: String
-    let text: String?
-    let mediaUrl: String?
+    let payload: MessagePayload
     
     init(map: Map) throws {
         id   = try map.value("id")
@@ -24,13 +23,12 @@ struct BaseMessage : ImmutableMappable {
         createdAt   = try map.value("createdAt")
         type = try map.value("type")
         isSeen   = try map.value("isSeen")
-        text = try? map.value("text")
-        mediaUrl = try? map.value("mediaUrl")
+        payload = try map.value("payload", using: MessagePayloadTransform(type: type))
     }
 }
 
 enum MessageType : RawRepresentable {
-  
+    
     typealias RawValue = String
     
     init(rawValue: RawValue) {
@@ -38,8 +36,9 @@ enum MessageType : RawRepresentable {
         case "text": self = .text
         case "media": self = .media
         case "like": self = .like
+        case "link": self = .link
         default:
-           self = .unknown
+            self = .unknown
         }
     }
     
@@ -48,6 +47,7 @@ enum MessageType : RawRepresentable {
         case .text: return "text"
         case .media: return "media"
         case .like: return "like"
+        case .link: return "link"
         default:
             return ""
         }
@@ -56,5 +56,37 @@ enum MessageType : RawRepresentable {
     case text
     case media
     case like
+    case link
     case unknown
+}
+
+class MessagePayloadTransform : TransformType {
+    
+    private let type: MessageType
+    init(type: MessageType) {
+        self.type = type
+    }
+    
+    public typealias Object = MessagePayload
+    
+    public typealias JSON = String
+    
+    func transformFromJSON(_ value: Any?) -> MessagePayload? {
+        guard let payload = value as? [String: Any] else { return EmptyPayload() }
+        switch type {
+        case .text:
+            return TextPayload(JSON: payload)
+        case .media:
+            return ImagePayload(JSON: payload)
+        case .link:
+            return LinkPayload(JSON: payload)
+        default:
+            return EmptyPayload()
+        }
+    }
+    
+    func transformToJSON(_ value: MessagePayload?) -> String? {
+        return nil
+    }
+    
 }

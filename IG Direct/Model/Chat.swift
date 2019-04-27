@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct Chat :  ImmutableMappable, Equatable  {
+struct Chat :  ImmutableMappable  {
     
     let id: String
     let msgPreview: String
@@ -37,11 +37,4 @@ struct Chat :  ImmutableMappable, Equatable  {
         thumbnail >>> map["thumbnail"]
     }
     
-    
-    static func == (lhs: Chat, rhs: Chat) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.msgPreview == rhs.msgPreview &&
-            lhs.userName == rhs.userName &&
-            lhs.thumbnail == rhs.thumbnail
-    }
 }

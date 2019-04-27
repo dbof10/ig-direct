@@ -22,6 +22,6 @@ class OutgoingImageCellView : NSTableCellView {
     }
     
     func bind(viewModel : ImageMessageViewModel) {
-        ivImage.sd_setImage(with: URL(string: viewModel.mediaUrl))
+        ivImage.sd_setImage(with: URL(string: viewModel.payload.mediaUrl))
     }
 }

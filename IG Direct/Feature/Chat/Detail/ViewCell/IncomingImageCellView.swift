@@ -15,13 +15,13 @@ class IncomingImageCellView : NSTableCellView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ivImage.wantsLayer = true
-        ivImage.layer!.masksToBounds = true
-        ivImage.layer!.cornerRadius = 16;
-        ivImage.layer!.backgroundColor = ConstantColor.IMAGECELL_BACKGROUND
+        self.wantsLayer = true
+        self.layer!.masksToBounds = true
+        self.layer!.cornerRadius = 16;
+        self.layer!.backgroundColor = ConstantColor.IMAGECELL_BACKGROUND
     }
     
     func bind(viewModel : ImageMessageViewModel) {
-        ivImage.sd_setImage(with: URL(string: viewModel.mediaUrl))
+        ivImage.sd_setImage(with: URL(string: viewModel.payload.mediaUrl))
     }
 }

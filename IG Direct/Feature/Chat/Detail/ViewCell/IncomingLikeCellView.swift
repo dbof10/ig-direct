@@ -12,5 +12,5 @@ import Cocoa
 class IncomingLikeCellView: NSTableCellView {
     
     @IBOutlet weak var ivLike: NSImageView!
-    
+
 }
