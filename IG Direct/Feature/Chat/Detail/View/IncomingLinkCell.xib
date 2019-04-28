@@ -9,14 +9,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="IncomingLinkCellView" customModule="IG_Direct" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="288" height="228"/>
+            <rect key="frame" x="0.0" y="0.0" width="256" height="228"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <textField verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gzP-uQ-Vfq" customClass="HyperlinkTextField" customModule="IG_Direct" customModuleProvider="target">
-                    <rect key="frame" x="14" y="192" width="260" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="256" id="F5l-Cv-Y3r"/>
-                    </constraints>
+                    <rect key="frame" x="14" y="192" width="228" height="20"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="0Mt-MY-XcK">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -27,14 +24,15 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LAa-Ah-Fb2">
-                    <rect key="frame" x="0.0" y="74" width="288" height="96"/>
+                    <rect key="frame" x="0.0" y="74" width="256" height="96"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="256" id="YTJ-N6-arz"/>
                         <constraint firstAttribute="height" constant="96" id="iHv-hz-ZVE"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="vWD-Ed-cbC"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-eS-beQ">
-                    <rect key="frame" x="14" y="16" width="260" height="17"/>
+                    <rect key="frame" x="14" y="16" width="228" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="o3q-Fo-A6B">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -42,7 +40,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="glG-Ip-z8t">
-                    <rect key="frame" x="14" y="41" width="260" height="17"/>
+                    <rect key="frame" x="14" y="41" width="228" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="3yP-W3-qcs">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -52,15 +50,15 @@
             </subviews>
             <constraints>
                 <constraint firstItem="rrn-eS-beQ" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" constant="-16" id="6r4-Nj-B9V"/>
-                <constraint firstItem="rrn-eS-beQ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="8Vx-vn-3a9"/>
-                <constraint firstItem="glG-Ip-z8t" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" constant="-16" id="98f-th-VM4"/>
-                <constraint firstItem="gzP-uQ-Vfq" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" constant="-16" id="Anm-JJ-ejJ"/>
-                <constraint firstItem="glG-Ip-z8t" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="H1j-jx-Lwx"/>
-                <constraint firstItem="rrn-eS-beQ" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" constant="-16" id="IG4-fY-fKE"/>
+                <constraint firstItem="rrn-eS-beQ" firstAttribute="leading" secondItem="LAa-Ah-Fb2" secondAttribute="leading" constant="16" id="8Vx-vn-3a9"/>
+                <constraint firstItem="glG-Ip-z8t" firstAttribute="trailing" secondItem="LAa-Ah-Fb2" secondAttribute="trailing" constant="-16" id="98f-th-VM4"/>
+                <constraint firstItem="gzP-uQ-Vfq" firstAttribute="trailing" secondItem="LAa-Ah-Fb2" secondAttribute="trailing" constant="-16" id="Anm-JJ-ejJ"/>
+                <constraint firstItem="glG-Ip-z8t" firstAttribute="leading" secondItem="LAa-Ah-Fb2" secondAttribute="leading" constant="16" id="H1j-jx-Lwx"/>
+                <constraint firstItem="rrn-eS-beQ" firstAttribute="trailing" secondItem="LAa-Ah-Fb2" secondAttribute="trailing" constant="-16" id="IG4-fY-fKE"/>
                 <constraint firstItem="LAa-Ah-Fb2" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="Nlt-6c-aXc"/>
                 <constraint firstItem="rrn-eS-beQ" firstAttribute="top" secondItem="glG-Ip-z8t" secondAttribute="bottom" constant="8" id="O9c-ST-yWf"/>
                 <constraint firstItem="gzP-uQ-Vfq" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="16" id="WbN-ec-vzc"/>
-                <constraint firstItem="gzP-uQ-Vfq" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="gQN-41-MkU"/>
+                <constraint firstItem="gzP-uQ-Vfq" firstAttribute="leading" secondItem="LAa-Ah-Fb2" secondAttribute="leading" constant="16" id="gQN-41-MkU"/>
                 <constraint firstItem="glG-Ip-z8t" firstAttribute="top" secondItem="LAa-Ah-Fb2" secondAttribute="bottom" constant="16" id="jD6-0g-WDL"/>
                 <constraint firstItem="LAa-Ah-Fb2" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="nwi-Tz-aJt"/>
                 <constraint firstItem="LAa-Ah-Fb2" firstAttribute="top" secondItem="gzP-uQ-Vfq" secondAttribute="bottom" constant="22" id="x4o-3c-42J"/>

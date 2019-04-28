@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="OutgoingUnsupportCellView" customModule="IG_Direct" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="36"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="404-8x-qZV">
+                    <rect key="frame" x="325" y="0.0" width="155" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="ujx-Rs-eES"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="vSf-JE-for"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="message_blue" id="HLi-5s-CTW"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pXs-SQ-GAN">
+                    <rect key="frame" x="339" y="10" width="127" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Unsupport Message" id="8pn-W6-peN">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pXs-SQ-GAN" firstAttribute="trailing" secondItem="404-8x-qZV" secondAttribute="trailing" constant="-16" id="8nD-8X-Q00"/>
+                <constraint firstItem="pXs-SQ-GAN" firstAttribute="leading" secondItem="404-8x-qZV" secondAttribute="leading" constant="16" id="Eae-vH-0BI"/>
+                <constraint firstItem="404-8x-qZV" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="a3S-6P-MtH"/>
+                <constraint firstItem="pXs-SQ-GAN" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="aK0-TK-7Gm"/>
+                <constraint firstItem="404-8x-qZV" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="dAy-T7-wmf"/>
+                <constraint firstItem="404-8x-qZV" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="n4v-PX-K0R"/>
+            </constraints>
+        </customView>
+    </objects>
+    <resources>
+        <image name="message_blue" width="14" height="12"/>
+    </resources>
+</document>

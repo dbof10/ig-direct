@@ -30,11 +30,11 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="azY-5r-sXT" firstAttribute="width" secondItem="arD-tc-nE1" secondAttribute="width" constant="-32" id="4Zr-Qw-K9c"/>
                 <constraint firstItem="arD-tc-nE1" firstAttribute="width" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="width" multiplier="0.2" id="7L7-hu-SKM"/>
                 <constraint firstItem="azY-5r-sXT" firstAttribute="centerY" secondItem="arD-tc-nE1" secondAttribute="centerY" id="BaD-f7-aTO"/>
                 <constraint firstItem="arD-tc-nE1" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="Coz-TQ-RCq"/>
                 <constraint firstItem="azY-5r-sXT" firstAttribute="trailing" secondItem="arD-tc-nE1" secondAttribute="trailing" constant="-16" id="P8L-DV-3sM"/>
+                <constraint firstItem="azY-5r-sXT" firstAttribute="leading" secondItem="arD-tc-nE1" secondAttribute="leading" constant="16" id="Rsm-hl-fJH"/>
                 <constraint firstItem="arD-tc-nE1" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="aIL-EA-N1c"/>
                 <constraint firstItem="arD-tc-nE1" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="uJN-hb-epr"/>
             </constraints>

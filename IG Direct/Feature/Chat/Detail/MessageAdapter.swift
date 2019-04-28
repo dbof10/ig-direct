@@ -22,6 +22,8 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private let TYPE_INCOMING_LINK = 7
     private let TYPE_OUTGOING_LINK = 8
 
+    private let TYPE_INCOMING_UNSUPPORT = 19
+    private let TYPE_OUTGOING_UNSUPPORT = 20
     
     init(_ tableView: NSTableView) {
         super.init()
@@ -41,6 +43,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             NSUserInterfaceItemIdentifier(rawValue: "IncomingLinkCell"))
         tableView.register(NSNib.init(nibNamed: "OutgoingLinkCell", bundle: nil), forIdentifier:
             NSUserInterfaceItemIdentifier(rawValue: "OutgoingLinkCell"))
+        tableView.register(NSNib.init(nibNamed: "IncomingUnsupportCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "IncomingUnsupportCell"))
+        tableView.register(NSNib.init(nibNamed: "OutgoingUnsupportCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "OutgoingUnsupportCell"))
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -53,8 +59,6 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
         bindView(view, row)
         return view
     }
-    
-    
     
     private func getViewType(_ row: Int) -> Int {
         let message = items[row]
@@ -83,6 +87,12 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             } else {
                 return self.TYPE_OUTGOING_LINK
             }
+        case let vm as UnsupportMessageViewModel:
+            if vm.direction == .incoming {
+                return self.TYPE_INCOMING_UNSUPPORT
+            } else {
+                return self.TYPE_OUTGOING_UNSUPPORT
+            }
         default:
             return self.TYPE_UNKNOWN
         }
@@ -106,6 +116,10 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingLinkCell"), owner: self) as! IncomingLinkCellView
         case self.TYPE_OUTGOING_LINK:
             return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingLinkCell"), owner: self) as! OutgoingLinkCellView
+        case self.TYPE_INCOMING_UNSUPPORT:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingUnsupportCell"), owner: self) as! IncomingUnsupportCellView
+        case self.TYPE_OUTGOING_UNSUPPORT:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingUnsupportCell"), owner: self) as! OutgoingUnsupportCellView
         default:
             fatalError("Unsupport view type \(type)")
         }

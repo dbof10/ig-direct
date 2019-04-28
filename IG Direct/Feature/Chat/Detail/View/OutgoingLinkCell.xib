@@ -9,11 +9,15 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="OutgoingLinkCellView" customModule="IG_Direct" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="202"/>
+            <rect key="frame" x="0.0" y="0.0" width="256" height="219"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qe6-pT-lvg">
+                    <rect key="frame" x="0.0" y="0.0" width="256" height="219"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="gUr-lh-WgV"/>
+                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ux-z3-xtJ" customClass="HyperlinkTextField" customModule="IG_Direct" customModuleProvider="target">
-                    <rect key="frame" x="14" y="169" width="452" height="17"/>
+                    <rect key="frame" x="14" y="186" width="228" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="G8Z-qm-ieo">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -21,14 +25,15 @@
                     </textFieldCell>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joR-hX-LgI">
-                    <rect key="frame" x="0.0" y="74" width="480" height="96"/>
+                    <rect key="frame" x="0.0" y="74" width="256" height="96"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="96" id="JlS-78-C0d"/>
+                        <constraint firstAttribute="width" constant="256" id="eKC-rs-GqY"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="tAS-xc-RWc"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fjo-a3-nEg">
-                    <rect key="frame" x="14" y="41" width="452" height="17"/>
+                    <rect key="frame" x="14" y="41" width="228" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="zDz-rf-tsj">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -36,7 +41,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QY3-3T-tZy">
-                    <rect key="frame" x="14" y="16" width="452" height="17"/>
+                    <rect key="frame" x="14" y="16" width="228" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="hEd-32-Jtk">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -45,21 +50,25 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="joR-hX-LgI" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="4Jj-F2-frx"/>
-                <constraint firstItem="fjo-a3-nEg" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" constant="-16" id="Gdh-N7-Gp9"/>
-                <constraint firstItem="QY3-3T-tZy" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="I1U-m3-5dY"/>
+                <constraint firstItem="Qe6-pT-lvg" firstAttribute="trailing" secondItem="joR-hX-LgI" secondAttribute="trailing" id="AYx-LS-AHg"/>
+                <constraint firstItem="fjo-a3-nEg" firstAttribute="trailing" secondItem="joR-hX-LgI" secondAttribute="trailing" constant="-16" id="Gdh-N7-Gp9"/>
+                <constraint firstItem="Qe6-pT-lvg" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="JFP-7D-Fqg"/>
                 <constraint firstItem="QY3-3T-tZy" firstAttribute="top" secondItem="fjo-a3-nEg" secondAttribute="bottom" constant="8" id="O0e-Qp-Ont"/>
-                <constraint firstItem="joR-hX-LgI" firstAttribute="top" secondItem="2ux-z3-xtJ" secondAttribute="top" constant="16" id="P2J-fd-YIu"/>
-                <constraint firstItem="2ux-z3-xtJ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="T22-0E-Yw5"/>
-                <constraint firstItem="QY3-3T-tZy" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" constant="-16" id="blZ-bH-Cyz"/>
-                <constraint firstItem="QY3-3T-tZy" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" constant="-16" id="ehC-ho-rN2"/>
-                <constraint firstItem="fjo-a3-nEg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="16" id="g6l-9R-WKN"/>
+                <constraint firstItem="QY3-3T-tZy" firstAttribute="leading" secondItem="joR-hX-LgI" secondAttribute="leading" constant="16" id="OHc-Gh-NlP"/>
+                <constraint firstItem="joR-hX-LgI" firstAttribute="top" secondItem="2ux-z3-xtJ" secondAttribute="bottom" constant="16" id="P2J-fd-YIu"/>
+                <constraint firstItem="Qe6-pT-lvg" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="Q9D-Y9-qd9"/>
+                <constraint firstItem="QY3-3T-tZy" firstAttribute="trailing" secondItem="joR-hX-LgI" secondAttribute="trailing" constant="-16" id="blZ-bH-Cyz"/>
+                <constraint firstItem="2ux-z3-xtJ" firstAttribute="leading" secondItem="joR-hX-LgI" secondAttribute="leading" constant="16" id="d8z-Kk-71F"/>
+                <constraint firstItem="QY3-3T-tZy" firstAttribute="bottom" secondItem="Qe6-pT-lvg" secondAttribute="bottom" constant="-16" id="ehC-ho-rN2"/>
+                <constraint firstItem="fjo-a3-nEg" firstAttribute="leading" secondItem="joR-hX-LgI" secondAttribute="leading" constant="16" id="lHm-Dg-oSA"/>
                 <constraint firstItem="fjo-a3-nEg" firstAttribute="top" secondItem="joR-hX-LgI" secondAttribute="bottom" constant="16" id="myv-vJ-wGv"/>
                 <constraint firstItem="2ux-z3-xtJ" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="16" id="pL3-YE-dEg"/>
+                <constraint firstItem="Qe6-pT-lvg" firstAttribute="leading" secondItem="joR-hX-LgI" secondAttribute="leading" id="tem-1y-2gP"/>
                 <constraint firstItem="joR-hX-LgI" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="uQu-uU-fxt"/>
-                <constraint firstItem="2ux-z3-xtJ" firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" constant="-16" id="xyW-5W-yWc"/>
+                <constraint firstItem="2ux-z3-xtJ" firstAttribute="trailing" secondItem="joR-hX-LgI" secondAttribute="trailing" constant="-16" id="xyW-5W-yWc"/>
             </constraints>
             <connections>
+                <outlet property="ivBackground" destination="Qe6-pT-lvg" id="NfX-fA-Fuz"/>
                 <outlet property="ivThumbnail" destination="joR-hX-LgI" id="Nxb-2v-LS0"/>
                 <outlet property="tvSummary" destination="QY3-3T-tZy" id="Thr-sk-s2l"/>
                 <outlet property="tvText" destination="2ux-z3-xtJ" id="vlX-i9-0j3"/>

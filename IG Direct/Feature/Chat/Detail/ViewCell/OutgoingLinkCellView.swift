@@ -19,13 +19,14 @@ class OutgoingLinkCellView : NSTableCellView {
     
     @IBOutlet weak var tvSummary: NSTextField!
     
+    @IBOutlet weak var ivBackground: NSImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.wantsLayer = true
-        self.layer!.masksToBounds = true
-        self.layer!.cornerRadius = 16;
-        self.layer!.backgroundColor = ConstantColor.IMAGECELL_BACKGROUND
+        self.ivBackground.wantsLayer = true
+        self.ivBackground.layer!.masksToBounds = true
+        self.ivBackground.layer!.cornerRadius = 16;
+        self.ivBackground.layer!.backgroundColor = ConstantColor.IMAGECELL_BACKGROUND
     }
     
     func bind(viewModel: LinkMessageViewModel){

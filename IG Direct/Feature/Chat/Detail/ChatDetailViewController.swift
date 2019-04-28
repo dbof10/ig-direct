@@ -30,6 +30,7 @@ class ChatDetailViewController: NSViewController {
         
         etContent.delegate = self
         setupBinding()
+        tvMessages.intercellSpacing = NSSize(width: 0, height: 8)
     }
     
     private func setupBinding() {

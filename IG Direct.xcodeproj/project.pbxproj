@@ -27,6 +27,10 @@
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
+		7E4D76132275E1AF004A1432 /* IncomingUnsupportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */; };
+		7E4D76152275E1C5004A1432 /* OutgoingUnsupportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */; };
+		7E4D76172275E1FF004A1432 /* IncomingUnsupportCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */; };
+		7E4D76192275E23B004A1432 /* OutgoingUnsupportCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D76182275E23B004A1432 /* OutgoingUnsupportCellView.swift */; };
 		7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CBA27226AD152004DB229 /* Result+Extension.swift */; };
 		7E611DDF2273EC500036ACF0 /* OutgoingLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */; };
 		7E611DE12273EC610036ACF0 /* OutgoingLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */; };
@@ -109,6 +113,10 @@
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
+		7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingUnsupportCell.xib; sourceTree = "<group>"; };
+		7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingUnsupportCell.xib; sourceTree = "<group>"; };
+		7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingUnsupportCellView.swift; sourceTree = "<group>"; };
+		7E4D76182275E23B004A1432 /* OutgoingUnsupportCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingUnsupportCellView.swift; sourceTree = "<group>"; };
 		7E5CBA27226AD152004DB229 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingLinkCell.xib; sourceTree = "<group>"; };
 		7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingLinkCellView.swift; sourceTree = "<group>"; };
@@ -417,6 +425,8 @@
 				7E9161342271EC18001E2B96 /* OutgoingLikeCell.xib */,
 				7E8B95292273500A00526204 /* IncomingLinkCell.xib */,
 				7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */,
+				7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */,
+				7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,6 +442,8 @@
 				7E9161382271EC39001E2B96 /* OutgoingLikeCellView.swift */,
 				7E8B952B2273501700526204 /* IncomingLinkCellView.swift */,
 				7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */,
+				7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */,
+				7E4D76182275E23B004A1432 /* OutgoingUnsupportCellView.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -555,6 +567,7 @@
 				7EBBF4C822617C31003EB627 /* node in Resources */,
 				7E9161352271EC18001E2B96 /* OutgoingLikeCell.xib in Resources */,
 				7E874EDF2258E24800B0A234 /* Assets.xcassets in Resources */,
+				7E4D76152275E1C5004A1432 /* OutgoingUnsupportCell.xib in Resources */,
 				7E9D235F226CAC400064425C /* IncomingTextCell.xib in Resources */,
 				7E8B952A2273500A00526204 /* IncomingLinkCell.xib in Resources */,
 				7E9161332271EC09001E2B96 /* IncomingLikeCell.xib in Resources */,
@@ -562,6 +575,7 @@
 				7ED631442270A149006E0E5A /* IncomingImageCell.xib in Resources */,
 				7E874EE22258E24800B0A234 /* Main.storyboard in Resources */,
 				7EE983382260DC0500063B59 /* app.bundle.js in Resources */,
+				7E4D76132275E1AF004A1432 /* IncomingUnsupportCell.xib in Resources */,
 				7E611DDF2273EC500036ACF0 /* OutgoingLinkCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +670,7 @@
 				7E9D235D226CAAE60064425C /* ImageMessageViewModel.swift in Sources */,
 				7E093A8C2258F17E00ED2830 /* UserRepository.swift in Sources */,
 				7E9D2364226CB6890064425C /* RuntimeError.swift in Sources */,
+				7E4D76172275E1FF004A1432 /* IncomingUnsupportCellView.swift in Sources */,
 				7E611DE12273EC610036ACF0 /* OutgoingLinkCellView.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */,
@@ -664,6 +679,7 @@
 				7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */,
 				7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */,
 				7E8B952822733F9700526204 /* MessagePayload.swift in Sources */,
+				7E4D76192275E23B004A1432 /* OutgoingUnsupportCellView.swift in Sources */,
 				7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */,
 				7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */,
 				7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */,

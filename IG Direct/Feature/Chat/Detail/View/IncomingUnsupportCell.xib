@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="IncomingUnsupportCellView" customModule="IG_Direct" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="36"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="exC-uj-16B">
+                    <rect key="frame" x="0.0" y="0.0" width="155" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="seB-Qs-Jyd"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="message_gray" id="lRD-LX-fu1"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5x1-ig-61h">
+                    <rect key="frame" x="14" y="10" width="127" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Unsupport Message" id="vH0-iZ-t4f">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="exC-uj-16B" firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="9gQ-3n-nTh"/>
+                <constraint firstItem="5x1-ig-61h" firstAttribute="trailing" secondItem="exC-uj-16B" secondAttribute="trailing" constant="-16" id="Kic-ZL-5ZW"/>
+                <constraint firstItem="5x1-ig-61h" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="YcZ-Xb-exw"/>
+                <constraint firstItem="exC-uj-16B" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="ZnF-cm-wYt"/>
+                <constraint firstItem="5x1-ig-61h" firstAttribute="leading" secondItem="exC-uj-16B" secondAttribute="leading" constant="16" id="uuy-cU-eeN"/>
+                <constraint firstItem="exC-uj-16B" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="zWI-kw-5Os"/>
+            </constraints>
+        </customView>
+    </objects>
+    <resources>
+        <image name="message_gray" width="14" height="12"/>
+    </resources>
+</document>
