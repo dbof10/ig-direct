@@ -842,17 +842,17 @@
             <objects>
                 <viewController id="ENt-kC-k4Y" customClass="ChatDetailViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YJG-h3-dne">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="456"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wv-Vp-dJP">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+                                <rect key="frame" x="0.0" y="40" width="480" height="416"/>
                                 <clipView key="contentView" id="rkm-mf-bem">
-                                    <rect key="frame" x="1" y="1" width="478" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="414"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="lQ9-jz-bSK">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="414"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -884,15 +884,30 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-L7-a6g" customClass="AutoGrowingTextField" customModule="IG_Direct" customModuleProvider="target">
+                                <rect key="frame" x="16" y="8" width="448" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="gD5-Qh-Vgr"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="charWrapping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Type a message" id="pBe-xt-c3G">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" id="0xe-ik-K7N"/>
-                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="top" secondItem="YJG-h3-dne" secondAttribute="top" id="Jtv-oJ-Hfe"/>
-                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="bottom" secondItem="YJG-h3-dne" secondAttribute="bottom" id="Myw-hO-6QM"/>
-                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" id="bfV-vc-0EC"/>
+                            <constraint firstItem="dZn-L7-a6g" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" constant="-16" id="GTS-9X-IXC"/>
+                            <constraint firstItem="dZn-L7-a6g" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" constant="16" id="Mhv-5S-lDc"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="bottom" secondItem="dZn-L7-a6g" secondAttribute="top" constant="-8" id="fBL-eW-Ccx"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" id="fop-oo-fEd"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="top" secondItem="YJG-h3-dne" secondAttribute="top" id="jo2-k5-AY0"/>
+                            <constraint firstItem="1Wv-Vp-dJP" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" id="nKt-U7-8x7"/>
+                            <constraint firstItem="dZn-L7-a6g" firstAttribute="bottom" secondItem="YJG-h3-dne" secondAttribute="bottom" constant="-8" id="ypX-IL-ivl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="etContent" destination="dZn-L7-a6g" id="FNr-up-61Q"/>
                         <outlet property="tvMessages" destination="lQ9-jz-bSK" id="pHq-Eh-CjH"/>
                     </connections>
                 </viewController>

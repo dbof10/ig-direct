@@ -14,18 +14,36 @@ class ChatDetailViewController: NSViewController {
     
     @IBOutlet weak var tvMessages: NSTableView!
 
+    @IBOutlet weak var etContent: NSTextField!
     var viewModel: ChatDetailViewModel!
     
     private var messagesAdapter: MessageAdapter!
     private let disposeBag = DisposeBag()
     
+    //Input
+    private let selectedChat = PublishSubject<String>()
+    private let enterTap = PublishSubject<String>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesAdapter = MessageAdapter(tvMessages)
+        
+        etContent.delegate = self
         setupBinding()
     }
     
     private func setupBinding() {
+      selectedChat
+        .subscribe(viewModel.input.chatItemClick)
+        .disposed(by: disposeBag)
+        
+        enterTap
+            .do(onNext: { (String) in
+                self.etContent.stringValue = ""
+            })
+        .subscribe(viewModel.input.enterTap)
+            .disposed(by: disposeBag)
+
         viewModel
             .output
             .messagesObservable
@@ -42,9 +60,20 @@ class ChatDetailViewController: NSViewController {
                 self.presentError(error)
             })
             .disposed(by: disposeBag)
+        
     }
     
     func chatSelected(item: ChatItemViewModel) {
-        viewModel.onItemSelected(item)
+        selectedChat.onNext(item.id)
+    }
+}
+
+extension ChatDetailViewController: NSTextFieldDelegate {
+    
+
+    override func keyUp(with event: NSEvent) {
+        if event.keyCode == KeyCode.enterKey.rawValue {
+            enterTap.onNext(etContent.stringValue)
+        }
     }
 }

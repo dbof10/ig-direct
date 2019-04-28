@@ -13,6 +13,7 @@
 		7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A8E2258F4CC00ED2830 /* BaseViewModel.swift */; };
 		7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A902258F58400ED2830 /* LoginViewModel.swift */; };
 		7E093A932258F65300ED2830 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E093A922258F65300ED2830 /* Credentials.swift */; };
+		7E0B1C01227548C800EBFAB0 /* SendMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B1C00227548C800EBFAB0 /* SendMessageResponse.swift */; };
 		7E19DD81226A063C0016E452 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD80226A063C0016E452 /* ChatListViewModel.swift */; };
 		7E19DD83226A06650016E452 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD82226A06650016E452 /* ChatRepository.swift */; };
 		7E19DD85226A06F20016E452 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19DD84226A06F20016E452 /* Chat.swift */; };
@@ -30,6 +31,7 @@
 		7E611DDF2273EC500036ACF0 /* OutgoingLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */; };
 		7E611DE12273EC610036ACF0 /* OutgoingLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */; };
 		7E611DE42273F7090036ACF0 /* HyperLinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E611DE32273F7090036ACF0 /* HyperLinkTextField.swift */; };
+		7E6E9EBB2274A84E00317D22 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E9EBA2274A84E00317D22 /* KeyCode.swift */; };
 		7E6FEF97226E0BDE00DE3CA3 /* OutgoingTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */; };
 		7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */; };
 		7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E482269625800843A26 /* NSViewController+Rx.swift */; };
@@ -56,6 +58,7 @@
 		7E9D2364226CB6890064425C /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2363226CB6890064425C /* RuntimeError.swift */; };
 		7E9D2366226CB9C70064425C /* MessageViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2365226CB9C70064425C /* MessageViewModelMapper.swift */; };
 		7E9D2368226CBCE30064425C /* UnsupportMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D2367226CBCE30064425C /* UnsupportMessageViewModel.swift */; };
+		7EA256B722749DA300EA6BD5 /* AutoGrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA256B622749DA300EA6BD5 /* AutoGrowingTextField.swift */; };
 		7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4BF22617317003EB627 /* NodeCore.swift */; };
 		7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C12261750A003EB627 /* AppLogic.swift */; };
 		7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C322617557003EB627 /* NodeAppLogic.swift */; };
@@ -92,6 +95,7 @@
 		7E093A8E2258F4CC00ED2830 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		7E093A902258F58400ED2830 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7E093A922258F65300ED2830 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		7E0B1C00227548C800EBFAB0 /* SendMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageResponse.swift; sourceTree = "<group>"; };
 		7E19DD80226A063C0016E452 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		7E19DD82226A06650016E452 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		7E19DD84226A06F20016E452 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingLinkCell.xib; sourceTree = "<group>"; };
 		7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingLinkCellView.swift; sourceTree = "<group>"; };
 		7E611DE32273F7090036ACF0 /* HyperLinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperLinkTextField.swift; sourceTree = "<group>"; };
+		7E6E9EBA2274A84E00317D22 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingTextCell.xib; sourceTree = "<group>"; };
 		7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextCellView.swift; sourceTree = "<group>"; };
 		7E823E482269625800843A26 /* NSViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -140,6 +145,7 @@
 		7E9D2363226CB6890064425C /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		7E9D2365226CB9C70064425C /* MessageViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModelMapper.swift; sourceTree = "<group>"; };
 		7E9D2367226CBCE30064425C /* UnsupportMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportMessageViewModel.swift; sourceTree = "<group>"; };
+		7EA256B622749DA300EA6BD5 /* AutoGrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGrowingTextField.swift; sourceTree = "<group>"; };
 		7EBBF4BF22617317003EB627 /* NodeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeCore.swift; sourceTree = "<group>"; };
 		7EBBF4C12261750A003EB627 /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
 		7EBBF4C322617557003EB627 /* NodeAppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAppLogic.swift; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 			children = (
 				7E5CBA27226AD152004DB229 /* Result+Extension.swift */,
 				7ED6314E2270AF39006E0E5A /* ConstantColor.swift */,
+				7E6E9EBA2274A84E00317D22 /* KeyCode.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -286,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				7E611DE32273F7090036ACF0 /* HyperLinkTextField.swift */,
+				7EA256B622749DA300EA6BD5 /* AutoGrowingTextField.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -375,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				7EC922F7226627D1007E5008 /* LoginResponse.swift */,
+				7E0B1C00227548C800EBFAB0 /* SendMessageResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -636,6 +645,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E093A8A2258F15500ED2830 /* User.swift in Sources */,
+				7EA256B722749DA300EA6BD5 /* AutoGrowingTextField.swift in Sources */,
+				7E0B1C01227548C800EBFAB0 /* SendMessageResponse.swift in Sources */,
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
 				7E1B5B53226C20FF00CC156C /* BaseMessage.swift in Sources */,
 				7E093A932258F65300ED2830 /* Credentials.swift in Sources */,
@@ -674,6 +685,7 @@
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
 				7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */,
 				7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */,
+				7E6E9EBB2274A84E00317D22 /* KeyCode.swift in Sources */,
 				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
 				7E611DE42273F7090036ACF0 /* HyperLinkTextField.swift in Sources */,

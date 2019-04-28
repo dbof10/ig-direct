@@ -4,7 +4,8 @@ import {switchMap} from 'rxjs/operators';
 import {authenticate} from './middleware/authenticate';
 
 const usersRouter = require('./routes/users');
-const chatRouter = require('./routes/chat');
+const chatGetRouter = require('./routes/chatGet');
+const chatUpdateRouter = require('./routes/chatUpdate');
 
 const PORT = 5000;
 const POLLING_INTERVAL = 1000;
@@ -30,7 +31,8 @@ const app = express();
 app.use(express.json());
 app.use(authenticate);
 app.use('/users', usersRouter);
-app.use('/chats', chatRouter);
+app.use('/chats', chatGetRouter);
+app.use('/chats', chatUpdateRouter);
 
 const server = app.listen(PORT, () => {
     console.log(SERVER_STATUS);

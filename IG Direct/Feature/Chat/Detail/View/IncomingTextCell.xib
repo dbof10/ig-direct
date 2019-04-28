@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hRQ-Ty-ZKx">
-                    <rect key="frame" x="0.0" y="0.0" width="96" height="36"/>
+                    <rect key="frame" x="8" y="0.0" width="96" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="256" id="6dd-eU-q8t"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="aiR-Yg-wTa"/>
@@ -21,7 +21,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="message_gray" id="CVq-zn-Fxx"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tJe-na-GwQ">
-                    <rect key="frame" x="14" y="10" width="68" height="17"/>
+                    <rect key="frame" x="22" y="10" width="68" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZdS-el-JlX">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -30,7 +30,7 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="EnA-1x-Pw2"/>
+                <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="EnA-1x-Pw2"/>
                 <constraint firstItem="tJe-na-GwQ" firstAttribute="leading" secondItem="hRQ-Ty-ZKx" secondAttribute="leading" constant="16" id="Hhk-hs-woI"/>
                 <constraint firstItem="tJe-na-GwQ" firstAttribute="centerY" secondItem="hRQ-Ty-ZKx" secondAttribute="centerY" id="UJ9-uu-igJ"/>
                 <constraint firstItem="hRQ-Ty-ZKx" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="f9y-Nv-hDD"/>

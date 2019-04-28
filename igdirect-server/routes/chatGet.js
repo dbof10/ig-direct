@@ -8,7 +8,6 @@ const Client = require('instagram-private-api').V1;
 
 router.get('/all', (req, res) => {
 
-
     defer(function getChatList() {
         return new Promise((resolve, reject) => {
             let session = req.session;
@@ -28,7 +27,6 @@ router.get('/all', (req, res) => {
                 })
             }
         );
-
 
 });
 
@@ -54,8 +52,6 @@ router.get('/:id', (req, res) => {
                 })
             }
         );
-
-
 });
 
 
