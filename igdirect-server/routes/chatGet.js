@@ -30,10 +30,35 @@ router.get('/all', (req, res) => {
 
 });
 
+router.get('/search', (req, res) => {
+
+    let keyword = req.query.keyword;
+
+    defer(function searchChat() {
+        return new Promise((resolve, reject) => {
+            let session = req.session;
+            return Client.Account.search(session, keyword).then(resolve).catch(reject)
+        });
+    }).pipe(map(list => {
+        return renderSearchResult(list)
+    }))
+        .subscribe(
+            function (users) {
+                res.status(200).send(users)
+            },
+            function (err) {
+                res.status(401).send({
+                    error: err
+                })
+            }
+        );
+
+
+});
+
 router.get('/:id', (req, res) => {
 
     let chatId = req.params.id;
-
     defer(function getChat() {
         return new Promise((resolve, reject) => {
             let session = req.session;
@@ -54,6 +79,16 @@ router.get('/:id', (req, res) => {
         );
 });
 
+function renderSearchResult(users) {
+    return users.map((user) => {
+        return {
+            id: user.id.toString(),
+            msgPreview: 'Send a message',
+            userName: user._params.username,
+            thumbnail: user._params.picture
+        }
+    })
+}
 
 function renderChat(detail) {
     let messages = detail.items.slice().reverse();

@@ -1,12 +1,8 @@
 import {defer} from "rxjs";
-import {truncate} from '../utils/strings'
-import {map, switchMap} from 'rxjs/operators';
 
 const express = require('express');
 const router = express.Router();
 const Client = require('instagram-private-api').V1;
-
-
 
 
 router.post('/:id', (req, res) => {

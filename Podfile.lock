@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
-  - KeychainAccess (3.2.0)
+  - DeepDiff (2.0.1)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya-ObjectMapper/Core (2.8):
@@ -29,7 +29,7 @@ PODS:
     - Swinject (~> 2.6)
 
 DEPENDENCIES:
-  - KeychainAccess
+  - DeepDiff
   - Moya
   - Moya-ObjectMapper/RxSwift
   - ObjectMapper
@@ -42,7 +42,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - KeychainAccess
+    - DeepDiff
     - Moya
     - Moya-ObjectMapper
     - ObjectMapper
@@ -55,7 +55,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  DeepDiff: 1944bb2c841ab238a66b31de1faa7627f3ca84bd
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
@@ -66,6 +66,6 @@ SPEC CHECKSUMS:
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
   SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
 
-PODFILE CHECKSUM: 763a6b1029eb7c63feac8232df6cd3f4c09ba977
+PODFILE CHECKSUM: a70d33be09fb4f8687a9f90058bcc5235f257921
 
 COCOAPODS: 1.7.0.beta.3

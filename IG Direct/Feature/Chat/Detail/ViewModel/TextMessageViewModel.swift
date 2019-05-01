@@ -11,6 +11,7 @@ import Foundation
 
 struct TextMessageViewModel: BaseMessageViewModel {
     
+    
     var id: String
     
     var senderId: Int64
@@ -24,4 +25,5 @@ struct TextMessageViewModel: BaseMessageViewModel {
     var direction: MessageDirection
 
     let payload: TextPayload
+    
 }

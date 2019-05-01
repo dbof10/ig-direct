@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DeepDiff
 
 protocol BaseMessageViewModel  {
     var id: String {get}

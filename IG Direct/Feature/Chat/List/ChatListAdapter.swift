@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import DeepDiff
 
 class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
@@ -32,8 +33,14 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return chatView
     }
     
-    func submitList(dataSource: [ChatItemViewModel]){
-        self.items = dataSource
+    func submitList(dataSource: [ChatItemViewModel]) {
+        let oldItems = self.items
+        let newItems = dataSource
+        let changes = diff(old: oldItems, new: newItems) //TODO off mainthread
+        
+        self.tableView.notifyDataSetChange(changes: changes, updateData: {
+                self.items = newItems
+        })
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {

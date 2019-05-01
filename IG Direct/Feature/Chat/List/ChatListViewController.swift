@@ -16,6 +16,7 @@ class ChatListViewController: NSViewController {
     
     private let disposeBag = DisposeBag()
     
+    @IBOutlet weak var tvSearch: NSTextField!
     @IBOutlet weak var tvChatList: NSTableView!
     private var chatListAdapter: ChatListAdapter!
     private var itemClick = PublishSubject<Int>()
@@ -38,12 +39,15 @@ class ChatListViewController: NSViewController {
             .subscribe(viewModel.input.chatItemClick)
             .disposed(by: disposeBag)
         
+        tvSearch.rx.text.orEmpty
+            .subscribe(viewModel.input.searchType)
+            .disposed(by: disposeBag)
+        
         viewModel
             .output
             .chatListObservable
             .subscribe(onNext: { [unowned self] (items: [ChatItemViewModel]) in
                 self.chatListAdapter.submitList(dataSource: items)
-                self.tvChatList.reloadData()
             })
             .disposed(by: disposeBag)
         
@@ -57,13 +61,13 @@ class ChatListViewController: NSViewController {
         
         viewModel.output
             .openDetailOvservable
-            .subscribe(onNext: { [unowned self] (item: ChatItemViewModel) in
+            .subscribe(onNext: { [unowned self] (item: Chat) in
                self.openChatDetail(item)
             })
             .disposed(by: disposeBag)
     }
     
-    private func openChatDetail(_ item: ChatItemViewModel) {
+    private func openChatDetail(_ item: Chat) {
         guard let splitVC = parent as? NSSplitViewController else { return }
         
         if let detail = splitVC.children[1] as? ChatDetailViewController {

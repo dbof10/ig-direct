@@ -64,7 +64,7 @@ class ChatDetailViewController: NSViewController {
         
     }
     
-    func chatSelected(item: ChatItemViewModel) {
+    func chatSelected(item: Chat) {
         selectedChat.onNext(item.id)
     }
 }

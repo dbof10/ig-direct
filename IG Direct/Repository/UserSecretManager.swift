@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KeychainAccess
 import RxSwift
 import ObjectMapper
 
@@ -47,6 +46,7 @@ class UserSecretManager {
         }
         return user
     }
+    
     func getUser() -> Observable<User> {
         return Observable<User>.create{ emitter -> Disposable in
             let user = self.getUserBlocking()

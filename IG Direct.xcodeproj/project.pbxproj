@@ -75,6 +75,8 @@
 		7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */; };
 		7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */; };
 		7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314E2270AF39006E0E5A /* ConstantColor.swift */; };
+		7ED83E5522794216003880D6 /* ChangeWithIndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */; };
+		7ED83E572279427A003880D6 /* NSTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED83E562279427A003880D6 /* NSTableView+Extension.swift */; };
 		7EE983382260DC0500063B59 /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 7EE983372260DC0400063B59 /* app.bundle.js */; };
 		7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9833A2260DC6300063B59 /* NodeTask.swift */; };
 		973B70CC45F44A5C7D7C9986 /* Pods_IG_DirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00542445F9158F840E21596D /* Pods_IG_DirectTests.framework */; };
@@ -166,6 +168,8 @@
 		7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingImageCellView.swift; sourceTree = "<group>"; };
 		7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingImageCellView.swift; sourceTree = "<group>"; };
 		7ED6314E2270AF39006E0E5A /* ConstantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantColor.swift; sourceTree = "<group>"; };
+		7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWithIndexSet.swift; sourceTree = "<group>"; };
+		7ED83E562279427A003880D6 /* NSTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Extension.swift"; sourceTree = "<group>"; };
 		7EE983372260DC0400063B59 /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.bundle.js; sourceTree = "<group>"; };
 		7EE9833A2260DC6300063B59 /* NodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTask.swift; sourceTree = "<group>"; };
 		8A42A238852A6DECE4927E72 /* Pods-IG DirectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG DirectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IG DirectTests/Pods-IG DirectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 		7E5CBA26226AD13F004DB229 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7ED83E5322794202003880D6 /* Diff */,
 				7E5CBA27226AD152004DB229 /* Result+Extension.swift */,
 				7ED6314E2270AF39006E0E5A /* ConstantColor.swift */,
 				7E6E9EBA2274A84E00317D22 /* KeyCode.swift */,
@@ -446,6 +451,15 @@
 				7E4D76182275E23B004A1432 /* OutgoingUnsupportCellView.swift */,
 			);
 			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		7ED83E5322794202003880D6 /* Diff */ = {
+			isa = PBXGroup;
+			children = (
+				7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */,
+				7ED83E562279427A003880D6 /* NSTableView+Extension.swift */,
+			);
+			path = Diff;
 			sourceTree = "<group>";
 		};
 		7EE983362260D7A300063B59 /* Server */ = {
@@ -660,6 +674,7 @@
 			files = (
 				7E093A8A2258F15500ED2830 /* User.swift in Sources */,
 				7EA256B722749DA300EA6BD5 /* AutoGrowingTextField.swift in Sources */,
+				7ED83E572279427A003880D6 /* NSTableView+Extension.swift in Sources */,
 				7E0B1C01227548C800EBFAB0 /* SendMessageResponse.swift in Sources */,
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
 				7E1B5B53226C20FF00CC156C /* BaseMessage.swift in Sources */,
@@ -704,6 +719,7 @@
 				7E6E9EBB2274A84E00317D22 /* KeyCode.swift in Sources */,
 				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
+				7ED83E5522794216003880D6 /* ChangeWithIndexSet.swift in Sources */,
 				7E611DE42273F7090036ACF0 /* HyperLinkTextField.swift in Sources */,
 				7E8B952C2273501700526204 /* IncomingLinkCellView.swift in Sources */,
 				7E8B952E2273505200526204 /* LinkMessageViewModel.swift in Sources */,

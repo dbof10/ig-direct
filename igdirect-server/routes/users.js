@@ -1,7 +1,7 @@
 import {clearCookieFiles, encodeBase64, getCookieStorage, getDevice} from "../utils";
 import {defer} from "rxjs";
 import {sign} from "../jwt";
-import {switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 
 const express = require('express');
 const router = express.Router();
