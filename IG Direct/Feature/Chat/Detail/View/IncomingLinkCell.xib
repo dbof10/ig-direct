@@ -14,7 +14,7 @@
             <subviews>
                 <textField verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gzP-uQ-Vfq" customClass="HyperlinkTextField" customModule="IG_Direct" customModuleProvider="target">
                     <rect key="frame" x="14" y="192" width="228" height="20"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="0Mt-MY-XcK">
+                    <textFieldCell key="cell" title="Label" id="0Mt-MY-XcK">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -33,7 +33,7 @@
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rrn-eS-beQ">
                     <rect key="frame" x="14" y="16" width="228" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="o3q-Fo-A6B">
+                    <textFieldCell key="cell" title="Label" id="o3q-Fo-A6B">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -41,7 +41,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="glG-Ip-z8t">
                     <rect key="frame" x="14" y="41" width="228" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="3yP-W3-qcs">
+                    <textFieldCell key="cell" title="Label" id="3yP-W3-qcs">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -18,7 +18,7 @@
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ux-z3-xtJ" customClass="HyperlinkTextField" customModule="IG_Direct" customModuleProvider="target">
                     <rect key="frame" x="14" y="186" width="228" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="G8Z-qm-ieo">
+                    <textFieldCell key="cell" title="Label" id="G8Z-qm-ieo">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -34,7 +34,7 @@
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fjo-a3-nEg">
                     <rect key="frame" x="14" y="41" width="228" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="zDz-rf-tsj">
+                    <textFieldCell key="cell" title="Label" id="zDz-rf-tsj">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -42,7 +42,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QY3-3T-tZy">
                     <rect key="frame" x="14" y="16" width="228" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="hEd-32-Jtk">
+                    <textFieldCell key="cell" title="Label" id="hEd-32-Jtk">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

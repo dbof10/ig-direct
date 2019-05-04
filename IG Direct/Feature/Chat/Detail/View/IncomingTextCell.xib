@@ -22,7 +22,7 @@
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tJe-na-GwQ">
                     <rect key="frame" x="22" y="10" width="68" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZdS-el-JlX">
+                    <textFieldCell key="cell" title="Label" id="ZdS-el-JlX">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

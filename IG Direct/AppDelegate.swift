@@ -85,6 +85,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var windowController: NSWindowController!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         nodeCore = container.resolve(NodeCore.self)
         nodeCore.lunchServer()
         nodeCore.taskStatus()

@@ -947,51 +947,118 @@
             <objects>
                 <viewController identifier="LoginViewController" storyboardIdentifier="LoginViewController" id="XfG-lQ-9wD" customClass="LoginViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="560"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-Jq-QgW">
-                                <rect key="frame" x="74" y="233" width="450" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="8sc-67-3cE">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="WiE-Jv-gss" customClass="MastelView" customModule="IG_Direct" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="640" height="560"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="560" id="Gth-7O-Wk4"/>
+                                    <constraint firstAttribute="width" constant="640" id="Qnn-Vk-Vad"/>
+                                </constraints>
+                            </customView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v9C-E0-3C7">
+                                <rect key="frame" x="128" y="64" width="384" height="432"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="V0E-gz-toS"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mAM-eS-G3O">
+                                <rect key="frame" x="288" y="400" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="IFr-nE-IEu"/>
+                                    <constraint firstAttribute="width" constant="64" id="pSa-6e-Nmd"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo_login" id="dHv-rm-iO2"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bpk-Ro-zqM">
+                                <rect key="frame" x="255" y="359" width="131" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Login with Instagram" id="1WF-uY-mTe">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-Ih-kuF">
-                                <rect key="frame" x="263" y="111" width="74" height="32"/>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-Jq-QgW">
+                                <rect key="frame" x="144" y="303" width="352" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="uP7-kI-Yay"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Email" drawsBackground="YES" id="8sc-67-3cE" customClass="VerticallyCenteredTextFieldCell" customModule="IG_Direct" customModuleProvider="target">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-Ih-kuF" customClass="FlatButton" customModule="IG_Direct" customModuleProvider="target">
+                                <rect key="frame" x="142" y="201" width="356" height="32"/>
                                 <buttonCell key="cell" type="push" title="Login" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bJn-HM-fuw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="0.0" green="0.48187491127533377" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.48187491129999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psg-3g-IEj">
-                                <rect key="frame" x="74" y="177" width="450" height="22"/>
-                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="9XK-wn-J4J">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XiZ-Ze-g4D">
+                                <rect key="frame" x="144" y="263" width="352" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Zrr-2m-VX6"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" id="mB4-aj-eme" customClass="VerticallyCenteredSecureTextFieldCell" customModule="IG_Direct" customModuleProvider="target">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <allowedInputSourceLocales>
-                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                                    </allowedInputSourceLocales>
-                                </secureTextFieldCell>
-                            </secureTextField>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fn1-Z7-EsW">
+                                <rect key="frame" x="142" y="142" width="356" height="34"/>
+                                <textFieldCell key="cell" alignment="center" title="This is not affiliated with Instagram. You can visit the open source project here" id="GmI-9F-XtS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="psg-3g-IEj" firstAttribute="leading" secondItem="XSL-Jq-QgW" secondAttribute="leading" id="11g-cZ-NdF"/>
-                            <constraint firstItem="psg-3g-IEj" firstAttribute="trailing" secondItem="XSL-Jq-QgW" secondAttribute="trailing" id="8bF-eM-9Kd"/>
-                            <constraint firstItem="psg-3g-IEj" firstAttribute="firstBaseline" secondItem="XSL-Jq-QgW" secondAttribute="baseline" constant="56" id="9EY-BT-qo0"/>
-                            <constraint firstItem="Qwf-Ih-kuF" firstAttribute="top" secondItem="psg-3g-IEj" secondAttribute="bottom" constant="38" id="9kK-2C-KeF"/>
-                            <constraint firstItem="XSL-Jq-QgW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="45" id="9zD-cF-FzB"/>
-                            <constraint firstItem="Qwf-Ih-kuF" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Mb4-a2-Jkf"/>
-                            <constraint firstItem="XSL-Jq-QgW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="74" id="P1m-Ra-dI8"/>
-                            <constraint firstAttribute="trailing" secondItem="XSL-Jq-QgW" secondAttribute="trailing" constant="76" id="mEU-Z5-PtZ"/>
+                            <constraint firstItem="Fn1-Z7-EsW" firstAttribute="trailing" secondItem="XiZ-Ze-g4D" secondAttribute="trailing" id="20j-bU-X6a"/>
+                            <constraint firstItem="Qwf-Ih-kuF" firstAttribute="top" secondItem="XiZ-Ze-g4D" secondAttribute="bottom" constant="34" id="35T-NS-RdM"/>
+                            <constraint firstItem="XiZ-Ze-g4D" firstAttribute="trailing" secondItem="XSL-Jq-QgW" secondAttribute="trailing" id="3Yi-Rv-y6C"/>
+                            <constraint firstItem="WiE-Jv-gss" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="7K0-Nx-5Eh"/>
+                            <constraint firstItem="XSL-Jq-QgW" firstAttribute="leading" secondItem="v9C-E0-3C7" secondAttribute="leading" constant="16" id="8Ew-tz-Dtb"/>
+                            <constraint firstItem="v9C-E0-3C7" firstAttribute="bottom" secondItem="WiE-Jv-gss" secondAttribute="bottom" constant="-64" id="9sv-dV-1IB"/>
+                            <constraint firstItem="Qwf-Ih-kuF" firstAttribute="trailing" secondItem="XiZ-Ze-g4D" secondAttribute="trailing" constant="-4" id="9z5-Th-Ljc"/>
+                            <constraint firstItem="WiE-Jv-gss" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="BAK-7b-tpT"/>
+                            <constraint firstItem="Fn1-Z7-EsW" firstAttribute="top" secondItem="Qwf-Ih-kuF" secondAttribute="bottom" constant="32" id="DAp-lK-Vqd"/>
+                            <constraint firstItem="v9C-E0-3C7" firstAttribute="leading" secondItem="WiE-Jv-gss" secondAttribute="leading" constant="128" id="Djk-XO-4in"/>
+                            <constraint firstItem="WiE-Jv-gss" firstAttribute="bottom" secondItem="m2S-Jp-Qdl" secondAttribute="bottom" id="JDF-xt-Y2J"/>
+                            <constraint firstItem="mAM-eS-G3O" firstAttribute="top" secondItem="v9C-E0-3C7" secondAttribute="top" constant="32" id="KBe-7l-3UQ"/>
+                            <constraint firstItem="mAM-eS-G3O" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Nhh-4V-YuW"/>
+                            <constraint firstItem="WiE-Jv-gss" firstAttribute="trailing" secondItem="m2S-Jp-Qdl" secondAttribute="trailing" id="OfF-2L-wGY"/>
+                            <constraint firstItem="XSL-Jq-QgW" firstAttribute="top" secondItem="bpk-Ro-zqM" secondAttribute="bottom" constant="24" id="RpI-7z-FIi"/>
+                            <constraint firstItem="XiZ-Ze-g4D" firstAttribute="leading" secondItem="XSL-Jq-QgW" secondAttribute="leading" id="TFG-Dg-N3e"/>
+                            <constraint firstItem="XSL-Jq-QgW" firstAttribute="trailing" secondItem="v9C-E0-3C7" secondAttribute="trailing" constant="-16" id="Z4J-KU-cb7"/>
+                            <constraint firstItem="XiZ-Ze-g4D" firstAttribute="top" secondItem="XSL-Jq-QgW" secondAttribute="bottom" constant="8" id="ewn-Bq-OF7"/>
+                            <constraint firstItem="bpk-Ro-zqM" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="fwV-Zz-xTY"/>
+                            <constraint firstItem="v9C-E0-3C7" firstAttribute="trailing" secondItem="WiE-Jv-gss" secondAttribute="trailing" constant="-128" id="hVU-xA-PyR"/>
+                            <constraint firstItem="Qwf-Ih-kuF" firstAttribute="leading" secondItem="XiZ-Ze-g4D" secondAttribute="leading" constant="4" id="kqR-6V-TiQ"/>
+                            <constraint firstItem="bpk-Ro-zqM" firstAttribute="top" secondItem="mAM-eS-G3O" secondAttribute="bottom" constant="24" id="o4C-Ok-56e"/>
+                            <constraint firstItem="Fn1-Z7-EsW" firstAttribute="leading" secondItem="XiZ-Ze-g4D" secondAttribute="leading" id="xOt-JK-nXR"/>
+                            <constraint firstItem="v9C-E0-3C7" firstAttribute="top" secondItem="WiE-Jv-gss" secondAttribute="top" constant="64" id="xfK-bq-s1Y"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btLogin" destination="Qwf-Ih-kuF" id="88Y-7g-E5J"/>
                         <outlet property="etEmail" destination="XSL-Jq-QgW" id="AKK-a1-mhk"/>
-                        <outlet property="etPassword" destination="psg-3g-IEj" id="sKo-r6-k62"/>
+                        <outlet property="etPassword" destination="XiZ-Ze-g4D" id="C2z-SM-qhX"/>
+                        <outlet property="ivBackground" destination="v9C-E0-3C7" id="9nQ-wr-EMw"/>
+                        <outlet property="mastelView" destination="WiE-Jv-gss" id="cDp-NQ-Pav"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -999,4 +1066,7 @@
             <point key="canvasLocation" x="221" y="1000"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo_login" width="85" height="85"/>
+    </resources>
 </document>

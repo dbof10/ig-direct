@@ -38,6 +38,9 @@
 		7E6E9EBB2274A84E00317D22 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E9EBA2274A84E00317D22 /* KeyCode.swift */; };
 		7E6FEF97226E0BDE00DE3CA3 /* OutgoingTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */; };
 		7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */; };
+		7E7B653F227B27B600346BA3 /* MastelGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B653E227B27B600346BA3 /* MastelGradient.swift */; };
+		7E7B6541227B27D500346BA3 /* MastelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B6540227B27D500346BA3 /* MastelPoint.swift */; };
+		7E7B6543227B27F300346BA3 /* MastelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B6542227B27F300346BA3 /* MastelView.swift */; };
 		7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E482269625800843A26 /* NSViewController+Rx.swift */; };
 		7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E823E4A226962EA00843A26 /* ChatViewController.swift */; };
 		7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E874EDA2258E24700B0A234 /* AppDelegate.swift */; };
@@ -48,6 +51,10 @@
 		7E8B952A2273500A00526204 /* IncomingLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8B95292273500A00526204 /* IncomingLinkCell.xib */; };
 		7E8B952C2273501700526204 /* IncomingLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B952B2273501700526204 /* IncomingLinkCellView.swift */; };
 		7E8B952E2273505200526204 /* LinkMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8B952D2273505200526204 /* LinkMessageViewModel.swift */; };
+		7E8DB974227D23600064511D /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DB973227D23600064511D /* FlatButton.swift */; };
+		7E8DB976227D26510064511D /* VerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DB975227D26510064511D /* VerticallyCenteredTextFieldCell.swift */; };
+		7E8DB978227D29230064511D /* VerticallyCenteredSecureTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DB977227D29230064511D /* VerticallyCenteredSecureTextFieldCell.swift */; };
+		7E8DB97C227D32980064511D /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DB97B227D32980064511D /* TextField+Extension.swift */; };
 		7E9161332271EC09001E2B96 /* IncomingLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9161322271EC09001E2B96 /* IncomingLikeCell.xib */; };
 		7E9161352271EC18001E2B96 /* OutgoingLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9161342271EC18001E2B96 /* OutgoingLikeCell.xib */; };
 		7E9161372271EC28001E2B96 /* IncomingLikeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9161362271EC28001E2B96 /* IncomingLikeCellView.swift */; };
@@ -126,6 +133,9 @@
 		7E6E9EBA2274A84E00317D22 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingTextCell.xib; sourceTree = "<group>"; };
 		7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextCellView.swift; sourceTree = "<group>"; };
+		7E7B653E227B27B600346BA3 /* MastelGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastelGradient.swift; sourceTree = "<group>"; };
+		7E7B6540227B27D500346BA3 /* MastelPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastelPoint.swift; sourceTree = "<group>"; };
+		7E7B6542227B27F300346BA3 /* MastelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastelView.swift; sourceTree = "<group>"; };
 		7E823E482269625800843A26 /* NSViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Rx.swift"; sourceTree = "<group>"; };
 		7E823E4A226962EA00843A26 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7E874ED72258E24700B0A234 /* IG Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IG Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +151,10 @@
 		7E8B95292273500A00526204 /* IncomingLinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingLinkCell.xib; sourceTree = "<group>"; };
 		7E8B952B2273501700526204 /* IncomingLinkCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingLinkCellView.swift; sourceTree = "<group>"; };
 		7E8B952D2273505200526204 /* LinkMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMessageViewModel.swift; sourceTree = "<group>"; };
+		7E8DB973227D23600064511D /* FlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
+		7E8DB975227D26510064511D /* VerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
+		7E8DB977227D29230064511D /* VerticallyCenteredSecureTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredSecureTextFieldCell.swift; sourceTree = "<group>"; };
+		7E8DB97B227D32980064511D /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		7E9161322271EC09001E2B96 /* IncomingLikeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingLikeCell.xib; sourceTree = "<group>"; };
 		7E9161342271EC18001E2B96 /* OutgoingLikeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingLikeCell.xib; sourceTree = "<group>"; };
 		7E9161362271EC28001E2B96 /* IncomingLikeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingLikeCellView.swift; sourceTree = "<group>"; };
@@ -305,10 +319,25 @@
 		7E611DE22273F6D80036ACF0 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				7E7B653D227B279400346BA3 /* Mastel */,
 				7E611DE32273F7090036ACF0 /* HyperLinkTextField.swift */,
 				7EA256B622749DA300EA6BD5 /* AutoGrowingTextField.swift */,
+				7E8DB973227D23600064511D /* FlatButton.swift */,
+				7E8DB975227D26510064511D /* VerticallyCenteredTextFieldCell.swift */,
+				7E8DB977227D29230064511D /* VerticallyCenteredSecureTextFieldCell.swift */,
+				7E8DB97B227D32980064511D /* TextField+Extension.swift */,
 			);
 			path = Widgets;
+			sourceTree = "<group>";
+		};
+		7E7B653D227B279400346BA3 /* Mastel */ = {
+			isa = PBXGroup;
+			children = (
+				7E7B653E227B27B600346BA3 /* MastelGradient.swift */,
+				7E7B6540227B27D500346BA3 /* MastelPoint.swift */,
+				7E7B6542227B27F300346BA3 /* MastelView.swift */,
+			);
+			path = Mastel;
 			sourceTree = "<group>";
 		};
 		7E874ECE2258E24700B0A234 = {
@@ -679,6 +708,7 @@
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
 				7E1B5B53226C20FF00CC156C /* BaseMessage.swift in Sources */,
 				7E093A932258F65300ED2830 /* Credentials.swift in Sources */,
+				7E8DB976227D26510064511D /* VerticallyCenteredTextFieldCell.swift in Sources */,
 				7E1B5B15226C08C100CC156C /* ChatDetailViewModel.swift in Sources */,
 				7E19DD81226A063C0016E452 /* ChatListViewModel.swift in Sources */,
 				7E19DD89226A10DC0016E452 /* ChatItemViewModel.swift in Sources */,
@@ -689,28 +719,34 @@
 				7E611DE12273EC610036ACF0 /* OutgoingLinkCellView.swift in Sources */,
 				7E874EDB2258E24700B0A234 /* AppDelegate.swift in Sources */,
 				7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */,
+				7E8DB97C227D32980064511D /* TextField+Extension.swift in Sources */,
 				7E9161392271EC39001E2B96 /* OutgoingLikeCellView.swift in Sources */,
 				7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */,
 				7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */,
+				7E7B6541227B27D500346BA3 /* MastelPoint.swift in Sources */,
 				7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */,
 				7E8B952822733F9700526204 /* MessagePayload.swift in Sources */,
 				7E4D76192275E23B004A1432 /* OutgoingUnsupportCellView.swift in Sources */,
 				7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */,
+				7E7B6543227B27F300346BA3 /* MastelView.swift in Sources */,
 				7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */,
 				7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */,
 				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
 				7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */,
 				7E19DD85226A06F20016E452 /* Chat.swift in Sources */,
+				7E8DB978227D29230064511D /* VerticallyCenteredSecureTextFieldCell.swift in Sources */,
 				7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */,
 				7E9D2366226CB9C70064425C /* MessageViewModelMapper.swift in Sources */,
 				7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */,
 				7E093A8F2258F4CC00ED2830 /* BaseViewModel.swift in Sources */,
 				7E1B5B13226C07B500CC156C /* ChatDetailViewController.swift in Sources */,
+				7E7B653F227B27B600346BA3 /* MastelGradient.swift in Sources */,
 				7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */,
 				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,
 				7E19DD83226A06650016E452 /* ChatRepository.swift in Sources */,
 				7E91613B2271F141001E2B96 /* LikeMessageViewModel.swift in Sources */,
+				7E8DB974227D23600064511D /* FlatButton.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
