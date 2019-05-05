@@ -15,6 +15,11 @@ extension Result {
         return value
     }
     
+    var error: Error? {
+        guard case let .failure(value) = self else { return nil }
+        return value
+    }
+    
     var isSuccess: Bool { if case .success = self { return true } else { return false } }
     
     var isError: Bool {  return !isSuccess  }

@@ -10,10 +10,10 @@ import RxSwift
 
 class LoginViewModel: BaseViewModel {
     
-    struct Input {
-        let email: AnyObserver<String>
-        let password: AnyObserver<String>
-        let signInDidTap: AnyObserver<Void>
+     struct Input {
+        let emailObservable: Observable<String>
+        let passwordObservable: Observable<String>
+        let loginTapObservable: Observable<Void>
     }
     
     struct Output {
@@ -22,42 +22,45 @@ class LoginViewModel: BaseViewModel {
     }
     
     // MARK: - Public properties
-    let input: Input
     let output: Output
     
     // MARK: - Private properties
-    private let emailSubject = PublishSubject<String>()
-    private let passwordSubject = PublishSubject<String>()
-    private let signInDidTapSubject = PublishSubject<Void>()
     private let loginResultSubject = PublishSubject<User>()
     private let errorsSubject = PublishSubject<Error>()
     private let disposeBag = DisposeBag()
 
-    private var credentialsObservable: Observable<Credentials> {
-        return Observable.combineLatest(emailSubject.asObservable(), passwordSubject.asObservable()) { (email, password) in
-            return Credentials(email: email, password: password)
-        }
-    }
+    private let repo: UserRepository
     
     init(_ repo: UserRepository) {
+        self.repo =  repo
         
-        input = Input(email: emailSubject.asObserver(),
-                      password: passwordSubject.asObserver(),
-                      signInDidTap: signInDidTapSubject.asObserver())
         
         output = Output(loginResultObservable: loginResultSubject.asObservable(),
                         errorsObservable: errorsSubject.asObservable())
         
-        signInDidTapSubject
+       
+    }
+    
+    func bind(input: Input) {
+        
+        let credentialsObservable = Observable.combineLatest(input.emailObservable, input.passwordObservable) { (email, password) in
+                    return Credentials(email: email, password: password)
+        }
+        
+        input.loginTapObservable
+            .do(onNext: { _ in
+                print("next tap ")
+            })
             .withLatestFrom(credentialsObservable)
             .flatMapLatest { credentials in
-                return repo.signIn(with: credentials)
+                return self.repo.signIn(with: credentials)
             }
-            .subscribe(onNext: { (user: User) in
-                self.loginResultSubject.onNext(user)
-            }, onError: {(error: Error) in
-                self.errorsSubject.onNext(error)
-
+            .subscribe(onNext: { (result: Result<LoginResponse, Error>) in
+                if result.isSuccess {
+                    self.loginResultSubject.onNext(result.value!.user)
+                }else {
+                    self.errorsSubject.onNext(result.error!)
+                }
             })
             .disposed(by: disposeBag)
     }

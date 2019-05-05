@@ -73,17 +73,13 @@ class LoginViewController: NSViewController {
     
     private func setupBinding() {
         
-        etEmail.rx.text.orEmpty
-            .subscribe(viewModel.input.email)
-            .disposed(by: disposeBag)
-        
-        etPassword.rx.text.orEmpty
-            .subscribe(viewModel.input.password)
-            .disposed(by: disposeBag)
-        
-        btLogin.rx.tap.asObservable()
-            .subscribe(viewModel.input.signInDidTap)
-            .disposed(by: disposeBag)
+        viewModel.bind(input: LoginViewModel.Input(emailObservable: etEmail.rx.text.orEmpty.asObservable(),
+                                                   passwordObservable: etPassword.rx.text.orEmpty.asObservable(),
+                                                   loginTapObservable: btLogin.rx.tap.asObservable()
+                                                    .do(onNext: { _ in
+                                                    print("next tap ")
+                                                   })))
+       
         
         viewModel.output.errorsObservable
             .subscribe(onNext: { [unowned self] (error) in

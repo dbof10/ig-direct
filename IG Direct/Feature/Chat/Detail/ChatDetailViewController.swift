@@ -31,6 +31,7 @@ class ChatDetailViewController: NSViewController {
         etContent.delegate = self
         setupBinding()
         tvMessages.intercellSpacing = NSSize(width: 0, height: 8)
+        
     }
     
     private func setupBinding() {
@@ -51,6 +52,7 @@ class ChatDetailViewController: NSViewController {
             .subscribe(onNext: { [unowned self] (items: [BaseMessageViewModel]) in
                 self.messagesAdapter.submitList(dataSource: items)
                 self.tvMessages.reloadData()
+                self.tvMessages.scrollRowToVisible(2)
             })
             .disposed(by: disposeBag)
         

@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d701976f-c0e5-4d10-8d17-d90d8deb7d45" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatItemViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatItemViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/UserSecretManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/UserSecretManager.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/app.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/jwt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Error/NetworkError.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Network/Moya+Extension.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Login/LoginViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Login/LoginViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Login/LoginViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Login/LoginViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Network/Response/LoginResponse.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Network/Response/LoginResponse.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/UserRepository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/UserRepository.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Utils/Result+Extension.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Utils/Result+Extension.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/chatGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chatGet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/chatUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chatUpdate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
@@ -43,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+            <state relative-caret-position="389">
+              <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -53,10 +52,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1/thread.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="35" column="57" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="384">
+              <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
               </folding>
@@ -67,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/chatUpdate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="405">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -206,16 +223,18 @@
       <workItem from="1556420991158" duration="553000" />
       <workItem from="1556543794014" duration="4369000" />
       <workItem from="1556674102040" duration="1016000" />
+      <workItem from="1557021511233" duration="4294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48538000" />
+    <option name="totallyTimeSpent" value="52832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1744" y="23" width="1689" height="965" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.206235" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.206235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -229,7 +248,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49940047" weight="0.3298969" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50119907" side_tool="true" weight="0.3298969" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49880096" visible="true" weight="0.3298969" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49880096" visible="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -371,13 +390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -404,25 +416,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/chatUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="384">
+          <caret line="37" column="35" lean-forward="true" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1/thread-item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1/feeds/thread-items.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="46" column="61" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/instagram-private-api/client/v1/thread.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="35" column="57" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+        <state relative-caret-position="389">
+          <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>

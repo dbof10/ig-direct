@@ -32,6 +32,8 @@
 		7E4D76172275E1FF004A1432 /* IncomingUnsupportCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */; };
 		7E4D76192275E23B004A1432 /* OutgoingUnsupportCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D76182275E23B004A1432 /* OutgoingUnsupportCellView.swift */; };
 		7E5CBA28226AD152004DB229 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5CBA27226AD152004DB229 /* Result+Extension.swift */; };
+		7E5EDEF5227DDD7E005F1D86 /* Moya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5EDEF4227DDD7E005F1D86 /* Moya+Extension.swift */; };
+		7E5EDEF7227DDDD7005F1D86 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5EDEF6227DDDD7005F1D86 /* NetworkError.swift */; };
 		7E611DDF2273EC500036ACF0 /* OutgoingLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */; };
 		7E611DE12273EC610036ACF0 /* OutgoingLinkCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */; };
 		7E611DE42273F7090036ACF0 /* HyperLinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E611DE32273F7090036ACF0 /* HyperLinkTextField.swift */; };
@@ -127,6 +129,8 @@
 		7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingUnsupportCellView.swift; sourceTree = "<group>"; };
 		7E4D76182275E23B004A1432 /* OutgoingUnsupportCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingUnsupportCellView.swift; sourceTree = "<group>"; };
 		7E5CBA27226AD152004DB229 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
+		7E5EDEF4227DDD7E005F1D86 /* Moya+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extension.swift"; sourceTree = "<group>"; };
+		7E5EDEF6227DDDD7005F1D86 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7E611DDE2273EC500036ACF0 /* OutgoingLinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingLinkCell.xib; sourceTree = "<group>"; };
 		7E611DE02273EC610036ACF0 /* OutgoingLinkCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingLinkCellView.swift; sourceTree = "<group>"; };
 		7E611DE32273F7090036ACF0 /* HyperLinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperLinkTextField.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				7EC922F6226627C2007E5008 /* Response */,
 				7EC922F5226627BB007E5008 /* Request */,
 				7E23BDC3225A397700A3DE07 /* IGApiClient.swift */,
+				7E5EDEF4227DDD7E005F1D86 /* Moya+Extension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				7E9D2363226CB6890064425C /* RuntimeError.swift */,
+				7E5EDEF6227DDDD7005F1D86 /* NetworkError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -746,9 +752,11 @@
 				7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */,
 				7E19DD83226A06650016E452 /* ChatRepository.swift in Sources */,
 				7E91613B2271F141001E2B96 /* LikeMessageViewModel.swift in Sources */,
+				7E5EDEF5227DDD7E005F1D86 /* Moya+Extension.swift in Sources */,
 				7E8DB974227D23600064511D /* FlatButton.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
+				7E5EDEF7227DDDD7005F1D86 /* NetworkError.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
 				7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */,
 				7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */,

@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
             },
             function (err) {
                 res.status(401).send({
-                    error: err
+                    error: err.name + " " + err.message
                 })
             }
         );
@@ -58,7 +58,7 @@ router.post('/logout', (req, res) => {
             },
             function (err) {
                 res.status(404).send({
-                    error: err
+                    error: err.name + " " + err.message
                 })
             }
         );

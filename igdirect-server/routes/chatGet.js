@@ -6,6 +6,8 @@ const express = require('express');
 const router = express.Router();
 const Client = require('instagram-private-api').V1;
 
+let messagesThread;
+
 router.get('/all', (req, res) => {
 
     defer(function getChatList() {
@@ -23,7 +25,7 @@ router.get('/all', (req, res) => {
             },
             function (err) {
                 res.status(401).send({
-                    error: err
+                    error: err.name + " " + err.message
                 })
             }
         );
@@ -48,7 +50,7 @@ router.get('/search', (req, res) => {
             },
             function (err) {
                 res.status(401).send({
-                    error: err
+                    error: err.name + " " + err.message
                 })
             }
         );
@@ -59,21 +61,74 @@ router.get('/search', (req, res) => {
 router.get('/:id', (req, res) => {
 
     let chatId = req.params.id;
+
+    // client select new chat
+    if (messagesThread && messagesThread.threadId !== chatId) {
+        messagesThread = null
+    }
+
     defer(function getChat() {
         return new Promise((resolve, reject) => {
             let session = req.session;
             Client.Thread.getById(session, chatId).then(resolve).catch(reject)
         })
     }).pipe(map(detail => {
-        return renderChat(detail)
+        return renderChat(detail, detail.items)
     }))
         .subscribe(
-            function (detail) {
-                res.status(200).send(detail)
+            function (list) {
+                res.status(200).send(list)
             },
             function (err) {
                 res.status(401).send({
-                    error: err
+                    error: err.name + " " + err.message
+                })
+            }
+        );
+});
+
+
+router.get('/older/:id', (req, res) => {
+
+    let chatId = req.params.id;
+    defer(function getChat() {
+        return new Promise((resolve, reject) => {
+            let session = req.session;
+            let currentClientThread = messagesThread;
+            const needsNewThread = !currentClientThread || currentClientThread.threadId !== chatId;
+
+            if (needsNewThread) {
+                currentClientThread = new Client.Feed.ThreadItems(session, chatId)
+            }
+
+            if (!needsNewThread && !currentClientThread.isMoreAvailable()) {
+                // there aren't any older messages
+                resolve({currentClientThread, messages: []})
+            }
+
+            currentClientThread.get().then((messages) => {
+                if (needsNewThread) {
+                    if (currentClientThread.isMoreAvailable()) {
+                        // get the next 20 because the first 20 messages already were fetched with #getChat
+                        return currentClientThread.get().then((messages) => resolve({ currentClientThread, messages }))
+                    }
+                    // there aren't any older messages
+                    messages = []
+                }
+                resolve({currentClientThread, messages})
+            }).catch(reject)
+        })
+    }).pipe(map(data => {
+        messagesThread = data.currentClientThread;
+        return renderChat(null, data.messages)
+    }))
+        .subscribe(
+            function (list) {
+                res.status(200).send(list)
+            },
+            function (err) {
+                res.status(401).send({
+                    error: err.name + " " + err.message
                 })
             }
         );
@@ -90,8 +145,8 @@ function renderSearchResult(users) {
     })
 }
 
-function renderChat(detail) {
-    let messages = detail.items.slice().reverse();
+function renderChat(detail, list) {
+    let messages = list.slice().reverse();
 
     messages = messages.map((message) => {
 
@@ -130,15 +185,20 @@ function renderChat(detail) {
             createdAt: message._params.created,
             type: message._params.type,
             payload,
-            isSeen: getIsSeenText(detail)
         }
     });
 
-    return messages
+    return {
+        messages,
+        isSeen: getIsSeenText(detail)
+    }
 
 }
 
 function getIsSeenText(chat) {
+    if (chat == null) {
+        return null
+    }
     let text = '';
     if (!chat.items || !chat.items.length) {
         return '';

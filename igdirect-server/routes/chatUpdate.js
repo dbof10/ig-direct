@@ -24,7 +24,7 @@ router.post('/:id', (req, res) => {
             },
             function (err) {
                 res.status(400).send({
-                    error: err
+                    error: err.name + " " + err.message
                 })
             }
         );

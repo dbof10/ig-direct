@@ -18,15 +18,20 @@ class UserRepository {
     }
     
     
-    func signIn(with credentials: Credentials) -> Single<User> {
+    func signIn(with credentials: Credentials) -> Single<Result<LoginResponse, Error>> {
         return apiClient.login(credentials: credentials)
-            .do(onSuccess: { (respose: LoginResponse) in
-                self.userSecret.setUserToken(token: respose.token)
-                self.userSecret.setUser(user: respose.user)
-            })
-            .map { (response: LoginResponse) in
-                response.user
+            .map {
+                Result.success($0)
             }
+            .catchError({ (error: Error) -> PrimitiveSequence<SingleTrait, Result<LoginResponse, Error>> in
+                return Single.just(Result.failure(error))
+            })
+            .do(onSuccess: { (result: Result<LoginResponse, Error>) in
+                if result.isSuccess {
+                    self.userSecret.setUserToken(token: result.value!.token)
+                    self.userSecret.setUser(user: result.value!.user)
+                }
+            })
         
     }
 }
