@@ -9,24 +9,36 @@
 import Foundation
 
 import ObjectMapper
-import DeepDiff
+import IGListKit
 
-struct ChatItemViewModel : DiffAware,  Equatable, Hashable  {
-    public var diffId: Int {
-        return hashValue
-    }
+final class ChatItemViewModel : ListDiffable {
 
+    
     let id: String
     let msgPreview: String
     let userName: String
     let thumbnail: String
     
-    static func compareContent(_ a: ChatItemViewModel, _ b: ChatItemViewModel) -> Bool {
-        return a == b
+    init(id: String, msgPreview: String, userName: String, thumbnail: String) {
+        self.id = id
+        self.msgPreview = msgPreview
+        self.userName = userName
+        self.thumbnail = thumbnail
     }
     
     static func == (lhs: ChatItemViewModel, rhs: ChatItemViewModel) -> Bool {
         return lhs.id == rhs.id && lhs.msgPreview == rhs.msgPreview
         && lhs.userName == rhs.userName && lhs.thumbnail == rhs.thumbnail
+    }
+    
+    
+    func diffIdentifier() -> NSObjectProtocol {
+        return id as NSObjectProtocol
+    }
+    
+    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard self !== object else { return true }
+        guard let object = object as? ChatItemViewModel else { return false }
+        return self == object
     }
 }

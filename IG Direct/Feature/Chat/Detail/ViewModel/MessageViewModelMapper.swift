@@ -28,24 +28,24 @@ class MessageViewModelMapper {
             switch type {
             case .text:
                 return TextMessageViewModel(id: $0.id, senderId: $0.senderId, createdAt: $0.createdAt,
-                                            type: $0.type, isSeen: $0.isSeen , direction: direction,
+                                            type: $0.type , direction: direction,
                                             payload: $0.payload as! TextPayload)
                 
             case .media:
                 return ImageMessageViewModel(id: $0.id, senderId: $0.senderId, createdAt: $0.createdAt,
-                                             type: $0.type, isSeen: $0.isSeen , direction: direction,
+                                             type: $0.type, direction: direction,
                                              payload: $0.payload as! ImagePayload)
             case .like:
                 return LikeMessageViewModel(id: $0.id , senderId: $0.senderId, createdAt: $0.createdAt
-                    , type: $0.type, isSeen: $0.isSeen , direction: direction)
+                    , type: $0.type , direction: direction)
             case .link:
                 return LinkMessageViewModel(id: $0.id , senderId: $0.senderId, createdAt: $0.createdAt,
-                                            type: $0.type, isSeen: $0.isSeen , direction: direction,
+                                            type: $0.type, direction: direction,
                       payload: $0.payload as! LinkPayload)
             default:
                 return UnsupportMessageViewModel(id: $0.id, senderId: $0.senderId,
                                                  createdAt: $0.createdAt,
-                                                 type: $0.type, isSeen: $0.isSeen , direction: direction)
+                                                 type: $0.type, direction: direction)
             }
         }
     }

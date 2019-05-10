@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import IGListKit
 
 class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
 
@@ -22,10 +23,13 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private let TYPE_INCOMING_LINK = 7
     private let TYPE_OUTGOING_LINK = 8
 
+    private let SCROLL_DELAY = 0.05
     private let TYPE_INCOMING_UNSUPPORT = 19
     private let TYPE_OUTGOING_UNSUPPORT = 20
+    private let tableView: NSTableView
     
     init(_ tableView: NSTableView) {
+        self.tableView = tableView
         super.init()
         tableView.dataSource = self
         tableView.delegate = self
@@ -150,7 +154,21 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     }
     
     func submitList(dataSource: [BaseMessageViewModel]){
+        
+        let oldItems = self.items
+        let newItems = dataSource
+        
         self.items = dataSource
+        
+        let diff = ListDiff(oldArray: oldItems, newArray: newItems, option: .equality)
+        let batchUpdates = diff.forBatchUpdates()
+        
+        self.tableView.notifyDataSetChange(diffResult: batchUpdates) { (success: Bool) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.SCROLL_DELAY) {
+                self.tableView.scrollRowToVisible(row: self.items.count - 1, animated: true)
+           }
+           
+        }
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {

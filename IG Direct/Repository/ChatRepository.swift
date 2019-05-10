@@ -23,6 +23,9 @@ class ChatRepository {
     
     func getChatDetail(id: String) ->Single<[BaseMessage]>{
         return apiClient.chatDetail(id: id)
+            .map {
+                $0.messages
+        }
     }
     
     func sendMessage(id:String, content: String) -> Single<SendMessageResponse> {

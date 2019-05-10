@@ -53,10 +53,10 @@ class IGApiClient {
         .mapArray(Chat.self)
     }
     
-    func chatDetail(id:String) -> Single<[BaseMessage]> {
+    func chatDetail(id:String) -> Single<GetMessageResponse> {
         return client.rx.request(.detail(id))
             .filterSuccessfulStatusCodes()
-            .mapArray(BaseMessage.self)
+            .mapObject(GetMessageResponse.self)
     }
     
     func send(id:String, content: String) -> Single<SendMessageResponse> {

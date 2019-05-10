@@ -27,6 +27,7 @@
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
+		7E444B122285B8A600FF2151 /* NSTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E444B112285B8A600FF2151 /* NSTableView+Extension.swift */; };
 		7E4D76132275E1AF004A1432 /* IncomingUnsupportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */; };
 		7E4D76152275E1C5004A1432 /* OutgoingUnsupportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */; };
 		7E4D76172275E1FF004A1432 /* IncomingUnsupportCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */; };
@@ -76,6 +77,7 @@
 		7EBBF4C22261750A003EB627 /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C12261750A003EB627 /* AppLogic.swift */; };
 		7EBBF4C422617557003EB627 /* NodeAppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C322617557003EB627 /* NodeAppLogic.swift */; };
 		7EBBF4C822617C31003EB627 /* node in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBF4C722617C31003EB627 /* node */; };
+		7EC7AF91227F1AEF003E4F7B /* GetMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7AF90227F1AEF003E4F7B /* GetMessageResponse.swift */; };
 		7EC922F4226622F9007E5008 /* UserSecretManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC922F3226622F9007E5008 /* UserSecretManager.swift */; };
 		7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC922F7226627D1007E5008 /* LoginResponse.swift */; };
 		7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED03CA72258E6F800C05565 /* LoginViewController.swift */; };
@@ -85,7 +87,6 @@
 		7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */; };
 		7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314E2270AF39006E0E5A /* ConstantColor.swift */; };
 		7ED83E5522794216003880D6 /* ChangeWithIndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */; };
-		7ED83E572279427A003880D6 /* NSTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED83E562279427A003880D6 /* NSTableView+Extension.swift */; };
 		7EE983382260DC0500063B59 /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 7EE983372260DC0400063B59 /* app.bundle.js */; };
 		7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9833A2260DC6300063B59 /* NodeTask.swift */; };
 		973B70CC45F44A5C7D7C9986 /* Pods_IG_DirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00542445F9158F840E21596D /* Pods_IG_DirectTests.framework */; };
@@ -124,6 +125,7 @@
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
+		7E444B112285B8A600FF2151 /* NSTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Extension.swift"; sourceTree = "<group>"; };
 		7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingUnsupportCell.xib; sourceTree = "<group>"; };
 		7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingUnsupportCell.xib; sourceTree = "<group>"; };
 		7E4D76162275E1FF004A1432 /* IncomingUnsupportCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingUnsupportCellView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		7EBBF4C12261750A003EB627 /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
 		7EBBF4C322617557003EB627 /* NodeAppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAppLogic.swift; sourceTree = "<group>"; };
 		7EBBF4C722617C31003EB627 /* node */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = node; path = "IG Direct/Server/node"; sourceTree = SOURCE_ROOT; };
+		7EC7AF90227F1AEF003E4F7B /* GetMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMessageResponse.swift; sourceTree = "<group>"; };
 		7EC922F3226622F9007E5008 /* UserSecretManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSecretManager.swift; sourceTree = "<group>"; };
 		7EC922F7226627D1007E5008 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		7ED03CA72258E6F800C05565 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +190,6 @@
 		7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingImageCellView.swift; sourceTree = "<group>"; };
 		7ED6314E2270AF39006E0E5A /* ConstantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantColor.swift; sourceTree = "<group>"; };
 		7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWithIndexSet.swift; sourceTree = "<group>"; };
-		7ED83E562279427A003880D6 /* NSTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Extension.swift"; sourceTree = "<group>"; };
 		7EE983372260DC0400063B59 /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.bundle.js; sourceTree = "<group>"; };
 		7EE9833A2260DC6300063B59 /* NodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTask.swift; sourceTree = "<group>"; };
 		8A42A238852A6DECE4927E72 /* Pods-IG DirectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG DirectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IG DirectTests/Pods-IG DirectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			children = (
 				7EC922F7226627D1007E5008 /* LoginResponse.swift */,
 				7E0B1C00227548C800EBFAB0 /* SendMessageResponse.swift */,
+				7EC7AF90227F1AEF003E4F7B /* GetMessageResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -492,7 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */,
-				7ED83E562279427A003880D6 /* NSTableView+Extension.swift */,
+				7E444B112285B8A600FF2151 /* NSTableView+Extension.swift */,
 			);
 			path = Diff;
 			sourceTree = "<group>";
@@ -709,7 +712,6 @@
 			files = (
 				7E093A8A2258F15500ED2830 /* User.swift in Sources */,
 				7EA256B722749DA300EA6BD5 /* AutoGrowingTextField.swift in Sources */,
-				7ED83E572279427A003880D6 /* NSTableView+Extension.swift in Sources */,
 				7E0B1C01227548C800EBFAB0 /* SendMessageResponse.swift in Sources */,
 				7ED03CA82258E6F800C05565 /* LoginViewController.swift in Sources */,
 				7E1B5B53226C20FF00CC156C /* BaseMessage.swift in Sources */,
@@ -731,6 +733,7 @@
 				7E9D235B226CA8E50064425C /* TextMessageViewModel.swift in Sources */,
 				7E7B6541227B27D500346BA3 /* MastelPoint.swift in Sources */,
 				7E9D2361226CAE100064425C /* MessageAdapter.swift in Sources */,
+				7E444B122285B8A600FF2151 /* NSTableView+Extension.swift in Sources */,
 				7E8B952822733F9700526204 /* MessagePayload.swift in Sources */,
 				7E4D76192275E23B004A1432 /* OutgoingUnsupportCellView.swift in Sources */,
 				7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */,
@@ -754,6 +757,7 @@
 				7E91613B2271F141001E2B96 /* LikeMessageViewModel.swift in Sources */,
 				7E5EDEF5227DDD7E005F1D86 /* Moya+Extension.swift in Sources */,
 				7E8DB974227D23600064511D /* FlatButton.swift in Sources */,
+				7EC7AF91227F1AEF003E4F7B /* GetMessageResponse.swift in Sources */,
 				7E093A912258F58400ED2830 /* LoginViewModel.swift in Sources */,
 				7E19DD8D226A1D9E0016E452 /* ChatListAdapter.swift in Sources */,
 				7E5EDEF7227DDDD7005F1D86 /* NetworkError.swift in Sources */,

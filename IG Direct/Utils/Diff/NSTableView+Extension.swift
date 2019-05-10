@@ -2,84 +2,72 @@
 //  NSTableView+Extension.swift
 //  IG Direct
 //
-//  Created by Daniel Lee on 5/1/19.
+//  Created by Daniel Lee on 5/10/19.
 //  Copyright © 2019 Ctech. All rights reserved.
 //
 
 import Foundation
 import Cocoa
-import DeepDiff
+import IGListKit
 
 
-public extension NSTableView {
+extension NSTableView {
     
-    /// Animate reload in a batch update
-    ///
-    /// - Parameters:
-    ///   - changes: The changes from diff
-    ///   - section: The section that all calculated IndexPath belong
-    ///   - insertionAnimation: The animation for insert rows
-    ///   - deletionAnimation: The animation for delete rows
-    ///   - replacementAnimation: The animation for reload rows
-    ///   - updateData: Update your data source model
-    ///   - completion: Called when operation completes
-    func notifyDataSetChange<T: DiffAware>(
-        changes: [Change<T>],
-        insertionAnimation: NSTableView.AnimationOptions = NSTableView.AnimationOptions.effectGap,
-        deletionAnimation: NSTableView.AnimationOptions = NSTableView.AnimationOptions.slideUp,
-        replacementAnimation: NSTableView.AnimationOptions = NSTableView.AnimationOptions.effectFade,
-        updateData: () -> Void,
-        completion: ((Bool) -> Void)? = nil) {
+    
+    
+    func notifyDataSetChange(diffResult: ListIndexSetResult,
+                             completion: ((Bool) -> Void)? = nil) {
         
-        let changesWithIndexPath = IndexSetConverter().convert(changes: changes)
         
-        unifiedPerformBatchUpdates({
-            updateData()
-            self.insideUpdate(
-                changesWithIndexSet: changesWithIndexPath,
-                insertionAnimation: insertionAnimation,
-                deletionAnimation: deletionAnimation
-            )
-        }, completion: { finished in
-            completion?(finished)
-        })
+        let inserts = diffResult.inserts
+        let deletes = diffResult.deletes
+        let updates = diffResult.updates
+        let moves = diffResult.moves
         
-        // reloadRows needs to be called outside the batch
-        outsideUpdate(changesWithIndexPath: changesWithIndexPath, replacementAnimation: replacementAnimation)
+        
+        beginUpdates()
+        
+        
+        removeRows(at: deletes, withAnimation: NSTableView.AnimationOptions.slideUp)
+        
+        insertRows(at: inserts, withAnimation: NSTableView.AnimationOptions.effectGap)
+        
+        moves.forEach {
+            self.moveRow(at: $0.from, to: $0.to)
+        }
+        
+        reloadData(forRowIndexes: updates, columnIndexes: IndexSet(integer: 0))
+        
+        endUpdates()
+        
+        completion?(true)
     }
+}
+
+extension NSTableView {
     
-    // MARK: - Helper
-    private func unifiedPerformBatchUpdates(
-        _ updates: (() -> Void),
-        completion: (@escaping (Bool) -> Void)) {
+    func scrollRowToVisible(row: Int, animated: Bool) {
         
-            beginUpdates()
-            updates()
-            endUpdates()
-            completion(true)
-    }
-    
-    private func insideUpdate(
-        changesWithIndexSet: ChangeWithIndexSet,
-        insertionAnimation: NSTableView.AnimationOptions ,
-        deletionAnimation: NSTableView.AnimationOptions ) {
-        
-        removeRows(at: changesWithIndexSet.deletes, withAnimation: deletionAnimation)
-        
-        insertRows(at: changesWithIndexSet.inserts, withAnimation: insertionAnimation)
-        
-        changesWithIndexSet.moves.executeIfPresent {
-            $0.forEach { move in
-                moveRow(at: move.from, to: move.to)
+        if animated {
+            guard let clipView = superview as? NSClipView,
+                let scrollView = clipView.superview as? NSScrollView else {
+                    
+                    assertionFailure("Unexpected NSTableView view hiearchy")
+                    return
             }
+            
+            let rowRect = rect(ofRow: row)
+            let scrollOrigin = rowRect.origin
+            
+            if scrollView.responds(to: #selector(NSScrollView.flashScrollers)) {
+                scrollView.flashScrollers()
+            }
+            
+            clipView.animator().setBoundsOrigin(scrollOrigin)
+            
+        } else {
+            
+            scrollRowToVisible(row)
         }
     }
-    
-    private func outsideUpdate(
-        changesWithIndexPath: ChangeWithIndexSet,
-        replacementAnimation: NSTableView.AnimationOptions ) {
-        
-        reloadData(forRowIndexes: changesWithIndexPath.replaces, columnIndexes: IndexSet(integer: 0))
-
-        }
 }

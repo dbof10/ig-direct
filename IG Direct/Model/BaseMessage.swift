@@ -11,10 +11,9 @@ import ObjectMapper
 
 struct BaseMessage : ImmutableMappable {
     let id: String
-    let senderId: Int64
-    let createdAt: Int64
+    let senderId: Int
+    let createdAt: Int
     let type: MessageType
-    let isSeen: String
     let payload: MessagePayload
     
     init(map: Map) throws {
@@ -22,7 +21,6 @@ struct BaseMessage : ImmutableMappable {
         senderId = try map.value("senderId")
         createdAt   = try map.value("createdAt")
         type = try map.value("type")
-        isSeen   = try map.value("isSeen")
         payload = try map.value("payload", using: MessagePayloadTransform(type: type))
     }
 }

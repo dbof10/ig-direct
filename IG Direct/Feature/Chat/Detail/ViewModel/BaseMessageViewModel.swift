@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import DeepDiff
+import IGListKit
 
-protocol BaseMessageViewModel  {
+protocol BaseMessageViewModel: ListDiffable  {
     var id: String {get}
-    var senderId: Int64 {get}
-    var createdAt: Int64 {get}
+    var senderId: Int {get}
+    var createdAt: Int {get}
     var type: MessageType {get}
-    var isSeen: String {get}
     var direction: MessageDirection { get }
 }
 
