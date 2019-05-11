@@ -23,13 +23,17 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
     private let TYPE_INCOMING_LINK = 7
     private let TYPE_OUTGOING_LINK = 8
 
-    private let SCROLL_DELAY = 0.05
     private let TYPE_INCOMING_UNSUPPORT = 19
     private let TYPE_OUTGOING_UNSUPPORT = 20
     private let tableView: NSTableView
+    private let scrollView: NSScrollView
+
+    var delegate: ScrollViewDelegate?
     
     init(_ tableView: NSTableView) {
         self.tableView = tableView
+        self.scrollView = self.tableView.enclosingScrollView!
+
         super.init()
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,6 +55,25 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             NSUserInterfaceItemIdentifier(rawValue: "IncomingUnsupportCell"))
         tableView.register(NSNib.init(nibNamed: "OutgoingUnsupportCell", bundle: nil), forIdentifier:
             NSUserInterfaceItemIdentifier(rawValue: "OutgoingUnsupportCell"))
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(scrollViewDidScroll),
+            name:NSScrollView.didLiveScrollNotification,
+            object: scrollView
+        )
+    }
+    
+    @objc func scrollViewDidScroll (notification: NSNotification) {
+
+        guard let documentView = scrollView.documentView else { return }
+        
+        let clipView = scrollView.contentView
+        if clipView.bounds.origin.y == 0 {
+            delegate?.onScrollBeginTopReached()
+        } else if clipView.bounds.origin.y + clipView.bounds.height == documentView.bounds.height {
+            delegate?.onScrollBottomReached()            
+        }
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -153,7 +176,7 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
         }
     }
     
-    func submitList(dataSource: [BaseMessageViewModel]){
+    func submitList(dataSource: [BaseMessageViewModel], completion: ((Bool) -> Void)? = nil){
         
         let oldItems = self.items
         let newItems = dataSource
@@ -163,15 +186,18 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
         let diff = ListDiff(oldArray: oldItems, newArray: newItems, option: .equality)
         let batchUpdates = diff.forBatchUpdates()
         
-        self.tableView.notifyDataSetChange(diffResult: batchUpdates) { (success: Bool) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.SCROLL_DELAY) {
-                self.tableView.scrollRowToVisible(row: self.items.count - 1, animated: true)
-           }
-           
-        }
+        self.tableView.notifyDataSetChange(diffResult: batchUpdates, completion: completion)
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         return false
     }
+    
+}
+
+protocol ScrollViewDelegate {
+    
+    func onScrollBottomReached()
+    
+    func onScrollBeginTopReached()
 }

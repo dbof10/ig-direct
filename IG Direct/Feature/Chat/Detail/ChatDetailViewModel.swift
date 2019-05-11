@@ -12,8 +12,9 @@ import RxSwift
 class ChatDetailViewModel: BaseViewModel {
  
     struct Input {
-        let chatItemClick: AnyObserver<String>
-        let enterTap: AnyObserver<String>
+        let chatItemClick: Observable<String>
+        let enterTap: Observable<String>
+        let loadMore: Observable<Any>
     }
     
     struct Output {
@@ -23,16 +24,11 @@ class ChatDetailViewModel: BaseViewModel {
     
     // MARK: - Public properties
     let output: Output
-    let input: Input
     
     private let repo: ChatRepository
     private let threadScheduler: ThreadScheduler
     private let messageMapper: MessageViewModelMapper
     
-    //Input
-    private let selectedChatSubject = BehaviorSubject<String>(value: "")
-    private let enterTapSubject = PublishSubject<String>()
-
     //Ouput
     private let messagesSubject = PublishSubject<[BaseMessageViewModel]>()
     private let errorsSubject = PublishSubject<Error>()
@@ -40,7 +36,8 @@ class ChatDetailViewModel: BaseViewModel {
     
     //State
     private var items: [BaseMessageViewModel] = []
-    
+    private var selectedChatId = ""
+    private var onEndReached = false
     private let disposeBag = DisposeBag()
     
     init(_ repo: ChatRepository,_ messageMapper: MessageViewModelMapper, _ threadScheduler: ThreadScheduler) {
@@ -50,16 +47,22 @@ class ChatDetailViewModel: BaseViewModel {
         output = Output(messagesObservable: messagesSubject.asObservable(),
                         errorsObservable: errorsSubject.asObservable())
         
-       input = Input(chatItemClick: selectedChatSubject.asObserver(), enterTap: enterTapSubject.asObserver())
+    }
+    
+    func bind(input: Input) {
         
-        selectedChatSubject
+        input.chatItemClick
             .filter {
                 !$0.isEmpty
             }
+            .do(onNext: {
+                self.selectedChatId = $0
+                self.onEndReached = false
+            })
             .flatMapLatest {
-            return self.repo.getChatDetail(id: $0)
-                .map {
-                    return self.messageMapper.toViewModel(messages: $0)
+                return self.repo.getChatDetail(id: $0)
+                    .map {
+                        return self.messageMapper.toViewModel(messages: $0)
                 }
             }
             .subscribeOn(threadScheduler.worker)
@@ -73,17 +76,43 @@ class ChatDetailViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
-        enterTapSubject
+        input.enterTap
             .filter {
                 !$0.isEmpty
             }
+            .do(onNext: { _ in
+                self.onEndReached = false
+            })
             .flatMapLatest {
-                return self.repo.sendMessage(id: try! self.selectedChatSubject.value(), content: $0)
+                return self.repo.sendMessage(id: self.selectedChatId, content: $0)
             }
             .subscribeOn(threadScheduler.worker)
             .observeOn(threadScheduler.ui)
             .subscribe(onNext: { (messages: SendMessageResponse) in
-                print("success")
+            }, onError: {(error: Error) in
+                self.errorsSubject.onNext(error)
+                
+            })
+            .disposed(by: disposeBag)
+        
+        input.loadMore
+            .filter { _ in
+                self.onEndReached == false
+            }
+            .flatMapLatest { _ in
+                return self.repo.getOlderChatDetail(id: self.selectedChatId)
+                    .map {
+                        return self.messageMapper.toViewModel(messages: $0)
+                }
+            }
+            .subscribeOn(threadScheduler.worker)
+            .observeOn(threadScheduler.ui)
+            .subscribe(onNext: { (messages: [BaseMessageViewModel]) in
+                if messages.isEmpty {
+                    self.onEndReached = true
+                }
+                self.items = messages + self.items
+                self.messagesSubject.onNext(self.items)
             }, onError: {(error: Error) in
                 self.errorsSubject.onNext(error)
                 
@@ -91,8 +120,5 @@ class ChatDetailViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
 
-    func onEnterUp() {
-        
-        
-    }
+
 }

@@ -21,8 +21,15 @@ class ChatRepository {
         return apiClient.chatList()
     }
     
-    func getChatDetail(id: String) ->Single<[BaseMessage]>{
+    func getChatDetail(id: String) ->Single<[BaseMessage]> {
         return apiClient.chatDetail(id: id)
+            .map {
+                $0.messages
+        }
+    }
+    
+    func getOlderChatDetail(id: String) -> Single<[BaseMessage]> {
+        return apiClient.chatOlderDetail(id: id)
             .map {
                 $0.messages
         }

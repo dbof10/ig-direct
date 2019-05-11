@@ -48,9 +48,6 @@ class LoginViewModel: BaseViewModel {
         }
         
         input.loginTapObservable
-            .do(onNext: { _ in
-                print("next tap ")
-            })
             .withLatestFrom(credentialsObservable)
             .flatMapLatest { credentials in
                 return self.repo.signIn(with: credentials)

@@ -46,9 +46,8 @@ extension NSTableView {
 
 extension NSTableView {
     
-    func scrollRowToVisible(row: Int, animated: Bool) {
+    func scrollTo(row: Int) {
         
-        if animated {
             guard let clipView = superview as? NSClipView,
                 let scrollView = clipView.superview as? NSScrollView else {
                     
@@ -64,10 +63,6 @@ extension NSTableView {
             }
             
             clipView.animator().setBoundsOrigin(scrollOrigin)
-            
-        } else {
-            
-            scrollRowToVisible(row)
-        }
+    
     }
 }

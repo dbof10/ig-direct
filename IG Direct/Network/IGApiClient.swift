@@ -59,6 +59,12 @@ class IGApiClient {
             .mapObject(GetMessageResponse.self)
     }
     
+    func chatOlderDetail(id:String) -> Single<GetMessageResponse> {
+        return client.rx.request(.older(id))
+            .filterSuccessfulStatusCodes()
+            .mapObject(GetMessageResponse.self)
+    }
+    
     func send(id:String, content: String) -> Single<SendMessageResponse> {
         return client.rx.request(.send(id, content))
                 .filterSuccessfulStatusCodes()
@@ -77,6 +83,7 @@ public enum IgDirect {
     case login(String, String)
     case list
     case detail(String)
+    case older(String)
     case send(String, String)
     case search(String)
 
@@ -102,6 +109,8 @@ extension IgDirect: TargetType {
             return "/chats/all"
         case .detail(let id):
             return "/chats/\(id)"
+        case .older(let id):
+            return "chats/older/\(id)"
         case .send(let id, _):
             return "/chats/\(id)"
         }
@@ -114,6 +123,8 @@ extension IgDirect: TargetType {
         case .list:
             return .get
         case .detail:
+            return .get
+        case .older:
             return .get
         case .send:
             return .post
@@ -129,6 +140,8 @@ extension IgDirect: TargetType {
         case .list:
             return .requestPlain
         case .detail:
+            return .requestPlain
+        case .older:
             return .requestPlain
         case .send(_ , let content):
             return .requestParameters(parameters: ["message": content], encoding: JSONEncoding.default)
