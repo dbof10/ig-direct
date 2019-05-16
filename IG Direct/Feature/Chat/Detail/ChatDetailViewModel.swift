@@ -78,7 +78,7 @@ class ChatDetailViewModel: BaseViewModel {
         
         input.enterTap
             .filter {
-                !$0.isEmpty
+                !$0.isEmpty && !self.selectedChatId.isEmpty
             }
             .do(onNext: { _ in
                 self.onEndReached = false

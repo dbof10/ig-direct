@@ -71,10 +71,10 @@ class IGApiClient {
                 .mapObject(SendMessageResponse.self)
     }
     
-    func search(keyword: String) -> Single<[Chat]> {
+    func search(keyword: String) -> Single<[User]> {
         return client.rx.request(.search(keyword))
             .filterSuccessfulStatusCodes()
-            .mapArray(Chat.self)
+            .mapArray(User.self)
     }
 }
 

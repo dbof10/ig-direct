@@ -9,14 +9,14 @@ import ObjectMapper
 
 struct User : ImmutableMappable {
   
-    let id: Int64
+    let id: Int
     let username: String
     let fullName: String
     let profilePicUrl: String
     
-    static let ANONYMOUS = User(id: 0,username: "", fullName: "",profilePicUrl: "")
+    static let ANONYMOUS = User(id: 0,username: "", fullName: "", profilePicUrl: "")
     
-    init(id: Int64, username: String, fullName: String, profilePicUrl: String) {
+    init(id: Int, username: String, fullName: String, profilePicUrl: String) {
         self.id = id
         self.username = username
         self.fullName = fullName

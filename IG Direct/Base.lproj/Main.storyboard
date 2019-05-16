@@ -728,25 +728,25 @@
             <objects>
                 <viewController id="O6a-9f-MH7" customClass="ChatListViewController" customModule="IG_Direct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="OzC-Sh-Fe9">
-                        <rect key="frame" x="0.0" y="0.0" width="296" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="296" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdE-Ft-Yyi">
-                                <rect key="frame" x="16" y="18" width="264" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search" drawsBackground="YES" usesSingleLineMode="YES" id="CHs-fm-GYp">
+                                <rect key="frame" x="16" y="412" width="264" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search" drawsBackground="YES" usesSingleLineMode="YES" id="CHs-fm-GYp" customClass="NSSearchFieldCell">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="98" horizontalPageScroll="10" verticalLineScroll="98" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFH-1f-XF4">
-                                <rect key="frame" x="0.0" y="0.0" width="296" height="2"/>
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="396"/>
                                 <clipView key="contentView" id="RqH-bq-rcg">
-                                    <rect key="frame" x="1" y="1" width="294" height="0.0"/>
+                                    <rect key="frame" x="1" y="1" width="294" height="394"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="96" viewBased="YES" id="Nh8-Ac-6dc">
-                                            <rect key="frame" x="0.0" y="0.0" width="294" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="394"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -899,7 +899,7 @@
                                 </scroller>
                             </scrollView>
                             <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-L7-a6g" customClass="AutoGrowingTextField" customModule="IG_Direct" customModuleProvider="target">
-                                <rect key="frame" x="16" y="8" width="448" height="24"/>
+                                <rect key="frame" x="16" y="8" width="408" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="gD5-Qh-Vgr"/>
                                 </constraints>
@@ -909,19 +909,36 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="3eD-Wc-JkI">
+                                <rect key="frame" x="440" y="8" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="fA7-r5-Rnl"/>
+                                    <constraint firstAttribute="height" constant="24" id="ycx-7K-8W6"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_emoji" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Hat-s2-4Zf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onEmojiClick:" target="ENt-kC-k4Y" id="dDQ-Lg-VuJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="dZn-L7-a6g" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" constant="-16" id="GTS-9X-IXC"/>
+                            <constraint firstItem="3eD-Wc-JkI" firstAttribute="leading" secondItem="dZn-L7-a6g" secondAttribute="trailing" constant="16" id="9HH-oy-bTL"/>
                             <constraint firstItem="dZn-L7-a6g" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" constant="16" id="Mhv-5S-lDc"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="bottom" secondItem="dZn-L7-a6g" secondAttribute="top" constant="-8" id="fBL-eW-Ccx"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" id="fop-oo-fEd"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="top" secondItem="YJG-h3-dne" secondAttribute="top" id="jo2-k5-AY0"/>
+                            <constraint firstItem="3eD-Wc-JkI" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" constant="-16" id="lXY-5n-4za"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" id="nKt-U7-8x7"/>
+                            <constraint firstItem="dZn-L7-a6g" firstAttribute="bottom" secondItem="3eD-Wc-JkI" secondAttribute="bottom" id="oqf-ct-bTH"/>
                             <constraint firstItem="dZn-L7-a6g" firstAttribute="bottom" secondItem="YJG-h3-dne" secondAttribute="bottom" constant="-8" id="ypX-IL-ivl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="etContent" destination="dZn-L7-a6g" id="FNr-up-61Q"/>
+                        <outlet property="ivEmoji" destination="3eD-Wc-JkI" id="6VP-oM-KLd"/>
                         <outlet property="tvMessages" destination="lQ9-jz-bSK" id="pHq-Eh-CjH"/>
                     </connections>
                 </viewController>
@@ -1067,6 +1084,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_emoji" width="21" height="21"/>
         <image name="logo_login" width="85" height="85"/>
     </resources>
 </document>

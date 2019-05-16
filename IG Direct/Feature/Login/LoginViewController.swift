@@ -99,8 +99,8 @@ class LoginViewController: NSViewController {
         let container = appDelegate.container
         let bundle = Bundle(for: LoginViewController.self)
         let storyboard = SwinjectStoryboard.create(name: "Main", bundle: bundle, container: container)
-        let loginViewController = storyboard.instantiateController(withIdentifier: "ChatViewController") as! ChatViewController
-        appDelegate.windowController.contentViewController = loginViewController
+        let chatVC = storyboard.instantiateController(withIdentifier: "ChatViewController") as! ChatViewController
+        appDelegate.windowController.contentViewController = chatVC
         appDelegate.windowController.showWindow(appDelegate)
     }
 }

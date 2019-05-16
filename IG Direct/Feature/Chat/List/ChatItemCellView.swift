@@ -27,7 +27,7 @@ class ChatItemCellView: NSTableCellView {
 
     }
     
-    func bind(viewModel : ChatItemViewModel) {
+    func bind(viewModel : ChatListItemViewModel) {
         ivAvatar.sd_setImage(with: URL(string: viewModel.thumbnail))
         tvUserName.stringValue = viewModel.userName
         tvMsgPreview.stringValue = viewModel.msgPreview

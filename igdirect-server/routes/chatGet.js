@@ -136,12 +136,8 @@ router.get('/older/:id', (req, res) => {
 
 function renderSearchResult(users) {
     return users.map((user) => {
-        return {
-            id: user.id.toString(),
-            msgPreview: 'Send a message',
-            userName: user._params.username,
-            thumbnail: user._params.picture
-        }
+        return user._params
+
     })
 }
 
@@ -227,23 +223,20 @@ function renderChatList(list) {
 
     return list.map(item => {
         let msgPreview = getMsgPreview(item);
-        let userName = getUserName(item, true);
-        let thumbnail = '';
-        if (item.accounts[0]) {
-            thumbnail = item.accounts[0]._params.picture;
-        }
+        let account = getAccount(item, true);
         return {
             id: item.id,
             msgPreview,
-            userName,
-            thumbnail
+            account
         }
     })
 
 }
 
-function getUserName(chat, shouldTruncate) {
-    return chat.accounts.map((acc) => acc._params.username).join(', ');
+function getAccount(chat) {
+    return chat.accounts.map((acc) => {
+        return  acc._params
+    });
 }
 
 

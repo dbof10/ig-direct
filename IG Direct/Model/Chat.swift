@@ -13,28 +13,24 @@ struct Chat :  ImmutableMappable  {
     
     let id: String
     let msgPreview: String
-    let userName: String
-    let thumbnail: String
-        
-    init(id: String, msgPreview: String, userName: String, thumbnail: String) {
+    let account: [User]
+    
+    init(id: String, msgPreview: String, account: [User]) {
         self.id = id
         self.msgPreview = msgPreview
-        self.userName = userName
-        self.thumbnail = thumbnail
+        self.account = account
     }
     
     init(map: Map) throws {
         id   = try map.value("id")
         msgPreview = try map.value("msgPreview")
-        userName   = try map.value("userName")
-        thumbnail = try map.value("thumbnail")
+        account   = try map.value("account")
     }
     
     func mapping(map: Map) {
         id >>> map["id"]
         msgPreview >>> map["msgPreview"]
-        userName >>> map["userName"]
-        thumbnail >>> map["thumbnail"]
+        account >>> map["account"]
     }
     
 }

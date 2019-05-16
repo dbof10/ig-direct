@@ -82,13 +82,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private var nodeCore: NodeCore!
+    private let disposeBag = DisposeBag()
     var windowController: NSWindowController!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-//        let domain = Bundle.main.bundleIdentifier!
-//        UserDefaults.standard.removePersistentDomain(forName: domain)
-//        UserDefaults.standard.synchronize()
-//        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         nodeCore = container.resolve(NodeCore.self)
         nodeCore.lunchServer()
         nodeCore.taskStatus()
@@ -119,15 +116,51 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             viewController = self.getChatViewController()
                         }
                         self.windowController.contentViewController = viewController
-
                         self.windowController.showWindow(self)
                     }
-
+                case .error(let error as NodeError):
+                    self.showNodeErrorDialog(error.message)
                 default: ()
                 }
                 
             })
+            .disposed(by: disposeBag)
         
+        nodeCore.taskStatus()
+            .filter {
+                $0.isError
+            }
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe({ result in
+                switch(result) {
+                case .next(let result):
+                   let error = result.error as! NodeError
+                   self.showNodeErrorDialog(error.message)
+                default: ()
+                }
+                
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func showNodeErrorDialog(_ message: String) {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        windowController = (storyboard.instantiateController(withIdentifier: "MainWindowController") as! NSWindowController)
+        windowController.showWindow(self)
+        
+        let alert: NSAlert = NSAlert()
+        alert.messageText = "An error has occured"
+        alert.informativeText = message
+        alert.addButton(withTitle: "Ok")
+        alert.alertStyle = NSAlert.Style.warning
+        
+        alert.beginSheetModal(for: NSApplication.shared.mainWindow!, completionHandler: { (modalResponse: NSApplication.ModalResponse) -> Void in
+            if(modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn){
+                NSApplication.shared.terminate(1)
+            }
+        })
     }
     
     private func getLoginViewController() -> NSViewController {

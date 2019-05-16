@@ -12,7 +12,7 @@ import IGListKit
 
 class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
-    private var items: [ChatItemViewModel] = []
+    private var items: [ChatListItemViewModel] = []
     private let tableView: NSTableView
     var clickDelegate: ChatItemClickDelegate? = nil
     
@@ -33,7 +33,7 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return chatView
     }
     
-    func submitList(dataSource: [ChatItemViewModel]) {
+    func submitList(dataSource: [ChatListItemViewModel]) {
         let oldItems = self.items
         let newItems = dataSource
         

@@ -184,8 +184,7 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
         self.items = dataSource
         
         let diff = ListDiff(oldArray: oldItems, newArray: newItems, option: .equality)
-        let batchUpdates = diff.forBatchUpdates()
-        
+        let batchUpdates = diff.forBatchUpdates()        
         self.tableView.notifyDataSetChange(diffResult: batchUpdates, completion: completion)
     }
     

@@ -66,7 +66,7 @@ open class MastelView: NSView, NSWindowDelegate {
     
     open override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
-        window!.delegate = self
+        window?.delegate = self
     }
     
     public func startAnimation() {

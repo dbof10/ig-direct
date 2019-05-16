@@ -35,18 +35,12 @@ class ChatListViewController: NSViewController {
     
     
     private func setupBinding() {
-        itemClick
-            .subscribe(viewModel.input.chatItemClick)
-            .disposed(by: disposeBag)
         
-        tvSearch.rx.text.orEmpty
-            .subscribe(viewModel.input.searchType)
-            .disposed(by: disposeBag)
-        
+        viewModel.bind(input: ChatListViewModel.Input(searchType:  tvSearch.rx.text.orEmpty.asObservable(), chatItemClick:  itemClick))
         viewModel
             .output
             .chatListObservable
-            .subscribe(onNext: { [unowned self] (items: [ChatItemViewModel]) in
+            .subscribe(onNext: { [unowned self] (items: [ChatListItemViewModel]) in
                 self.chatListAdapter.submitList(dataSource: items)
             })
             .disposed(by: disposeBag)
@@ -61,13 +55,13 @@ class ChatListViewController: NSViewController {
         
         viewModel.output
             .openDetailOvservable
-            .subscribe(onNext: { [unowned self] (item: Chat) in
+            .subscribe(onNext: { [unowned self] (item: ChatListItemViewModel) in
                self.openChatDetail(item)
             })
             .disposed(by: disposeBag)
     }
     
-    private func openChatDetail(_ item: Chat) {
+    private func openChatDetail(_ item: ChatListItemViewModel) {
         guard let splitVC = parent as? NSSplitViewController else { return }
         
         if let detail = splitVC.children[1] as? ChatDetailViewController {

@@ -13,10 +13,10 @@ import RxSwift
 class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     
     @IBOutlet weak var tvMessages: NSTableView!
-
     @IBOutlet weak var etContent: NSTextField!
     var viewModel: ChatDetailViewModel!
     
+    @IBOutlet weak var ivEmoji: NSButton!
     private var messagesAdapter: MessageAdapter!
     private let disposeBag = DisposeBag()
     
@@ -33,7 +33,12 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
         messagesAdapter.delegate = self
         etContent.delegate = self
         setupBinding()
+        setupListener()
         tvMessages.intercellSpacing = NSSize(width: 0, height: 8)
+    }
+    
+    private func setupListener() {
+        
     }
     
     private func setupBinding() {
@@ -75,6 +80,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     }
     
     func onNewList(_ items: [BaseMessageViewModel] ) {
+        
         self.messagesAdapter.submitList(dataSource: items, completion: { (success) in
             if self.requestScroll {
                 self.tvMessages.scrollTo(row: items.count - 1)
@@ -83,7 +89,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
         })
     }
     
-    func chatSelected(item: Chat) {
+    func chatSelected(item: ChatListItemViewModel) {
         selectedChatSubject.onNext(item.id)
     }
     
@@ -94,12 +100,19 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     func onScrollBeginTopReached() {
        loadMoreSubject.onNext(true)
     }
+    
+    @IBAction
+    func onEmojiClick(_ sender: Any) {
+        etContent!.window!.makeFirstResponder(etContent)
+        NSApp.orderFrontCharacterPalette(self.etContent)
+        self.etContent.currentEditor()!.moveToEndOfLine(nil) //multi emojis
 
+    }
+    
 }
 
 extension ChatDetailViewController: NSTextFieldDelegate {
     
-
     override func keyUp(with event: NSEvent) {
         if event.keyCode == KeyCode.enterKey.rawValue {
             enterTapSubject.onNext(etContent.stringValue)
