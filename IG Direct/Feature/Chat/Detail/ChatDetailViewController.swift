@@ -22,7 +22,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     
     //Input
     private let loadMoreSubject = PublishSubject<Any>()
-    private let selectedChatSubject = PublishSubject<String>()
+    private let selectedChatSubject = PublishSubject<ChatListItemViewModel>()
     private let enterTapSubject = PublishSubject<String>()
 
     private var requestScroll = false
@@ -44,9 +44,6 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     private func setupBinding() {
         
       let selectedChatStream = selectedChatSubject
-        .filter {
-            !$0.isEmpty
-        }
         .do(onNext: { _ in
             self.requestScroll = true
             self.messagesAdapter.submitList(dataSource: [])
@@ -77,6 +74,14 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
             })
             .disposed(by: disposeBag)
         
+        viewModel
+        .output
+        .reloadObservable
+            .subscribe(onNext: { _ in
+                self.reloadChatList()
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     func onNewList(_ items: [BaseMessageViewModel] ) {
@@ -90,7 +95,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     }
     
     func chatSelected(item: ChatListItemViewModel) {
-        selectedChatSubject.onNext(item.id)
+        selectedChatSubject.onNext(item)
     }
     
     func onScrollBottomReached() {
@@ -109,6 +114,13 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
 
     }
     
+    private func reloadChatList() {
+
+        guard let splitVC = parent as? NSSplitViewController else { return }
+        if let list = splitVC.children[0] as? ChatListViewController {
+            list.reload()
+        }
+    }
 }
 
 extension ChatDetailViewController: NSTextFieldDelegate {

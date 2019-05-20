@@ -66,3 +66,13 @@ extension NSTableView {
     
     }
 }
+
+extension NSTableView {
+    
+    func selectRow(at index: Int) {
+        selectRowIndexes(.init(integer: index), byExtendingSelection: false)
+        if let action = action {
+            perform(action)
+        }
+    }
+}

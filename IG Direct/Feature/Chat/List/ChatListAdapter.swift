@@ -33,7 +33,7 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return chatView
     }
     
-    func submitList(dataSource: [ChatListItemViewModel]) {
+    func submitList(dataSource: [ChatListItemViewModel], completion: ((Bool) -> Void)? = nil) {
         let oldItems = self.items
         let newItems = dataSource
         
@@ -42,7 +42,7 @@ class ChatListAdapter: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         let diff = ListDiff(oldArray: oldItems, newArray: newItems, option: .equality)
         let batchUpdates = diff.forBatchUpdates()
         
-        self.tableView.notifyDataSetChange(diffResult: batchUpdates)
+        self.tableView.notifyDataSetChange(diffResult: batchUpdates, completion: completion)
     
     }
     

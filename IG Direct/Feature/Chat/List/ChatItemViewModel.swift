@@ -17,7 +17,8 @@ final class ChatItemViewModel : ChatListItemViewModel {
     let msgPreview: String
     let userName: String
     let thumbnail: String
-    
+    let newChat: Bool = false
+
     init(id: String, msgPreview: String, account: [User]) {
         self.id = id
         self.msgPreview = msgPreview

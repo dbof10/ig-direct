@@ -12,12 +12,13 @@ import RxSwift
 class ChatDetailViewModel: BaseViewModel {
  
     struct Input {
-        let chatItemClick: Observable<String>
+        let chatItemClick: Observable<ChatListItemViewModel>
         let enterTap: Observable<String>
         let loadMore: Observable<Any>
     }
     
     struct Output {
+        let reloadObservable: Observable<Any>
         let messagesObservable: Observable<[BaseMessageViewModel]>
         let errorsObservable: Observable<Error>
     }
@@ -32,11 +33,12 @@ class ChatDetailViewModel: BaseViewModel {
     //Ouput
     private let messagesSubject = PublishSubject<[BaseMessageViewModel]>()
     private let errorsSubject = PublishSubject<Error>()
-    
+    private let reloadSubject = PublishSubject<Any>()
+
     
     //State
     private var items: [BaseMessageViewModel] = []
-    private var selectedChatId = ""
+    private var selectedChatViewModel: ChatListItemViewModel? = nil
     private var onEndReached = false
     private let disposeBag = DisposeBag()
     
@@ -44,23 +46,26 @@ class ChatDetailViewModel: BaseViewModel {
         self.repo = repo
         self.threadScheduler = threadScheduler
         self.messageMapper = messageMapper
-        output = Output(messagesObservable: messagesSubject.asObservable(),
-                        errorsObservable: errorsSubject.asObservable())
+        
+        output = Output(
+            reloadObservable: reloadSubject.asObservable(),
+            messagesObservable: messagesSubject.asObservable(),
+            errorsObservable: errorsSubject.asObservable())
         
     }
     
     func bind(input: Input) {
         
         input.chatItemClick
-            .filter {
-                !$0.isEmpty
-            }
             .do(onNext: {
-                self.selectedChatId = $0
+                self.selectedChatViewModel = $0
                 self.onEndReached = false
             })
+            .filter {
+                !$0.id.isEmpty && !$0.newChat
+            }
             .flatMapLatest {
-                return self.repo.getChatDetail(id: $0)
+                return self.repo.getChatDetail(id: $0.id)
                     .map {
                         return self.messageMapper.toViewModel(messages: $0)
                 }
@@ -78,20 +83,39 @@ class ChatDetailViewModel: BaseViewModel {
         
         input.enterTap
             .filter {
-                !$0.isEmpty && !self.selectedChatId.isEmpty
+                !$0.isEmpty && self.selectedChatViewModel?.id.isEmpty == false
+                && self.selectedChatViewModel?.newChat == false
             }
             .do(onNext: { _ in
                 self.onEndReached = false
             })
             .flatMapLatest {
-                return self.repo.sendMessage(id: self.selectedChatId, content: $0)
+                return self.repo.sendMessage(id: self.selectedChatViewModel!.id, content: $0)
             }
             .subscribeOn(threadScheduler.worker)
             .observeOn(threadScheduler.ui)
             .subscribe(onNext: { (messages: SendMessageResponse) in
+                //reload chat detail
             }, onError: {(error: Error) in
                 self.errorsSubject.onNext(error)
                 
+            })
+            .disposed(by: disposeBag)
+        
+        input.enterTap
+            .filter {
+                !$0.isEmpty && self.selectedChatViewModel?.id.isEmpty == false
+                && self.selectedChatViewModel?.newChat == true
+            }
+            .flatMapLatest {
+                return self.repo.createChat(userId: self.selectedChatViewModel!.id, message: $0)
+            }
+            .subscribeOn(threadScheduler.worker)
+            .observeOn(threadScheduler.ui)
+            .subscribe(onNext: { (Bool) in
+                self.reloadSubject.onNext(true)
+            }, onError: { (error: Error) in
+                 self.errorsSubject.onNext(error)
             })
             .disposed(by: disposeBag)
         
@@ -100,7 +124,7 @@ class ChatDetailViewModel: BaseViewModel {
                 self.onEndReached == false
             }
             .flatMapLatest { _ in
-                return self.repo.getOlderChatDetail(id: self.selectedChatId)
+                return self.repo.getOlderChatDetail(id: self.selectedChatViewModel!.id)
                     .map {
                         return self.messageMapper.toViewModel(messages: $0)
                 }

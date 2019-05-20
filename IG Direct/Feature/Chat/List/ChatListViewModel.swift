@@ -12,6 +12,7 @@ import RxSwift
 class ChatListViewModel: BaseViewModel {
     
     struct Input {
+        let reload: Observable<Any>
         let searchType: Observable<String>
         let chatItemClick: Observable<Int>
     }
@@ -20,6 +21,7 @@ class ChatListViewModel: BaseViewModel {
         let chatListObservable: Observable<[ChatListItemViewModel]>
         let errorsObservable: Observable<Error>
         let openDetailOvservable: Observable<ChatListItemViewModel>
+        let selectRowObservable: Observable<Int>
     }
     
     // MARK: - Public properties
@@ -32,7 +34,8 @@ class ChatListViewModel: BaseViewModel {
     private let openDetailSubject = PublishSubject<ChatListItemViewModel>()
     private let chatListSubject = PublishSubject<[ChatListItemViewModel]>()
     private let errorsSubject = PublishSubject<Error>()
-    
+    private let selectRowSubject = PublishSubject<Int>()
+
     //State
     private var cacheItems: [ChatListItemViewModel] = []
     private var items: [ChatListItemViewModel] = []
@@ -46,11 +49,39 @@ class ChatListViewModel: BaseViewModel {
         
         output = Output(chatListObservable: chatListSubject.asObservable(),
                         errorsObservable: errorsSubject.asObservable(),
-                        openDetailOvservable: openDetailSubject.asObservable())
+                        openDetailOvservable: openDetailSubject.asObservable(),
+                        selectRowObservable: selectRowSubject.asObservable())
     }
     
     
     func bind(input: Input) {
+        
+        input.reload
+            .do(onNext: { (Any) in
+                print("axxxxx")
+            })
+            .flatMapLatest {_ in
+                self.repo.getChatList()
+                    .map { (items: [Chat]) in
+                        return self.toChatItemViewModel(chats: items)
+                }
+            }
+            .subscribeOn(threadScheduler.worker)
+            .observeOn(threadScheduler.ui)
+            .subscribe({ (event: Event<[ChatListItemViewModel]>) in
+                switch (event) {
+                case .next(let items):
+                    self.cacheItems = items
+                    self.items = items
+                    self.selectRowSubject.onNext(0)
+                    self.chatListSubject.onNext(items)
+                    break
+                case .error(let error):
+                    self.errorsSubject.onNext(error)
+                default: ()
+                }
+        })
+            .disposed(by: disposeBag)
         
         input.chatItemClick
             .map {
@@ -103,6 +134,7 @@ class ChatListViewModel: BaseViewModel {
             .disposed(by: disposeBag)
 
     }
+    
     
     
     private func toChatItemViewModel(chats: [Chat]) -> [ChatListItemViewModel] {

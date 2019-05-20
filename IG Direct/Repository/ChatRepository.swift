@@ -25,7 +25,11 @@ class ChatRepository {
         return apiClient.chatDetail(id: id)
             .map {
                 $0.messages
-        }.catchErrorJustReturn([])
+        }
+    }
+    
+    func createChat(userId: String, message: String) -> Single<Bool> {
+        return apiClient.createChat(userId , message)
     }
     
     func getOlderChatDetail(id: String) -> Single<[BaseMessage]> {

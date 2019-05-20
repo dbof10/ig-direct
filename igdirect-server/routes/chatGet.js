@@ -110,7 +110,7 @@ router.get('/older/:id', (req, res) => {
                 if (needsNewThread) {
                     if (currentClientThread.isMoreAvailable()) {
                         // get the next 20 because the first 20 messages already were fetched with #getChat
-                        return currentClientThread.get().then((messages) => resolve({ currentClientThread, messages }))
+                        return currentClientThread.get().then((messages) => resolve({currentClientThread, messages}))
                     }
                     // there aren't any older messages
                     messages = []
@@ -235,7 +235,7 @@ function renderChatList(list) {
 
 function getAccount(chat) {
     return chat.accounts.map((acc) => {
-        return  acc._params
+        return acc._params
     });
 }
 

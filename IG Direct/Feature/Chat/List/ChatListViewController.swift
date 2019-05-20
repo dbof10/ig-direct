@@ -20,7 +20,9 @@ class ChatListViewController: NSViewController {
     @IBOutlet weak var tvChatList: NSTableView!
     private var chatListAdapter: ChatListAdapter!
     private var itemClick = PublishSubject<Int>()
-
+    private var reloadSubject = PublishSubject<Any>()
+    private var requestSelectedRow = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
@@ -36,12 +38,16 @@ class ChatListViewController: NSViewController {
     
     private func setupBinding() {
         
-        viewModel.bind(input: ChatListViewModel.Input(searchType:  tvSearch.rx.text.orEmpty.asObservable(), chatItemClick:  itemClick))
+        viewModel.bind(input: ChatListViewModel.Input(
+            reload: reloadSubject,
+            searchType:  tvSearch.rx.text.orEmpty.asObservable(),
+            chatItemClick:  itemClick))
+        
         viewModel
             .output
             .chatListObservable
             .subscribe(onNext: { [unowned self] (items: [ChatListItemViewModel]) in
-                self.chatListAdapter.submitList(dataSource: items)
+                self.submitList(items)
             })
             .disposed(by: disposeBag)
         
@@ -59,6 +65,29 @@ class ChatListViewController: NSViewController {
                self.openChatDetail(item)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.output
+            .selectRowObservable
+            .subscribe(onNext: { [unowned self] (selectedRow: Int) in
+                self.requestSelectedRow = selectedRow
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func submitList(_ items : [ChatListItemViewModel]) {
+       self.chatListAdapter.submitList(dataSource: items, completion: { (success) in
+        print("selec row \(self.requestSelectedRow)")
+
+        if self.requestSelectedRow != -1 {
+            print("selec row")
+            self.tvChatList.selectRow(at: 0)
+        }
+        self.requestSelectedRow = -1
+        })
+    }
+    
+    func reload () {
+        reloadSubject.onNext(true)
     }
     
     private func openChatDetail(_ item: ChatListItemViewModel) {

@@ -76,6 +76,14 @@ class IGApiClient {
             .filterSuccessfulStatusCodes()
             .mapArray(User.self)
     }
+    
+    func createChat(_ userId: String, _ message: String) -> Single<Bool> {
+        return client.rx.request(.createChat(userId, message))
+            .filterSuccessfulStatusCodes()
+            .map { _ in
+               true
+            }
+    }
 }
 
 
@@ -86,7 +94,7 @@ public enum IgDirect {
     case older(String)
     case send(String, String)
     case search(String)
-
+    case createChat(String, String)
 }
 
 extension IgDirect: TargetType {
@@ -113,6 +121,8 @@ extension IgDirect: TargetType {
             return "chats/older/\(id)"
         case .send(let id, _):
             return "/chats/\(id)"
+        case .createChat:
+            return "/chats/create"
         }
     }
     
@@ -130,6 +140,8 @@ extension IgDirect: TargetType {
             return .post
         case .search:
             return .get
+        case .createChat:
+            return .post
         }
     }
     
@@ -147,6 +159,8 @@ extension IgDirect: TargetType {
             return .requestParameters(parameters: ["message": content], encoding: JSONEncoding.default)
         case .search(let keyword):
             return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.default)
+        case .createChat(let userId, let message):
+            return .requestParameters(parameters: ["userId": userId, "message": message], encoding: JSONEncoding.default)
         }
     }
     
