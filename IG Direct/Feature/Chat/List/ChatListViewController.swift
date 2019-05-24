@@ -76,10 +76,7 @@ class ChatListViewController: NSViewController {
     
     private func submitList(_ items : [ChatListItemViewModel]) {
        self.chatListAdapter.submitList(dataSource: items, completion: { (success) in
-        print("selec row \(self.requestSelectedRow)")
-
         if self.requestSelectedRow != -1 {
-            print("selec row")
             self.tvChatList.selectRow(at: 0)
         }
         self.requestSelectedRow = -1

@@ -19,6 +19,7 @@ target 'IG Direct' do
   pod  'SDWebImage'
   pod 'IGListKit', '~> 3.0'
 
+  pod 'RealmSwift'
 
   target 'IG DirectTests' do
     inherit! :search_paths

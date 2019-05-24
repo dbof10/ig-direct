@@ -17,8 +17,9 @@ class ChatRepository {
     }
     
     
-    func getChatList() -> Single<[Chat]> {
+    func getChatList() -> Observable<[Chat]> {
         return apiClient.chatList()
+            .asObservable()
     }
     
     func getChatDetail(id: String) ->Single<[BaseMessage]> {

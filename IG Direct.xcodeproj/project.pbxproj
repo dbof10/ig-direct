@@ -27,6 +27,8 @@
 		7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23BDC3225A397700A3DE07 /* IGApiClient.swift */; };
 		7E3913A62262CAF1003B68A0 /* NodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A52262CAF1003B68A0 /* NodeError.swift */; };
 		7E3913A92262E90A003B68A0 /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */; };
+		7E4223FD229437C300CC8654 /* MessagePayloadEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4223FC229437C300CC8654 /* MessagePayloadEntity.swift */; };
+		7E4223FF229437D400CC8654 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4223FE229437D400CC8654 /* MessageEntity.swift */; };
 		7E444B122285B8A600FF2151 /* NSTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E444B112285B8A600FF2151 /* NSTableView+Extension.swift */; };
 		7E4D76132275E1AF004A1432 /* IncomingUnsupportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */; };
 		7E4D76152275E1C5004A1432 /* OutgoingUnsupportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */; };
@@ -41,6 +43,8 @@
 		7E6E9EBB2274A84E00317D22 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E9EBA2274A84E00317D22 /* KeyCode.swift */; };
 		7E6FEF97226E0BDE00DE3CA3 /* OutgoingTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */; };
 		7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */; };
+		7E75C3BF22982A6F008C38E0 /* SmartRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75C3BE22982A6F008C38E0 /* SmartRetry.swift */; };
+		7E75C3C122982AB4008C38E0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E75C3C022982AB4008C38E0 /* Reachability.swift */; };
 		7E7B653F227B27B600346BA3 /* MastelGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B653E227B27B600346BA3 /* MastelGradient.swift */; };
 		7E7B6541227B27D500346BA3 /* MastelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B6540227B27D500346BA3 /* MastelPoint.swift */; };
 		7E7B6543227B27F300346BA3 /* MastelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7B6542227B27F300346BA3 /* MastelView.swift */; };
@@ -88,7 +92,6 @@
 		7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */; };
 		7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */; };
 		7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED6314E2270AF39006E0E5A /* ConstantColor.swift */; };
-		7ED83E5522794216003880D6 /* ChangeWithIndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */; };
 		7EE983382260DC0500063B59 /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 7EE983372260DC0400063B59 /* app.bundle.js */; };
 		7EE9833B2260DC6300063B59 /* NodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9833A2260DC6300063B59 /* NodeTask.swift */; };
 		973B70CC45F44A5C7D7C9986 /* Pods_IG_DirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00542445F9158F840E21596D /* Pods_IG_DirectTests.framework */; };
@@ -127,6 +130,8 @@
 		7E23BDC3225A397700A3DE07 /* IGApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGApiClient.swift; sourceTree = "<group>"; };
 		7E3913A52262CAF1003B68A0 /* NodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeError.swift; sourceTree = "<group>"; };
 		7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
+		7E4223FC229437C300CC8654 /* MessagePayloadEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagePayloadEntity.swift; sourceTree = "<group>"; };
+		7E4223FE229437D400CC8654 /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
 		7E444B112285B8A600FF2151 /* NSTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Extension.swift"; sourceTree = "<group>"; };
 		7E4D76122275E1AF004A1432 /* IncomingUnsupportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingUnsupportCell.xib; sourceTree = "<group>"; };
 		7E4D76142275E1C5004A1432 /* OutgoingUnsupportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingUnsupportCell.xib; sourceTree = "<group>"; };
@@ -141,6 +146,8 @@
 		7E6E9EBA2274A84E00317D22 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		7E6FEF96226E0BDE00DE3CA3 /* OutgoingTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingTextCell.xib; sourceTree = "<group>"; };
 		7E6FEF98226E0C9900DE3CA3 /* OutgoingTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextCellView.swift; sourceTree = "<group>"; };
+		7E75C3BE22982A6F008C38E0 /* SmartRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRetry.swift; sourceTree = "<group>"; };
+		7E75C3C022982AB4008C38E0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		7E7B653E227B27B600346BA3 /* MastelGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastelGradient.swift; sourceTree = "<group>"; };
 		7E7B6540227B27D500346BA3 /* MastelPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastelPoint.swift; sourceTree = "<group>"; };
 		7E7B6542227B27F300346BA3 /* MastelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastelView.swift; sourceTree = "<group>"; };
@@ -193,7 +200,6 @@
 		7ED6314A2270A271006E0E5A /* IncomingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingImageCellView.swift; sourceTree = "<group>"; };
 		7ED6314C2270A292006E0E5A /* OutgoingImageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingImageCellView.swift; sourceTree = "<group>"; };
 		7ED6314E2270AF39006E0E5A /* ConstantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantColor.swift; sourceTree = "<group>"; };
-		7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeWithIndexSet.swift; sourceTree = "<group>"; };
 		7EE983372260DC0400063B59 /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = app.bundle.js; sourceTree = "<group>"; };
 		7EE9833A2260DC6300063B59 /* NodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTask.swift; sourceTree = "<group>"; };
 		8A42A238852A6DECE4927E72 /* Pods-IG DirectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IG DirectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IG DirectTests/Pods-IG DirectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +244,8 @@
 				7E19DD84226A06F20016E452 /* Chat.swift */,
 				7E1B5B52226C20FF00CC156C /* BaseMessage.swift */,
 				7E8B952722733F9700526204 /* MessagePayload.swift */,
+				7E4223FC229437C300CC8654 /* MessagePayloadEntity.swift */,
+				7E4223FE229437D400CC8654 /* MessageEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +312,8 @@
 			children = (
 				7E3913A82262E90A003B68A0 /* ThreadScheduler.swift */,
 				7E823E482269625800843A26 /* NSViewController+Rx.swift */,
+				7E75C3BE22982A6F008C38E0 /* SmartRetry.swift */,
+				7E75C3C022982AB4008C38E0 /* Reachability.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -500,7 +510,6 @@
 		7ED83E5322794202003880D6 /* Diff */ = {
 			isa = PBXGroup;
 			children = (
-				7ED83E5422794216003880D6 /* ChangeWithIndexSet.swift */,
 				7E444B112285B8A600FF2151 /* NSTableView+Extension.swift */,
 			);
 			path = Diff;
@@ -744,11 +753,14 @@
 				7E444B122285B8A600FF2151 /* NSTableView+Extension.swift in Sources */,
 				7E8B952822733F9700526204 /* MessagePayload.swift in Sources */,
 				7E4D76192275E23B004A1432 /* OutgoingUnsupportCellView.swift in Sources */,
+				7E75C3C122982AB4008C38E0 /* Reachability.swift in Sources */,
 				7ED6314B2270A271006E0E5A /* IncomingImageCellView.swift in Sources */,
 				7E7B6543227B27F300346BA3 /* MastelView.swift in Sources */,
 				7ED6314D2270A292006E0E5A /* OutgoingImageCellView.swift in Sources */,
 				7E19DD8B226A18490016E452 /* ChatItemCellView.swift in Sources */,
 				7EC922F8226627D1007E5008 /* LoginResponse.swift in Sources */,
+				7E4223FD229437C300CC8654 /* MessagePayloadEntity.swift in Sources */,
+				7E75C3BF22982A6F008C38E0 /* SmartRetry.swift in Sources */,
 				7E23BDC4225A397700A3DE07 /* IGApiClient.swift in Sources */,
 				7E823E492269625800843A26 /* NSViewController+Rx.swift in Sources */,
 				7E19DD85226A06F20016E452 /* Chat.swift in Sources */,
@@ -771,11 +783,11 @@
 				7E5EDEF7227DDDD7005F1D86 /* NetworkError.swift in Sources */,
 				7EBBF4C022617317003EB627 /* NodeCore.swift in Sources */,
 				7E6FEF99226E0C9900DE3CA3 /* OutgoingTextCellView.swift in Sources */,
+				7E4223FF229437D400CC8654 /* MessageEntity.swift in Sources */,
 				7ED6314F2270AF39006E0E5A /* ConstantColor.swift in Sources */,
 				7E6E9EBB2274A84E00317D22 /* KeyCode.swift in Sources */,
 				7E9D2359226CA84E0064425C /* BaseMessageViewModel.swift in Sources */,
 				7E823E4B226962EA00843A26 /* ChatViewController.swift in Sources */,
-				7ED83E5522794216003880D6 /* ChangeWithIndexSet.swift in Sources */,
 				7E611DE42273F7090036ACF0 /* HyperLinkTextField.swift in Sources */,
 				7E8B952C2273501700526204 /* IncomingLinkCellView.swift in Sources */,
 				7E8B952E2273505200526204 /* LinkMessageViewModel.swift in Sources */,

@@ -33,14 +33,16 @@ class ChatDetailViewModel: BaseViewModel {
     //Ouput
     private let messagesSubject = PublishSubject<[BaseMessageViewModel]>()
     private let errorsSubject = PublishSubject<Error>()
-    private let reloadSubject = PublishSubject<Any>()
-
+    private let reloadChatListSubject = PublishSubject<Any>()
+    private let reloadChatSubject = PublishSubject<Any>()
     
     //State
     private var items: [BaseMessageViewModel] = []
     private var selectedChatViewModel: ChatListItemViewModel? = nil
     private var onEndReached = false
     private let disposeBag = DisposeBag()
+    private var refreshChatDisposable: Disposable? = nil
+
     
     init(_ repo: ChatRepository,_ messageMapper: MessageViewModelMapper, _ threadScheduler: ThreadScheduler) {
         self.repo = repo
@@ -48,7 +50,7 @@ class ChatDetailViewModel: BaseViewModel {
         self.messageMapper = messageMapper
         
         output = Output(
-            reloadObservable: reloadSubject.asObservable(),
+            reloadObservable: reloadChatListSubject.asObservable(),
             messagesObservable: messagesSubject.asObservable(),
             errorsObservable: errorsSubject.asObservable())
         
@@ -56,13 +58,32 @@ class ChatDetailViewModel: BaseViewModel {
     
     func bind(input: Input) {
         
-        input.chatItemClick
+       let clickStream = input.chatItemClick
             .do(onNext: {
                 self.selectedChatViewModel = $0
                 self.onEndReached = false
             })
             .filter {
-                !$0.id.isEmpty && !$0.newChat
+                !$0.id.isEmpty
+            }
+            .share()
+        
+        
+        clickStream
+                .observeOn(threadScheduler.asyncUi)
+                .subscribe( { _ in
+                self.refreshChatDisposable?.dispose()
+                    if !self.selectedChatViewModel!.newChat {
+                        self.refreshChat()
+                    }
+            })
+            .disposed(by: disposeBag)
+
+    
+        
+        clickStream
+            .filter {
+                 !$0.newChat
             }
             .flatMapLatest {
                 return self.repo.getChatDetail(id: $0.id)
@@ -73,13 +94,28 @@ class ChatDetailViewModel: BaseViewModel {
             .subscribeOn(threadScheduler.worker)
             .observeOn(threadScheduler.ui)
             .subscribe(onNext: { (messages: [BaseMessageViewModel]) in
-                self.items = messages
-                self.messagesSubject.onNext(messages)
+                self.updateCurrentList(messages)
             }, onError: {(error: Error) in
                 self.errorsSubject.onNext(error)
-                
             })
             .disposed(by: disposeBag)
+        
+        reloadChatSubject
+            .flatMapLatest {_ in
+                return self.repo.getChatDetail(id: self.selectedChatViewModel!.id)
+                    .map {
+                        return self.messageMapper.toViewModel(messages: $0)
+                }
+            }
+            .subscribeOn(threadScheduler.worker)
+            .observeOn(threadScheduler.ui)
+            .subscribe(onNext: { (messages: [BaseMessageViewModel]) in
+               self.updateCurrentList(messages)
+            }, onError: {(error: Error) in
+                self.errorsSubject.onNext(error)
+            })
+            .disposed(by: disposeBag)
+        
         
         input.enterTap
             .filter {
@@ -95,7 +131,7 @@ class ChatDetailViewModel: BaseViewModel {
             .subscribeOn(threadScheduler.worker)
             .observeOn(threadScheduler.ui)
             .subscribe(onNext: { (messages: SendMessageResponse) in
-                //reload chat detail
+                self.reloadChatSubject.onNext(true)
             }, onError: {(error: Error) in
                 self.errorsSubject.onNext(error)
                 
@@ -113,7 +149,7 @@ class ChatDetailViewModel: BaseViewModel {
             .subscribeOn(threadScheduler.worker)
             .observeOn(threadScheduler.ui)
             .subscribe(onNext: { (Bool) in
-                self.reloadSubject.onNext(true)
+                self.reloadChatListSubject.onNext(true)
             }, onError: { (error: Error) in
                  self.errorsSubject.onNext(error)
             })
@@ -144,5 +180,18 @@ class ChatDetailViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
 
+    private func updateCurrentList(_ messages: [BaseMessageViewModel]) {
+        self.items = messages
+        self.messagesSubject.onNext(messages)
+    }
+    
+    private func refreshChat() {
+
+        refreshChatDisposable = Observable<Int>.interval(5.0, scheduler: threadScheduler.ui)
+                                               .observeOn(threadScheduler.ui)
+            .subscribe({_ in
+                self.reloadChatSubject.onNext(true)
+            })
+    }
 
 }

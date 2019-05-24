@@ -42,6 +42,7 @@ class ChatListViewModel: BaseViewModel {
     
     private let disposeBag = DisposeBag()
     private let KEYWORD_DEBOUNCE = 0.3
+    private var disposableChatListRefresh: Disposable? = nil
     
     init(_ repo: ChatRepository, _ threadScheduler: ThreadScheduler) {
         self.repo = repo
@@ -57,9 +58,6 @@ class ChatListViewModel: BaseViewModel {
     func bind(input: Input) {
         
         input.reload
-            .do(onNext: { (Any) in
-                print("axxxxx")
-            })
             .flatMapLatest {_ in
                 self.repo.getChatList()
                     .map { (items: [Chat]) in
@@ -113,26 +111,43 @@ class ChatListViewModel: BaseViewModel {
                 self.errorsSubject.onNext(error)
             })
             .disposed(by: disposeBag)
+        
+        input.searchType
+            .skip(1)
+            .subscribeOn(threadScheduler.worker)
+            .observeOn(threadScheduler.ui)
+            .subscribe(onNext: { (keyword: String) in
+                if keyword.isEmpty {
+                    self.getChatList()
+                } else {
+                    self.disposableChatListRefresh?.dispose()
+
+                }
+            }, onError: { (error: Error) in
+                self.errorsSubject.onNext(error)
+            })
+            .disposed(by: disposeBag)
     }
     
     
     func getChatList() {
-        
-        repo.getChatList()
+      disposableChatListRefresh =  Observable<Int>.interval(5.0, scheduler: threadScheduler.ui)
+            .startWith(0)
+            .flatMapLatest{ _ in
+                self.repo.getChatList()
+            }
             .map { (items: [Chat]) in
                 return self.toChatItemViewModel(chats: items)
             }
             .subscribeOn(threadScheduler.worker)
             .observeOn(threadScheduler.ui)
-            .subscribe(onSuccess: { (items : [ChatListItemViewModel]) in
+            .subscribe(onNext: { (items : [ChatListItemViewModel]) in
                 self.cacheItems = items
                 self.items = items
                 self.chatListSubject.onNext(items)
             },onError: {(error: Error) in
                 self.errorsSubject.onNext(error)
             })
-            .disposed(by: disposeBag)
-
     }
     
     
