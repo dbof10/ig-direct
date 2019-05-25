@@ -2,6 +2,9 @@ import express from 'express';
 import {interval, throwError, defer, of} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {authenticate} from './middleware/authenticate';
+import {getCurrentPath} from './utils'
+
+const fileUpload = require('express-fileupload');
 
 const usersRouter = require('./routes/users');
 const chatGetRouter = require('./routes/chatGet');
@@ -28,6 +31,11 @@ interval(POLLING_INTERVAL).pipe(
 
 // Set up the express app
 const app = express();
+app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: getCurrentPath() + '/tmp',
+    limits: { fileSize: 10 * 1024 * 1024 }
+}));
 app.use(express.json());
 app.use(authenticate);
 app.use('/users', usersRouter);

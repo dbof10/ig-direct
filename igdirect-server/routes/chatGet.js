@@ -24,8 +24,9 @@ router.get('/all', (req, res) => {
                 res.status(200).send(list)
             },
             function (err) {
-                res.status(401).send({
-                    error: err.name + " " + err.message
+                res.status(400).send({
+                    errorType: err.name ,
+                    message: err.message
                 })
             }
         );
@@ -49,8 +50,9 @@ router.get('/search', (req, res) => {
                 res.status(200).send(users)
             },
             function (err) {
-                res.status(401).send({
-                    error: err.name + " " + err.message
+                res.status(400).send({
+                    errorType: err.name ,
+                    message: err.message
                 })
             }
         );
@@ -80,8 +82,9 @@ router.get('/:id', (req, res) => {
                 res.status(200).send(list)
             },
             function (err) {
-                res.status(401).send({
-                    error: err.name + " " + err.message
+                res.status(400).send({
+                    errorType: err.name ,
+                    message: err.message
                 })
             }
         );
@@ -127,8 +130,9 @@ router.get('/older/:id', (req, res) => {
                 res.status(200).send(list)
             },
             function (err) {
-                res.status(401).send({
-                    error: err.name + " " + err.message
+                res.status(400).send({
+                    errorType: err.name ,
+                    message: err.message
                 })
             }
         );

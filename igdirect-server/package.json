@@ -20,6 +20,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "express-fileupload": "^1.1.4",
     "http-errors": "~1.6.2",
     "instagram-private-api": "^0.6.8",
     "is-running": "^2.1.0",

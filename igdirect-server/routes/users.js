@@ -1,7 +1,7 @@
 import {clearCookieFiles, encodeBase64, getCookieStorage, getDevice} from "../utils";
 import {defer} from "rxjs";
 import {sign} from "../jwt";
-import {map, switchMap} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 
 const express = require('express');
 const router = express.Router();
@@ -18,13 +18,16 @@ router.post('/login', (req, res) => {
         const device = getDevice(encodedUserName);
         const storage = getCookieStorage(sessionPath);
         return Client.Session.create(device, storage, userName, password)
-    }).pipe(switchMap((session => {
-        return defer(function getChatList() {
-            return new Promise((resolve, reject) => {
-                session.getAccount().then(resolve).catch(reject)
-            })
-        })
-    })))
+    })
+        .pipe(
+            switchMap((session => {
+                return defer(function getChatList() {
+                    return new Promise((resolve, reject) => {
+                        session.getAccount().then(resolve).catch(reject)
+                    })
+                })
+            }))
+        )
         .subscribe(
             function (session) {
                 let token = sign({userName, password});
@@ -35,7 +38,8 @@ router.post('/login', (req, res) => {
             },
             function (err) {
                 res.status(401).send({
-                    error: err.name + " " + err.message
+                    errorType: err.name,
+                    message: err.message
                 })
             }
         );
@@ -57,8 +61,9 @@ router.post('/logout', (req, res) => {
                 })
             },
             function (err) {
-                res.status(404).send({
-                    error: err.name + " " + err.message
+                res.status(400).send({
+                    errorType: err.name,
+                    message: err.message
                 })
             }
         );
