@@ -44,7 +44,6 @@ app.use('/chats', chatUpdateRouter);
 
 const server = app.listen(PORT, () => {
     console.log(SERVER_STATUS);
-    console.log(`server running on port ${PORT}`)
 });
 
 function isParentRunning() {

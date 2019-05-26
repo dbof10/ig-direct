@@ -899,7 +899,7 @@
                                 </scroller>
                             </scrollView>
                             <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-L7-a6g" customClass="AutoGrowingTextField" customModule="IG_Direct" customModuleProvider="target">
-                                <rect key="frame" x="16" y="8" width="408" height="24"/>
+                                <rect key="frame" x="16" y="8" width="376" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="gD5-Qh-Vgr"/>
                                 </constraints>
@@ -923,14 +923,30 @@
                                     <action selector="onEmojiClick:" target="ENt-kC-k4Y" id="dDQ-Lg-VuJ"/>
                                 </connections>
                             </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="cgZ-9R-Pjs">
+                                <rect key="frame" x="408" y="8" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="CAh-rA-AQd"/>
+                                    <constraint firstAttribute="height" constant="24" id="UGu-K9-1iu"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_photo" imagePosition="only" alignment="center" imageScaling="axesIndependently" inset="2" id="0tz-9A-Pqu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onPhotoClicked:" target="ENt-kC-k4Y" id="WUJ-PE-ex4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="3eD-Wc-JkI" firstAttribute="leading" secondItem="dZn-L7-a6g" secondAttribute="trailing" constant="16" id="9HH-oy-bTL"/>
+                            <constraint firstItem="cgZ-9R-Pjs" firstAttribute="top" secondItem="3eD-Wc-JkI" secondAttribute="top" id="6gi-f9-4G9"/>
                             <constraint firstItem="dZn-L7-a6g" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" constant="16" id="Mhv-5S-lDc"/>
+                            <constraint firstItem="3eD-Wc-JkI" firstAttribute="leading" secondItem="cgZ-9R-Pjs" secondAttribute="trailing" constant="8" id="Xce-Ed-6YV"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="bottom" secondItem="dZn-L7-a6g" secondAttribute="top" constant="-8" id="fBL-eW-Ccx"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" id="fop-oo-fEd"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="top" secondItem="YJG-h3-dne" secondAttribute="top" id="jo2-k5-AY0"/>
                             <constraint firstItem="3eD-Wc-JkI" firstAttribute="trailing" secondItem="YJG-h3-dne" secondAttribute="trailing" constant="-16" id="lXY-5n-4za"/>
+                            <constraint firstItem="dZn-L7-a6g" firstAttribute="trailing" secondItem="cgZ-9R-Pjs" secondAttribute="leading" constant="-16" id="nHY-3B-ZQf"/>
                             <constraint firstItem="1Wv-Vp-dJP" firstAttribute="leading" secondItem="YJG-h3-dne" secondAttribute="leading" id="nKt-U7-8x7"/>
                             <constraint firstItem="dZn-L7-a6g" firstAttribute="bottom" secondItem="3eD-Wc-JkI" secondAttribute="bottom" id="oqf-ct-bTH"/>
                             <constraint firstItem="dZn-L7-a6g" firstAttribute="bottom" secondItem="YJG-h3-dne" secondAttribute="bottom" constant="-8" id="ypX-IL-ivl"/>
@@ -939,6 +955,7 @@
                     <connections>
                         <outlet property="etContent" destination="dZn-L7-a6g" id="FNr-up-61Q"/>
                         <outlet property="ivEmoji" destination="3eD-Wc-JkI" id="6VP-oM-KLd"/>
+                        <outlet property="ivPhoto" destination="cgZ-9R-Pjs" id="ugL-Gn-6ft"/>
                         <outlet property="tvMessages" destination="lQ9-jz-bSK" id="pHq-Eh-CjH"/>
                     </connections>
                 </viewController>
@@ -1085,6 +1102,7 @@
     </scenes>
     <resources>
         <image name="icon_emoji" width="21" height="21"/>
+        <image name="icon_photo" width="21" height="21"/>
         <image name="logo_login" width="85" height="85"/>
     </resources>
 </document>

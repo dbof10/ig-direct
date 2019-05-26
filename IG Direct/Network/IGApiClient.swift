@@ -84,6 +84,14 @@ class IGApiClient {
                true
             }
     }
+    
+    func uploadPhoto(_ userId: Int, _ path: String ) -> Single<Bool> {
+        return client.rx.request(.uploadPhoto(userId, path))
+            .filterSuccessfulStatusCodes()
+            .map { _ in
+                true
+        }
+    }
 }
 
 
@@ -95,6 +103,7 @@ public enum IgDirect {
     case send(String, String)
     case search(String)
     case createChat(String, String)
+    case uploadPhoto(Int, String)
 }
 
 extension IgDirect: TargetType {
@@ -123,6 +132,8 @@ extension IgDirect: TargetType {
             return "/chats/\(id)"
         case .createChat:
             return "/chats/create"
+        case .uploadPhoto(let id, _):
+            return "/chats/upload/\(id)"
         }
     }
     
@@ -141,6 +152,8 @@ extension IgDirect: TargetType {
         case .search:
             return .get
         case .createChat:
+            return .post
+        case .uploadPhoto:
             return .post
         }
     }
@@ -161,6 +174,15 @@ extension IgDirect: TargetType {
             return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.default)
         case .createChat(let userId, let message):
             return .requestParameters(parameters: ["userId": userId, "message": message], encoding: JSONEncoding.default)
+        case.uploadPhoto(_, let path):
+            let url = URL(fileURLWithPath: path)
+            let imageData : Data = try! Data(contentsOf: url)
+            let fileName = url.lastPathComponent
+            let formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(imageData),
+                                                                             name: "uploadedFile",
+                                                                             fileName: fileName,
+                                                                             mimeType: "image/jpeg")]
+            return .uploadMultipart(formData)
         }
     }
     

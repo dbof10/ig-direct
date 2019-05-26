@@ -31,6 +31,8 @@ class ChatRepository {
     
     func createChat(userId: String, message: String) -> Single<Bool> {
         return apiClient.createChat(userId , message)
+                        .catchErrorJustReturn(false)
+
     }
     
     func getOlderChatDetail(id: String) -> Single<[BaseMessage]> {
@@ -46,5 +48,10 @@ class ChatRepository {
     
     func search(keyword: String) -> Single<[User]> {
         return apiClient.search(keyword: keyword)
+    }
+    
+    func uploadPhoto(userId: Int, imagePath: String) -> Single<Bool> {
+        return apiClient.uploadPhoto(userId, imagePath)
+                        .catchErrorJustReturn(false)
     }
 }

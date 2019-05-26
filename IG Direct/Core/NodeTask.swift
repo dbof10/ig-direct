@@ -74,7 +74,7 @@ class NodeTask: NSObject {
             
             let output = self.readPipe.fileHandleForReading.availableData
             let outputString = String(data: output, encoding: String.Encoding.utf8) ?? ""
-            
+
             if !outputString.isEmpty {
             self.outputSubject.onNext(.success(outputString))
             }

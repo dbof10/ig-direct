@@ -14,5 +14,6 @@ protocol ChatListItemViewModel : ListDiffable {
     var msgPreview: String { get }
     var userName: String { get }
     var thumbnail: String { get }
-    var newChat: Bool{ get } 
+    var newChat: Bool { get }
+    var userId: Int { get }
 }

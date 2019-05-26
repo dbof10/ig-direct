@@ -14,6 +14,7 @@ class ChatDetailViewModel: BaseViewModel {
     struct Input {
         let chatItemClick: Observable<ChatListItemViewModel>
         let enterTap: Observable<String>
+        let photoSelect: Observable<String>
         let loadMore: Observable<Any>
     }
     
@@ -119,7 +120,7 @@ class ChatDetailViewModel: BaseViewModel {
         
         input.enterTap
             .filter {
-                !$0.isEmpty && self.selectedChatViewModel?.id.isEmpty == false
+                !$0.isEmpty && self.selectedChatViewModel != nil
                 && self.selectedChatViewModel?.newChat == false
             }
             .do(onNext: { _ in
@@ -138,9 +139,31 @@ class ChatDetailViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
+        input.photoSelect
+            .filter { _ in
+                self.selectedChatViewModel != nil
+            }
+            .do(onNext: { _ in
+                self.onEndReached = false
+            })
+            .flatMapLatest {
+                return self.repo.uploadPhoto(userId: self.selectedChatViewModel!.userId, imagePath: $0)
+            }
+            .subscribeOn(threadScheduler.worker)
+            .observeOn(threadScheduler.ui)
+            .subscribe(onNext: { (Bool) in
+                //self.reloadChatSubject.onNext(true)
+            }, onError: {(error: Error) in
+                self.errorsSubject.onNext(error)
+            })
+            .disposed(by: disposeBag)
+        
         input.enterTap
+            .do(onNext: { _ in
+                self.onEndReached = false
+            })
             .filter {
-                !$0.isEmpty && self.selectedChatViewModel?.id.isEmpty == false
+                !$0.isEmpty && self.selectedChatViewModel != nil
                 && self.selectedChatViewModel?.newChat == true
             }
             .flatMapLatest {

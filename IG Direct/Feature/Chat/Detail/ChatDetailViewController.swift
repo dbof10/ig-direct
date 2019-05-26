@@ -9,11 +9,13 @@
 import Foundation
 import Cocoa
 import RxSwift
-
+import Quartz
 class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     
     @IBOutlet weak var tvMessages: NSTableView!
     @IBOutlet weak var etContent: NSTextField!
+    @IBOutlet weak var ivPhoto: NSButton!
+    
     var viewModel: ChatDetailViewModel!
     
     @IBOutlet weak var ivEmoji: NSButton!
@@ -24,7 +26,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     private let loadMoreSubject = PublishSubject<Any>()
     private let selectedChatSubject = PublishSubject<ChatListItemViewModel>()
     private let enterTapSubject = PublishSubject<String>()
-
+    private let photoSelectSubject = PublishSubject<String>()
     private var requestScroll = false
     
     override func viewDidLoad() {
@@ -57,6 +59,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
 
         viewModel.bind(input: ChatDetailViewModel.Input(chatItemClick: selectedChatStream,
                                                         enterTap: enterTapStream,
+                                                        photoSelect: photoSelectSubject,
                                                         loadMore: loadMoreSubject))
         viewModel
             .output
@@ -112,6 +115,23 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
         NSApp.orderFrontCharacterPalette(self.etContent)
         self.etContent.currentEditor()!.moveToEndOfLine(nil) //multi emojis
 
+    }
+    
+    @IBAction
+    func onPhotoClicked(_ sender: Any) {
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.allowedFileTypes = ["jpg"]
+        
+        openPanel.beginSheetModal(for: self.view.window!) { (result) in
+            if result == NSApplication.ModalResponse.OK {
+                self.photoSelectSubject.onNext(openPanel.url!.path)
+            }
+
+        }
     }
     
     private func reloadChatList() {

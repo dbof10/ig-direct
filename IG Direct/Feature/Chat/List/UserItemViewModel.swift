@@ -17,12 +17,14 @@ final class UserItemViewModel : ChatListItemViewModel {
     let userName: String
     let thumbnail: String
     let newChat: Bool = true
+    let userId: Int
     
     init(user: User) {
         self.id = String(user.id)
         self.msgPreview = "Send a message"
         self.userName = user.username
         self.thumbnail = user.profilePicUrl
+        self.userId = user.id
     }
     
     static func == (lhs: UserItemViewModel, rhs: UserItemViewModel) -> Bool {
