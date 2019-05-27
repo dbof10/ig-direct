@@ -25,7 +25,7 @@ router.get('/all', (req, res) => {
             },
             function (err) {
                 res.status(400).send({
-                    errorType: err.name ,
+                    errorType: err.name,
                     message: err.message
                 })
             }
@@ -51,7 +51,7 @@ router.get('/search', (req, res) => {
             },
             function (err) {
                 res.status(400).send({
-                    errorType: err.name ,
+                    errorType: err.name,
                     message: err.message
                 })
             }
@@ -75,15 +75,16 @@ router.get('/:id', (req, res) => {
             Client.Thread.getById(session, chatId).then(resolve).catch(reject)
         })
     }).pipe(map(detail => {
-        return renderChat(detail, detail.items)
+        return renderChat(detail, detail.items, req.user)
     }))
         .subscribe(
             function (list) {
+
                 res.status(200).send(list)
             },
             function (err) {
                 res.status(400).send({
-                    errorType: err.name ,
+                    errorType: err.name,
                     message: err.message
                 })
             }
@@ -123,7 +124,7 @@ router.get('/older/:id', (req, res) => {
         })
     }).pipe(map(data => {
         messagesThread = data.currentClientThread;
-        return renderChat(null, data.messages)
+        return renderChat(null, data.messages, null)
     }))
         .subscribe(
             function (list) {
@@ -131,7 +132,7 @@ router.get('/older/:id', (req, res) => {
             },
             function (err) {
                 res.status(400).send({
-                    errorType: err.name ,
+                    errorType: err.name,
                     message: err.message
                 })
             }
@@ -145,10 +146,8 @@ function renderSearchResult(users) {
     })
 }
 
-function renderChat(detail, list) {
-    let messages = list.slice().reverse();
-
-    messages = messages.map((message) => {
+function renderChat(detail, list, user) {
+    let messages = list.slice().reverse().map((message) => {
 
         let type = message._params.type;
         let payload;
@@ -188,20 +187,34 @@ function renderChat(detail, list) {
         }
     });
 
-    return {
-        messages,
-        isSeen: getIsSeenText(detail)
+    let isSeen = getIsSeenText(detail, user);
+
+    if (isSeen.length !== 0) {
+
+        let message = {
+            id: Number.MIN_SAFE_INTEGER.toString(),
+            senderId: 0,
+            createdAt: 0,
+            type: "seen",
+            payload: {
+                text: isSeen
+            }
+        };
+        messages.push(message)
     }
+    return messages
 
 }
 
-function getIsSeenText(chat) {
-    if (chat == null) {
-        return null
+function getIsSeenText(chat, user) {
+    if (chat == null || user == null) { //load more
+        return ""
     }
-    let text = '';
-    if (!chat.items || !chat.items.length) {
-        return '';
+
+    let text = "";
+
+    if (!chat.items || !chat.items.length || chat.items[0]._params.accountId !== user.userId) {
+        return "";
     }
 
     let seenBy = chat.accounts.filter((account) => {
@@ -212,14 +225,14 @@ function getIsSeenText(chat) {
     });
 
     if (seenBy.length === chat.accounts.length) {
-        text = 'seen'
+        text = "seen"
     } else if (seenBy.length) {
-        text = `👁 ${getUsernames({accounts: seenBy})}`
+        text = `👁 ${getUserNames({accounts: seenBy})}`
     }
     return text;
 }
 
-function getUsernames(chat_) {
+function getUserNames(chat_) {
     return chat_.accounts.map((acc) => acc._params.username).join(', ');
 }
 

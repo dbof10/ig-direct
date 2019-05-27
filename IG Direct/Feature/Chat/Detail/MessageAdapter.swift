@@ -25,6 +25,9 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
 
     private let TYPE_INCOMING_UNSUPPORT = 19
     private let TYPE_OUTGOING_UNSUPPORT = 20
+    
+    private let TYPE_SEEN = 21
+
     private let tableView: NSTableView
     private let scrollView: NSScrollView
 
@@ -55,6 +58,8 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             NSUserInterfaceItemIdentifier(rawValue: "IncomingUnsupportCell"))
         tableView.register(NSNib.init(nibNamed: "OutgoingUnsupportCell", bundle: nil), forIdentifier:
             NSUserInterfaceItemIdentifier(rawValue: "OutgoingUnsupportCell"))
+        tableView.register(NSNib.init(nibNamed: "SeenCell", bundle: nil), forIdentifier:
+            NSUserInterfaceItemIdentifier(rawValue: "SeenCell"))
         
         NotificationCenter.default.addObserver(
             self,
@@ -120,6 +125,8 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             } else {
                 return self.TYPE_OUTGOING_UNSUPPORT
             }
+        case _ as SeenMessageViewModel:
+            return self.TYPE_SEEN
         default:
             return self.TYPE_UNKNOWN
         }
@@ -147,6 +154,8 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
             return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "IncomingUnsupportCell"), owner: self) as! IncomingUnsupportCellView
         case self.TYPE_OUTGOING_UNSUPPORT:
             return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OutgoingUnsupportCell"), owner: self) as! OutgoingUnsupportCellView
+        case self.TYPE_SEEN:
+            return parent.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SeenCell"), owner: self) as! SeenCellView
         default:
             fatalError("Unsupport view type \(type)")
         }
@@ -172,6 +181,8 @@ class MessageAdapter:  NSObject, NSTableViewDataSource, NSTableViewDelegate  {
         case let v as OutgoingLinkCellView:
             v.bind(viewModel: items[row] as! LinkMessageViewModel)
             break
+        case let v as SeenCellView:
+            v.bind(viewModel: items[row] as! SeenMessageViewModel)
         default: ()
         }
     }

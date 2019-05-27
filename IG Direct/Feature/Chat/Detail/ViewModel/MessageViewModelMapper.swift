@@ -16,7 +16,7 @@ class MessageViewModelMapper {
         self.userSecret = userSecret
     }
     
-    func toViewModel(messages : [BaseMessage]) -> [BaseMessageViewModel] {
+    func toViewModel(messages : [Message]) -> [BaseMessageViewModel] {
         return messages.map {
             let type = $0.type
             let direction: MessageDirection
@@ -42,6 +42,10 @@ class MessageViewModelMapper {
                 return LinkMessageViewModel(id: $0.id , senderId: $0.senderId, createdAt: $0.createdAt,
                                             type: $0.type, direction: direction,
                       payload: $0.payload as! LinkPayload)
+                
+            case .seen:
+                return SeenMessageViewModel(id: $0.id, payload: $0.payload as! TextPayload)
+                
             default:
                 return UnsupportMessageViewModel(id: $0.id, senderId: $0.senderId,
                                                  createdAt: $0.createdAt,

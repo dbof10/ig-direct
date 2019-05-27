@@ -10,6 +10,7 @@ import Cocoa
 import Swinject
 import SwinjectStoryboard
 import RxSwift
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     

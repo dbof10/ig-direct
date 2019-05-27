@@ -29,6 +29,12 @@ class UserSecretManager {
         return self.storage.string(forKey: self.KEY_TOKEN) ?? ""
     }
     
+    func clearAll() {
+        let domain = Bundle.main.bundleIdentifier!
+        storage.removePersistentDomain(forName: domain)
+        storage.synchronize()
+    }
+    
     func setUser(user: User) {
         let userAsString = Mapper().toJSONString(user, prettyPrint: false)
         storage.set(userAsString, forKey: KEY_USER)

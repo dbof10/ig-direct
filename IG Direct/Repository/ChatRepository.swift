@@ -19,14 +19,16 @@ class ChatRepository {
     
     func getChatList() -> Observable<[Chat]> {
         return apiClient.chatList()
-            .asObservable()
+                .asObservable()
+                .smartRetry(delay: DelayOptions.constant(time: 5))
     }
     
-    func getChatDetail(id: String) ->Single<[BaseMessage]> {
+    func getChatDetail(id: String) ->Single<[Message]> {
         return apiClient.chatDetail(id: id)
-            .map {
-                $0.messages
-        }
+            .do(onSuccess: { (items: [Message]) in
+                print("abcd  \(items.count)")
+            })
+    
     }
     
     func createChat(userId: String, message: String) -> Single<Bool> {
@@ -35,11 +37,9 @@ class ChatRepository {
 
     }
     
-    func getOlderChatDetail(id: String) -> Single<[BaseMessage]> {
+    func getOlderChatDetail(id: String) -> Single<[Message]> {
         return apiClient.chatOlderDetail(id: id)
-            .map {
-                $0.messages
-        }
+        
     }
     
     func sendMessage(id:String, content: String) -> Single<SendMessageResponse> {

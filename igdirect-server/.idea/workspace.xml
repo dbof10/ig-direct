@@ -2,24 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d701976f-c0e5-4d10-8d17-d90d8deb7d45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Assets.xcassets/icon_photo.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Assets.xcassets/icon_photo.imageset/ic_photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Assets.xcassets/icon_photo.imageset/ic_photo@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Assets.xcassets/icon_photo.imageset/ic_photo@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Core/NodeTask.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Core/NodeTask.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatItemViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatItemViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListItemViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListItemViewModel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/UserItemViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/UserItemViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/View/SeenCell.xib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewCell/SeenCellView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/SeenMessageViewModel.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IG Direct/Model/Message.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/MessageAdapter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/MessageAdapter.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/MessageViewModelMapper.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/MessageViewModelMapper.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Model/BaseMessage.swift" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Network/Response/GetMessageResponse.swift" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/app.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/authenticate.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/authenticate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/chatGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chatGet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="270">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -44,11 +44,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/chatUpdate.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+            <state relative-caret-position="319">
+              <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+                <element signature="n#!!block;n#renderSearchResult#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jwt.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -65,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="28" column="15" selection-start-line="22" selection-start-column="11" selection-end-line="28" selection-end-column="15" />
+            <state relative-caret-position="715">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
               </folding>
@@ -88,6 +101,7 @@
       <find>flatMap</find>
       <find>map</find>
       <find>switchMap</find>
+      <find>renderChat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -97,17 +111,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/middleware/authenticate.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/utils/strings.js" />
         <option value="$PROJECT_DIR$/routes/chat.js" />
         <option value="$PROJECT_DIR$/jwt.js" />
-        <option value="$PROJECT_DIR$/routes/chatGet.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/utils.js" />
+        <option value="$PROJECT_DIR$/middleware/authenticate.js" />
         <option value="$PROJECT_DIR$/routes/chatUpdate.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/users.js" />
+        <option value="$PROJECT_DIR$/routes/chatGet.js" />
       </list>
     </option>
   </component>
@@ -123,6 +137,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,18 +153,12 @@
             <path>
               <item name="igdirect-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="igdirect-server" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="igdirect-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="igdirect-server" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,11 +242,15 @@
       <workItem from="1558835703510" duration="422000" />
       <workItem from="1558836804116" duration="44000" />
       <workItem from="1558837187205" duration="827000" />
+      <workItem from="1558876333555" duration="5748000" />
+      <workItem from="1558963688287" duration="1160000" />
+      <workItem from="1558966017969" duration="497000" />
+      <workItem from="1558967689620" duration="1236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69343000" />
+    <option name="totallyTimeSpent" value="77984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1902" y="24" width="1689" height="965" extended-state="0" />
@@ -353,23 +366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jwt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middleware/authenticate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -447,16 +443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/rxjs/src/internal/operators/switchMap.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -464,10 +450,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/authenticate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/chatUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+        <state relative-caret-position="235">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.core.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3705">
+          <caret line="260" column="29" selection-start-line="260" selection-start-column="13" selection-end-line="260" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/11.14.0/node-typings/node_modules/@types/node/globals.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jwt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -480,34 +514,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="15" selection-start-line="22" selection-start-column="11" selection-end-line="28" selection-end-column="15" />
+        <state relative-caret-position="715">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/11.14.0/node-typings/node_modules/@types/node/globals.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="707" column="14" selection-start-line="707" selection-start-column="14" selection-end-line="707" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="319">
+          <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="n#!!block;n#renderSearchResult#0" />
           </folding>
         </state>
       </provider>

@@ -43,7 +43,7 @@ app.use('/chats', chatGetRouter);
 app.use('/chats', chatUpdateRouter);
 
 const server = app.listen(PORT, () => {
-    console.log(SERVER_STATUS);
+    console.log(SERVER_STATUS.toString());
 });
 
 function isParentRunning() {

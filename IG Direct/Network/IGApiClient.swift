@@ -53,16 +53,16 @@ class IGApiClient {
         .mapArray(Chat.self)
     }
     
-    func chatDetail(id:String) -> Single<GetMessageResponse> {
+    func chatDetail(id:String) -> Single<[Message]> {
         return client.rx.request(.detail(id))
             .filterSuccessfulStatusCodes()
-            .mapObject(GetMessageResponse.self)
+            .mapArray(Message.self)
     }
     
-    func chatOlderDetail(id:String) -> Single<GetMessageResponse> {
+    func chatOlderDetail(id:String) -> Single<[Message]>  {
         return client.rx.request(.older(id))
             .filterSuccessfulStatusCodes()
-            .mapObject(GetMessageResponse.self)
+            .mapArray(Message.self)
     }
     
     func send(id:String, content: String) -> Single<SendMessageResponse> {
@@ -174,7 +174,7 @@ extension IgDirect: TargetType {
             return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.default)
         case .createChat(let userId, let message):
             return .requestParameters(parameters: ["userId": userId, "message": message], encoding: JSONEncoding.default)
-        case.uploadPhoto(_, let path):
+        case .uploadPhoto(_, let path):
             let url = URL(fileURLWithPath: path)
             let imageData : Data = try! Data(contentsOf: url)
             let fileName = url.lastPathComponent

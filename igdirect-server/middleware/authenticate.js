@@ -6,7 +6,7 @@ const Client = require('instagram-private-api').V1;
 
 export function authenticate(req, res, next) {
 
-    let session =  req.header('x-session');
+    let session =  req.header('x-session');  //login
     let userName = req.body.userName;
     let password = req.body.password;
 
@@ -32,6 +32,7 @@ export function authenticate(req, res, next) {
         }).subscribe(
             function (session) {
                 req.session = session;
+                req.user = value;
                 next();
             },
             function (err) {

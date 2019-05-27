@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
     })
         .pipe(
             switchMap((session => {
-                return defer(function getChatList() {
+                return defer(function getAccount() {
                     return new Promise((resolve, reject) => {
                         session.getAccount().then(resolve).catch(reject)
                     })
@@ -30,7 +30,8 @@ router.post('/login', (req, res) => {
         )
         .subscribe(
             function (session) {
-                let token = sign({userName, password});
+                let userId = session.params.id;
+                let token = sign({userName, password, userId});
                 res.status(200).send({
                     token,
                     user: session.params

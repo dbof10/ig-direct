@@ -1,15 +1,15 @@
 //
-//  BaseMessage.swift
+//  Message.swift
 //  IG Direct
 //
-//  Created by Daniel Lee on 4/21/19.
+//  Created by Daniel Lee on 5/27/19.
 //  Copyright © 2019 Ctech. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
-struct BaseMessage : ImmutableMappable {
+struct Message : ImmutableMappable {
     let id: String
     let senderId: Int
     let createdAt: Int
@@ -35,6 +35,7 @@ enum MessageType : RawRepresentable {
         case "media": self = .media
         case "like": self = .like
         case "link": self = .link
+        case "seen": self = .seen
         default:
             self = .unknown
         }
@@ -46,6 +47,7 @@ enum MessageType : RawRepresentable {
         case .media: return "media"
         case .like: return "like"
         case .link: return "link"
+        case .seen: return "seen"
         default:
             return ""
         }
@@ -55,6 +57,7 @@ enum MessageType : RawRepresentable {
     case media
     case like
     case link
+    case seen
     case unknown
 }
 
@@ -72,7 +75,7 @@ class MessagePayloadTransform : TransformType {
     func transformFromJSON(_ value: Any?) -> MessagePayload? {
         guard let payload = value as? [String: Any] else { return EmptyPayload() }
         switch type {
-        case .text:
+        case .text, .seen:
             return TextPayload(JSON: payload)
         case .media:
             return ImagePayload(JSON: payload)
