@@ -23,10 +23,9 @@ extension NSTableView {
         let deletes = diffResult.deletes
         let updates = diffResult.updates
         let moves = diffResult.moves
-        
+        var moveUpdate: [Int] = []
         
         beginUpdates()
-        
         
         removeRows(at: deletes, withAnimation: NSTableView.AnimationOptions.slideUp)
         
@@ -34,8 +33,13 @@ extension NSTableView {
         
         moves.forEach {
             self.moveRow(at: $0.from, to: $0.to)
+            moveUpdate.append($0.from)
+            moveUpdate.append($0.to)
         }
+
+        let moveUpdateSet = IndexSet(moveUpdate)
         
+        reloadData(forRowIndexes: moveUpdateSet, columnIndexes: IndexSet(integer: 0))
         reloadData(forRowIndexes: updates, columnIndexes: IndexSet(integer: 0))
         
         endUpdates()

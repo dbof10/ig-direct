@@ -35,10 +35,11 @@ class IGApiClient {
             return defaultEndpoint
             .adding(newHTTPHeaderFields:["x-session": token])
         }
-        client = MoyaProvider<IgDirect>( endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true,
-                                                                                                         cURL: false,
-                                                                                                         responseDataFormatter: JSONResponseDataFormatter)]
-        )
+//        client = MoyaProvider<IgDirect>( endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true,
+//                                                                                                         cURL: false,
+//                                                                                                         responseDataFormatter: JSONResponseDataFormatter)]
+        client = MoyaProvider<IgDirect>( endpointClosure: endpointClosure)
+        
     }
     
     func login(credentials: Credentials) -> Single<LoginResponse> {

@@ -131,7 +131,7 @@ class ChatListViewModel: BaseViewModel {
     
     
     func getChatList() {
-      disposableChatListRefresh =  Observable<Int>.interval(5.0, scheduler: threadScheduler.ui)
+      disposableChatListRefresh =  Observable<Int>.interval(5, scheduler: threadScheduler.ui)
             .startWith(0)
             .flatMapLatest{ _ in
                 self.repo.getChatList()

@@ -31,6 +31,7 @@ final class ChatItemViewModel : ChatListItemViewModel {
     static func == (lhs: ChatItemViewModel, rhs: ChatItemViewModel) -> Bool {
         return lhs.id == rhs.id && lhs.msgPreview == rhs.msgPreview
         && lhs.userName == rhs.userName && lhs.thumbnail == rhs.thumbnail
+        && lhs.userId == rhs.userId
     }
     
     

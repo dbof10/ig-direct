@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d701976f-c0e5-4d10-8d17-d90d8deb7d45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/View/SeenCell.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewCell/SeenCellView.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/SeenMessageViewModel.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../IG Direct/Model/Message.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/MessageAdapter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/MessageAdapter.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/MessageViewModelMapper.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ViewModel/MessageViewModelMapper.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Model/BaseMessage.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/Detail/ChatDetailViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatItemViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatItemViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListAdapter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListAdapter.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Feature/Chat/List/ChatListViewModel.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Network/IGApiClient.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Network/Response/GetMessageResponse.swift" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Repository/ChatRepository.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Server/app.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IG Direct/Utils/Diff/NSTableView+Extension.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../IG Direct/Utils/Diff/NSTableView+Extension.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/app.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/app.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/authenticate.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/authenticate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/chatGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chatGet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
+            <state relative-caret-position="349">
+              <caret line="193" column="23" lean-forward="true" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
                 <element signature="n#!!block;n#renderSearchResult#0" />
@@ -78,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
+            <state relative-caret-position="720">
               <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#85#0" expanded="true" />
@@ -245,17 +236,19 @@
       <workItem from="1558876333555" duration="5748000" />
       <workItem from="1558963688287" duration="1160000" />
       <workItem from="1558966017969" duration="497000" />
-      <workItem from="1558967689620" duration="1236000" />
+      <workItem from="1558967689620" duration="1730000" />
+      <workItem from="1559056424754" duration="143000" />
+      <workItem from="1559142009355" duration="75000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77984000" />
+    <option name="totallyTimeSpent" value="78696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1902" y="24" width="1689" height="965" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.206235" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.206235" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -267,9 +260,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49940047" weight="0.3298969" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49940047" visible="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50119907" side_tool="true" weight="0.3298969" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49880096" visible="true" weight="0.3298969" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49880096" weight="0.3298969" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -474,16 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.core.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3705">
@@ -495,6 +478,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="9" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -514,7 +507,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
+        <state relative-caret-position="720">
           <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
@@ -524,8 +517,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/chatGet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
+        <state relative-caret-position="349">
+          <caret line="193" column="23" lean-forward="true" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
             <element signature="n#!!block;n#renderSearchResult#0" />

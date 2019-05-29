@@ -135,7 +135,6 @@ class ChatDetailViewModel: BaseViewModel {
                 self.reloadChatSubject.onNext(true)
             }, onError: {(error: Error) in
                 self.errorsSubject.onNext(error)
-                
             })
             .disposed(by: disposeBag)
         
@@ -210,7 +209,7 @@ class ChatDetailViewModel: BaseViewModel {
     
     private func refreshChat() {
 
-        refreshChatDisposable = Observable<Int>.interval(5.0, scheduler: threadScheduler.ui)
+        refreshChatDisposable = Observable<Int>.interval(5, scheduler: threadScheduler.ui)
                                                .observeOn(threadScheduler.ui)
             .subscribe({_ in
                 self.reloadChatSubject.onNext(true)

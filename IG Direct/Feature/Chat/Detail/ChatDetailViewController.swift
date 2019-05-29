@@ -54,6 +54,7 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
         
         let enterTapStream = enterTapSubject
             .do(onNext: { (String) in
+                self.requestScroll = true
                 self.etContent.stringValue = ""
             })
 
@@ -135,7 +136,6 @@ class ChatDetailViewController: NSViewController, ScrollViewDelegate {
     }
     
     private func reloadChatList() {
-
         guard let splitVC = parent as? NSSplitViewController else { return }
         if let list = splitVC.children[0] as? ChatListViewController {
             list.reload()

@@ -25,10 +25,6 @@ class ChatRepository {
     
     func getChatDetail(id: String) ->Single<[Message]> {
         return apiClient.chatDetail(id: id)
-            .do(onSuccess: { (items: [Message]) in
-                print("abcd  \(items.count)")
-            })
-    
     }
     
     func createChat(userId: String, message: String) -> Single<Bool> {
